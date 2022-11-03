@@ -1,0 +1,20 @@
+[
+   
+    {
+      "model": "users.User",
+      "pk": 1,
+      "fields": {
+        "phone_number" : "08162457444",
+        "username" : "fiberswift",
+        "password" : "Kyletech99",
+        "email" : "jon@gmail.com",
+        "occupation" : "student",
+        "date_of_birth" : "1999/12/12",
+        "address" :  "testiing address",
+        "account_number"  : "206890393",
+        "passport" : "users/bin.jpg"
+    }
+   
+} 
+
+]

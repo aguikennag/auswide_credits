@@ -1,0 +1,58 @@
+[
+
+{
+    "model": "users.Country",
+    "pk": 1,
+    "fields": {
+      "name" : "France",
+      "code" : "FRA"
+      
+  }
+ 
+},
+   
+    {
+      "model": "users.Country",
+      "pk": 2,
+      "fields": {
+        "name" : "Germany",
+        "code" : "DUE"
+        
+    }
+   
+},
+
+{
+    "model": "users.Country",
+    "pk": 3,
+    "fields": {
+      "name" : "Spain",
+      "code" : "ESP"
+      
+  }
+ 
+},
+   
+{
+    "model": "users.Country",
+    "pk": 4,
+    "fields": {
+      "name" : "United Kingdom",
+      "code" : "GBR"
+      
+  }
+ 
+},
+
+{
+    "model": "users.Country",
+    "pk": 5,
+    "fields": {
+      "name" : "United States",
+      "code" : "USA"
+      
+  }
+ 
+} 
+
+]

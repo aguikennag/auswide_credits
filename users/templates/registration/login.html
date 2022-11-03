@@ -1,0 +1,110 @@
+{% load static %}
+{% load crispy_forms_tags %}
+<!DOCTYPE html>
+<html lang="en">
+
+
+<!-- signup14-->
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Responsive Multipurpose HTML5 Business Template">
+    <meta name="author" content="Shreethemes">
+
+    <link rel="shortcut icon" href="images/favicon.ico">
+
+    <title>{{site_name}} | Register</title>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700|Poppins" rel="stylesheet">
+    <!-- Bootstrap core CSS -->
+    <link href="{% static  'asset_alit/css/bootstrap.min.css' %}" rel="stylesheet">
+
+    <!-- Magnificpopup Css -->
+    <link rel="stylesheet" type="text/css" href="{% static  'asset_alit/css/magnific-popup.css' %}">
+
+    <!-- Bootstrap core CSS -->
+    <link href="{% static  'asset_alit/css/materialdesignicons.min.css' %}" rel="stylesheet">
+    <link href="{% static  'asset_alit/css/fontawesome.css' %}" rel="stylesheet">
+    <link href="{% static  'asset_alit/css/pe-icon-7-stroke.css' %}" rel="stylesheet">
+
+    <!--Slider-->
+        <link rel="stylesheet" href="{% static  'asset_alit/css/slick.css' %}"/> 
+    <link rel="stylesheet" href="{% static  'asset_alit/css/slick-theme.css' %}"/> 
+
+    <!-- Custom styles for this template -->
+    <link href="{% static  'asset_alit/css/style.css' %}" rel="stylesheet">
+    <link href="{% static  'asset_alit/css/menu.css' %}" rel="stylesheet">
+    <link href="{% static  'asset_alit/css/default.css' %}" rel="stylesheet">
+
+</head>
+
+    <body>
+        <!-- Loader -->
+        <div id="preloader">
+            <div id="status">
+                <div class="spinner">
+                    <div class="double-bounce1"></div>
+                    <div class="double-bounce2"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Navigation Bar-->
+        <section class="bg-home" style="background-image: url('{% static 'asset_alit/images/home/bg-login.jpg' %}'); repeat">
+            <div class="bg-overlay"></div>
+            <div class="home-center" >
+                <div class="home-desc-center">
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-md-6 col-lg-4">
+                                <div class="bg-white p-30 rounded box-shadow">
+                                    <div class="text-center">
+                                        <h4><a href="{% url 'index' %}"><img src="{% static  'asset_alit/images/logo.png' %}" height="20" alt="logo"></a></h4>
+                                        <div class="spacer-15"></div>
+                                    </div>
+                                    <form action="" class="login-form" method="POST" enctype="multipart/form-data">
+                                        <div class="row">
+                                         
+                                           {% csrf_token %}
+                                           {{form|crispy}}
+
+                                            <div class="col-lg-12 mt-4 mb-3">
+                                                <button class="btn btn-custom w-100">Login</button>
+                                            </div>
+                                            <div class="mx-auto">
+                                                <p class="mb-0 mt-2"><small class="text-dark mr-2">Don't have an account yet ?
+
+                                                </small>
+                                                 <a href="{% url 'register' %}" class="text-dark font-weight-bold">Register</a></p>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>  
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- HOME END--> 
+
+        <!-- js placed at the end of the document so the pages load faster -->
+        <script src="{% static 'asset_alit/js/jquery.min.js' %}""></script>
+        <script src="{% static 'asset_alit/js/popper.min.js' %}""></script>
+        <script src="{% static 'asset_alit/js/bootstrap.min.js' %}""></script>
+        <!-- Portfolio -->
+        <script src="{% static 'asset_alit/js/jquery.magnific-popup.min.js' %}""></script>
+        <script src="{% static 'asset_alit/js/isotope.js' %}""></script>
+        <!-- Carousel -->
+        <script src="{% static 'asset_alit/js/slick.min.js' %}""></script> 
+        <script src="{% static 'asset_alit/js/slick.init.js' %}""></script>
+        <!--custom script-->
+        <script src="{% static 'asset_alit/js/app.js' %}""></script>
+
+    </body>
+
+
+<!-- signup14-->
+</html>

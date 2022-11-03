@@ -1,0 +1,230 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="zxx" class="js">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="author" content="Softnio">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="making digital currency investments easier and safer">
+    <!-- Fav Icon  -->
+    <link rel="shortcut icon" href="images/favicon.png">
+    <!-- Site Title  -->
+    <title>Nintrend.ltd | User dashboard</title>
+    <!-- Vendor Bundle CSS -->
+    <link rel="stylesheet" href="{% static 'dashboard/css/vendor.bundle.css' %}?ver=101">
+    <!-- Custom styles for this template -->
+    <link rel="stylesheet" href="{% static 'dashboard/css/style.css' %}?ver=101">
+
+</head>
+
+<body class="user-dashboard">
+
+
+    <div class="topbar">
+        <div class="topbar-md d-lg-none">
+            <div class="container">
+                <div class="d-flex align-items-center justify-content-between">
+                    <a href="#" class="toggle-nav">
+                        <div class="toggle-icon">
+                            <span class="toggle-line"></span>
+                            <span class="toggle-line"></span>
+                            <span class="toggle-line"></span>
+                            <span class="toggle-line"></span>
+                        </div>
+                    </a><!-- .toggle-nav -->
+
+                    <div class="site-logo">
+                        <a href="{% url 'index' %}" class="site-brand py-2">
+                            <img style="height:32px;width:130px" src="{% static  'asset_alit/images/logo.png' %}"
+                                alt="logo" srcset="{% static 'asset_alit/images/logo.png' %} 2x">
+                        </a>
+                    </div><!-- .site-logo -->
+
+                    <div class="dropdown topbar-action-item topbar-action-user">
+                        {% if user.get_picture %}
+                        <a href="#" data-toggle="dropdown"> <img class="icon" src="{{user.get_picture}}" alt="thumb">
+                        </a>
+                        {% endif %}
+                        <div class="dropdown-menu dropdown-menu-right">
+                            <div class="user-dropdown">
+                                <div class="user-dropdown-head">
+                                    <h6 class="user-dropdown-name">{{user.name}} <span>({{user.unique_id}})</span></h6>
+                                    <span class="user-dropdown-email">{{user.email}}</span>
+                                </div>
+
+
+                                <ul class="user-dropdown-links">
+                                    <li><a href="{% url 'logout' %}"><i class="ti ti-power-off"></i>Logout</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- .toggle-action -->
+                </div><!-- .container -->
+            </div><!-- .container -->
+        </div><!-- .topbar-md -->
+        <div class="container">
+            <div class="d-lg-flex align-items-center justify-content-between">
+                <div class="topbar-lg d-none d-lg-block">
+                    <div class="site-logo">
+                        <a href="{% url 'index' %}" class="site-brand py-2">
+                            <img style="height:41px;width:160px" src="{% static 'asset_alit/images/logo.png' %}" alt="logo"
+                                srcset="{% static 'asset_alit/images/logo.png' %} 2x">
+                        </a>
+                    </div><!-- .site-logo -->
+                </div><!-- .topbar-lg -->
+
+                <div class="topbar-action d-none d-lg-block">
+                    <ul class="topbar-action-list">
+
+
+                        <!--li class="dropdown topbar-action-item topbar-action-language">
+                            <a href="#" data-toggle="dropdown"> EN <em class="ti ti-angle-down"></em> </a>
+                            <!--ul class="dropdown-menu">
+                                <li><a href="#">FR</a></li>
+                                <li><a href="#">JY</a></li>
+                                <li><a href="#">CH</a></li>
+                            </ul->
+                        </li><!-- .topbar-action-item -->
+
+                        <li class="dropdown topbar-action-item topbar-action-user">
+                            {% if user.get_picture %}
+                            <a href="#" data-toggle="dropdown"> <img class="icon" src="{{user.get_picture}}"
+                                    alt="thumb"> </a>
+                            {% endif %}
+                            <div class="dropdown-menu dropdown-menu-right">
+                                <div class="user-dropdown">
+                                    <div class="user-dropdown-head">
+                                        <h6 class="user-dropdown-name">{{user.name}} <span>(user.unique_id)</span></h6>
+                                        <span class="user-dropdown-email">{{user.email}}</span>
+                                    </div>
+
+                                    <ul class="user-dropdown-links">
+                                        <li><a href="{% url 'logout' %}"><i class="ti ti-power-off"></i>Logout</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </li><!-- .topbar-action-item -->
+                    </ul><!-- .topbar-action-list -->
+                </div><!-- .topbar-action -->
+            </div><!-- .d-flex -->
+        </div><!-- .container -->
+    </div>
+    <!-- TopBar End -->
+
+
+    <div class="user-wraper">
+        <div class="container">
+            <div class="d-flex">
+                <div class="user-sidebar">
+                    <div class="user-sidebar-overlay"></div>
+                    <div class="user-box ">
+                        <div class="user-image">
+                           
+                            {% if user.dp %}
+                            <img style="border-radius: 50%;height: 80px;width:80px;" src="{{user.dp}}" alt="thumb">
+                            {% endif %}
+                        </div>
+                        <h6 class="user-name">{{user.name}}</h6>
+                        <div class="user-uid">Account NO. : <span>{{user.account_number}}</span></div>
+                        <ul class="btn-grp guttar-10px">
+                            {% if not user.email_verified %}
+                            <!--li><a href="#" class="btn btn-xs btn-warning">Verify Email</a></li-->
+                            {% endif %}
+                            <!--li><a href="kyc.html" class="btn btn-xs btn-warning">KYC Pending</a></li-->
+                        </ul>
+                    </div><!-- .user-box -->
+
+                    <div style="margin-top:-50px"></div>
+                    <ul class="user-icon-nav">
+                        <li><a href="{% url 'dashboard' %}"><em class="ti ti-dashboard"></em>Dashboard</a></li>
+
+
+                        <li><a href="{% url 'transaction-history' %}"><em
+                                    class="ti ti-control-shuffle"></em>Transactions</a></li>
+                        <li><a href="{% url 'profile' %}"><em class="ti ti-user"></em>Account</a></li>
+
+
+                    </ul><!-- .user-icon-nav -->
+                    <div class="user-sidebar-sap"></div><!-- .user-sidebar-sap -->
+                    <ul class="user-nav">
+
+                        <li><a href="{% url 'transfer' %}">Send Money</a></li>
+                        <li>Contact Support<span>{{support_email}}</span></li>
+                        <li class="mt-2"><a href="{% url 'logout' %}">Logout</a></li>
+                    </ul><!-- .user-nav -->
+                    <div class="d-lg-none">
+                        <div class="user-sidebar-sap"></div>
+                        <div class="gaps-1x"></div>
+                        <!--ul class="topbar-action-list">
+                         
+                            <li class="dropup topbar-action-item topbar-action-language">
+                                <a href="#" data-toggle="dropdown" aria-haspopup="true"> EN <em class="ti ti-angle-up"></em> </a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#">FR</a></li>
+                                    <li><a href="#">JY</a></li>
+                                    <li><a href="#">CH</a></li>
+                                </ul>
+                            </li><!-- .topbar-action-item ->
+                        </ul><!-- .topbar-action-list -->
+                    </div>
+                </div><!-- .user-sidebar -->
+
+                {% block content %} {% endblock %}
+            </div><!-- .d-flex -->
+        </div><!-- .container -->
+    </div>
+    <!-- UserWraper End -->
+
+    {% if messages %}
+    {% for message in messages %}
+    <div class="alert alert-info alert-dismissible show fade"
+        style="background-color:{{main_theme}};margin:20px;z-index:2000;width:90%;top:50px;position:absolute">
+        <div class="alert-body">
+            <button class="close" data-dismiss="alert">
+                <span>&times;</span>
+            </button>
+            {{message}}
+        </div>
+    </div>
+    {% endfor %}
+    {% endif %}
+
+
+    <div class="footer-bar">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-7">
+                    <span class="footer-copyright">Copyright 2012 - 2022, <a href="#">{{site_name}} ltd.</a>. All Rights
+                        Reserved.</span>
+                </div><!-- .col -->
+                <!--div class="col-md-5 text-md-right">
+                    <ul class="footer-links">
+                        <li><a href="policy.html">Privacy Policy</a></li>
+                        <li><a href="policy.html">Terms of Sales</a></li>
+                    </ul>
+                </div><!-- .col -->
+            </div><!-- .row -->
+        </div><!-- .container -->
+    </div>
+    <!-- FooterBar End -->
+
+
+    <!-- JavaScript (include all script here) -->
+    <script src="{% static 'dashboard/js/jquery.bundle.js' %}" ?ver=101"></script>
+    <script src="{% static 'dashboard/js/script.js' %}" ?ver=101"></script>
+    <script src="{% static 'dashboard/js/helper.js' %}"></script>
+    <script>
+        $(".close").click(function () {
+
+            $(".alert").attr("hidden", "")
+        }
+        )
+    </script>
+
+    {% block js %}{% endblock %}
+</body>
+
+</html>

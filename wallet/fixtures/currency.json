@@ -1,0 +1,57 @@
+[
+   
+    {
+      "model": "wallet.Currency",
+      "pk": 1 ,
+      "fields": {
+        "name" : "United States Dollar",
+        "code" : "USD",
+        "symbol" : "$"
+    }
+   
+},
+  
+{
+  "model": "wallet.Currency",
+  "pk": 2 ,
+  "fields": {
+    "name" : "Euro",
+    "code" : "EURO",
+    "symbol" : "€"
+}
+
+},
+  
+{
+  "model": "wallet.Currency",
+  "pk": 3 ,
+  "fields": {
+    "name" :  "British Pound",
+    "code" : "BPD",
+    "symbol" : "£"
+}
+
+},
+  
+{
+  "model": "wallet.Currency",
+  "pk": 4 ,
+  "fields": {
+    "name" : "Canadian Dollar",
+    "code" : "CAD",
+    "symbol" : "$"
+}
+
+},
+{
+  "model": "wallet.Currency",
+  "pk": 5 ,
+  "fields": {
+    "name" : "Chinese",
+    "code" : "RMB",
+    "symbol" : "¥"
+}
+
+}
+
+]

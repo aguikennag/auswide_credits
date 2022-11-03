@@ -1,0 +1,404 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+
+<section class="feature-wrap  pb-75">
+    <div class="content-title style1 p-3">
+        <span>Bank with the best</span>
+        <h2>Why choose us</h2>
+        <p>There are many reasons you should use {{site_name}}, we want you to see for yourself</p>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 col-sm-6 col-6">
+                <div class="single-unified-platform ">
+                    <i class="flaticon-wallet"></i>
+                    <h5>Global Reach & Local Presence</h5>
+                    <p>{{site_name}} has presence accross 5 countries and 2 continents, providing you opportunities to manage international assets. You know the awesome thing about us? we keep on expanding.</p>
+                </div>
+            </div>
+            <div class="col-lg-6 col-sm-6 col-6">
+                <div class="single-unified-platform">
+                    <i class="flaticon-id-card"></i>
+                    <h5>Secured & Fast Transactions</h5>
+                    <p>Slow internet banking reduces business strength, we dont want that for your business. Experience modern banking right from your devices, increase profitability and client trust.</p>
+                </div>
+            </div>
+            <div class="col-lg-6 col-sm-6 col-6 mt-3">
+                <div class="single-unified-platform">
+                    <i class="flaticon-id-card"></i>
+                    <h5>Optimum User Experience</h5>
+                    <p>We care so much about your convenience, we made sure your experience with your personalized <a href="{% url 'dashboard' %}">account portal</a> is optimum.</p>
+                </div>
+            </div>
+            <div class="col-lg-6 col-sm-6 col-6 mt-3">
+                <div class="single-unified-platform">
+                    <i class="flaticon-id-card"></i>
+                    <h5>Live Support</h5>
+                    <p> We always have a support personnel round the clock, ready to answer your questions and enquiries. Just a click away</p>
+                </div>
+            </div>
+       
+        </div>
+    </div>
+</section>
+
+
+<section class="why-choose-wrap style1 pb-100 bg-bunting">
+    <div class="container">
+        <div class="row gx-5 align-items-center">
+            <div class="col-lg-6">
+                <div class="wh-img-wrap">
+                    <img src="{% static 'main/img/why-choose-us/why-choose-us-1.jpg' %}" alt="Image">
+                   
+                
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="wh-content">
+                    <div class="content-title style1">
+                        <span>Let's bring you up to speed</span>
+                        <h2>Banking Process Designed Specially For You</h2>
+                        <p>Modern business world requires you to have a bank you can rely on, we are here to ensure that.</p>
+                    </div>
+                    <div class="feature-item-wrap">
+                        <div class="feature-item">
+                            <span class="feature-icon">
+                                <i class="flaticon-graph"></i>
+                            </span>
+                            <div class="feature-text">
+                                <h3>24/7 support</h3>
+                                <p>Our support team  is always readily available to make your life easier.</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <span class="feature-icon">
+                                <i class="flaticon-loan-1"></i>
+                            </span>
+                            <div class="feature-text">
+                                <h3>Email & sms notification</h3>
+                                <p>Get to know what is happenning to your account on the go, email and sms is free, you don't have to pay a dime.</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <span class="feature-icon">
+                                <i class="flaticon-computer"></i>
+                            </span>
+                            <div class="feature-text">
+                                <h3>Fast Banking Expereince</h3>
+                                <p>Transactions on {{site_name}} go with the speed of light, your clients will always love to stay in business with you.</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <span class="feature-icon">
+                                <i class="flaticon-computer"></i>
+                            </span>
+                            <div class="feature-text">
+                                <h3>100% Secure</h3>
+                                <p>Your money is very safe with us, no third party can have access to your data. Trust us to always protect you.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section class="feature-wrap  pb-75">
+    <div class="content-title style1 p-3">
+        <span>Our services</span>
+        <h2>How We Improve Your Banking Experience
+        </h2>
+        <!--p>There are many reasons you should use {{site_name}}, we want you to see for yourself</p-->
+    </div>
+    <div class="container">
+        <div class="row justify-content-center">
+            <!--div class="col-lg-3 col-sm-6 col-6">
+                <div class="single-choose-us wow fadeInUp delay-0-8s animated" style="visibility: visible;">
+                    <img src="{% static 'main/img/why-choose-us/why-choose-4.jpg' %}" alt="Image">
+
+                    <div class="why-choose-content pt-2">
+                        <h4>Improved Safety</h4>
+                        <p>We understand the serious business of handling money better than anyone else. Security is always on the top of our check list, transactions on {{site_name}} uses 128-bit encryption, so you are sure your transactions and money are always safe.</p>
+                    </div>
+                </div>
+            </div-->
+            <div class="col-lg-3 col-sm-6 col-6">
+                <div class="single-choose-us wow fadeInUp delay-0-8s animated" style="visibility: visible;">
+                    <img src="{% static 'main/img/blog/blog-5.jpg' %}" alt="Image">
+
+                    <div class="why-choose-content pt-2">
+                        <h4>Zero Cost Banking</h4>
+                        <p>We mean it when we say "ZERO COST", get prompt updates, sms and email notifications, access your information, browse your transaction history, and so much more free of charge. {{site_name}} will never take any fee from you especially without your permission. Experience modern online banking at zero charges.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-sm-6 col-6 pt-2">
+                <div class="single-choose-us wow fadeInUp delay-0-8s animated" style="visibility: visible;">
+                    <img src="{% static 'main/img/blog/blog-4.jpg' %}" alt="Image">
+
+                    <div class="why-choose-content pt-2">
+                        <h4>Reward For Saving</h4>
+                        <p>There is always a reward for  good behaviour, we reward you for the good habit of saving. We can even help you tuck some cash away, this even offers you more interest on your savings.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+<!--section class="why-choose-wrap style1 pb-100 bg-bunting">
+    <div class="container">
+        <div class="row gx-5 align-items-center">
+            <div class="col-lg-6">
+                <div class="wh-img-wrap">
+                    <img src="{% static 'main/img/why-choose-us/wh-img-1.png' %}">
+                    <img class="wh-shape-one bounce" src="{% static 'main/img/why-choose-us/wh-shape-1.png' %}">
+                    <img class="wh-shape-two animationFramesTwo"
+                        src="{% static 'main/img/why-choose-us/wh-shape-2.png' %}">
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="wh-content">
+                    <div class="content-title style1">
+                        <span>Why Choose Us</span>
+                        <h2>Get World Class &amp; Fastest Online Payment Service</h2>
+                        <p>There are many variations of passages of Lorem Ipsum amet avoilble but majority have
+                            suffered alteration in some form, by injected humur or randomise words which don't
+                            sure amet sit dolor quras alto lorem.</p>
+                    </div>
+                    <div class="feature-item-wrap">
+                        <div class="feature-item">
+                            <span class="feature-icon">
+                                <i class="flaticon-graph"></i>
+                            </span>
+                            <div class="feature-text">
+                                <h3>Low Costing</h3>
+                                <p>Vestibulum ac diam sit amet quam vehicula elemen tum sed sit amet dui
+                                    praesent sapien pelle tesque.</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <span class="feature-icon">
+                                <i class="flaticon-loan-1"></i>
+                            </span>
+                            <div class="feature-text">
+                                <h3>Safe &amp; Secure</h3>
+                                <p>Vestibulum ac diam sit amet quam vehicula elemen tum sed sit amet dui
+                                    praesent sapien pelle tesque.</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <span class="feature-icon">
+                                <i class="flaticon-computer"></i>
+                            </span>
+                            <div class="feature-text">
+                                <h3>Live Support</h3>
+                                <p>Vestibulum ac diam sit amet quam vehicula elemen tum sed sit amet dui
+                                    praesent sapien pelle tesque.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section-->
+
+
+<div class="app-wrap">
+    <div class="container">
+        <div class="counter-card-wrap" style="background: #3e3d3d;">
+            <div class="counter-card">
+                <div class="counter-text">
+                    <div class="counter-num">
+                        <span class="odometer" data-count="5"></span> +
+                    </div>
+                    <p>Support Countries</p>
+                </div>
+            </div>
+            <div class="counter-card">
+                <div class="counter-text">
+                    <div class="counter-num">
+                        <span class="odometer" data-count="35"></span>K+
+                    </div>
+                    <p>Happy Customers</p>
+                </div>
+            </div>
+            <div class="counter-card">
+                <div class="counter-text">
+                    <div class="counter-num">
+                        <span class="odometer" data-count="2"></span>
+                    </div>
+                    <p>Continent</p>
+                </div>
+            </div>
+            <div class="counter-card">
+                <div class="counter-text">
+                    <div class="counter-num">
+                        <span class="odometer" data-count="237"></span>
+                    </div>
+                    <p>Staffs</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+<section class="shopping-wrap ptb-100">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6 col-12 order-lg-1 order-2">
+                <div class="shopping-content">
+                   
+                    <div class="content-title style1 ">
+                        <span>Power to to great things</span>
+                        <h2>Our Customers are in charge</h2>
+                        <p>There are many reasons you should use {{site_name}}, we want you to see for yourself</p>
+                    </div>
+                    <ul class="content-feature-list list-style">
+                        <li><i class="ri-check-double-line"></i>Increase Profitability</li>
+                        <li><i class="ri-check-double-line"></i>Explore new opportunities</li>
+                        <li><i class="ri-check-double-line"></i>100% user control, right from your dashboard
+                        </li>
+                        <li><i class="ri-check-double-line"></i>Enjoy rugged security and privacy.
+                        </li>
+                    </ul>
+                    <a href="{% url 'register' %}" class="btn style1">Signup Now</a>
+                </div>
+            </div>
+            <div class="col-lg-6 col-12 order-lg-2 order-1">
+                <div class="shopping-img-wrap p-2">
+                    <img src="{% static 'main/img/blog/blog-3.jpg' %}">
+                    <!--img src="{% static 'main/img/shopping/shopping-sape-3.png' %}"-->
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+
+
+<section class="testimonial-wrap ptb-100  bg-albastor">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-6 offset-xl-3 col-lg-8 offset-lg-2">
+                <div class="section-title style1 text-center mb-40">
+                    <span>Our Testimonials</span>
+                    <h2>What Our Client Says</h2>
+                </div>
+            </div>
+        </div>
+        <div class="testimonial-slider-three owl-carousel">
+            <div class="testimonial-card style3">
+                <span class="quote-icon">
+                    <i class="flaticon-quotation-mark"></i>
+                </span>
+                <p class="client-quote">
+                    I give {{site_name}} a 100 for quick customer support, issues get resolved quickly.
+                </p>
+                <div class="testimonial-card-thumb">
+                    <div class="client-info-wrap">
+                        <div class="client-img">
+                            <img src="{% static 'assets/images/testimonial/testimonial02.png' %}">
+                        </div>
+                        <div class="client-info">
+                            <h4>Danielle Bechtelar</h4>
+                            <span>Founder, Cason telecoms.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card style3">
+                <span class="quote-icon">
+                    <i class="flaticon-quotation-mark"></i>
+                </span>
+                <p class="client-quote">When it comes  to paying my international suppliers, {{site_name}} makes all the hassle go away.</p>
+                <div class="testimonial-card-thumb">
+                    <div class="client-info-wrap">
+                        <div class="client-img">
+                            <img src="{% static 'assets/images/testimonial/testimonial06.png' %}">
+                        </div>
+                        <div class="client-info">
+                            <h4>Dr. philip ichnok</h4>
+                            <span>Director  Benac clinic</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card style3">
+                <span class="quote-icon">
+                    <i class="flaticon-quotation-mark"></i>
+                </span>
+                <p class="client-quote">{{site_name}} makes it possible that i have less issues with my international clients, transactions happen with the speed of light.</p>
+                <div class="testimonial-card-thumb">
+                    <div class="client-info-wrap">
+                        <div class="client-img">
+                            <img src="{% static 'assets/images/testimonial/testimonial01.png' %}">
+                        </div>
+                        <div class="client-info">
+                            <h4>Eunice Maderson</h4>
+                            <span>Business Woman</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card style3">
+                <span class="quote-icon">
+                    <i class="flaticon-quotation-mark"></i>
+                </span>
+                <p class="client-quote">Research shows that {{site_name}} boasts a number of features that BitMEX simply
+                    does not.</p>
+                <div class="testimonial-card-thumb">
+                    <div class="client-info-wrap">
+                        <div class="client-img">
+                            <img src="{% static 'main/img/testimonials/client-3.jpg' %}">
+                        </div>
+                        <div class="client-info">
+                            <h4>Henry Paterson</h4>
+                            <span>Crypto Broker</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card style3">
+                <span class="quote-icon">
+                    <i class="flaticon-quotation-mark"></i>
+                </span>
+                <p class="client-quote">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+                    tempor incididunt ut labore et dolore magna aliqua enim minim veniam, quis nostrud exercise
+                    amet loremtation amet ullamco laboris nisi ut aliquip ex eacoo consequat. Duisaute irure
+                    dolor in reprehen ametderit in voluptate velit esse cillum dolore eu fugiat.</p>
+                <div class="testimonial-card-thumb">
+                    <div class="client-info-wrap">
+                        <div class="client-img">
+                            <img src="{% static 'main/img/testimonials/client-4.jpg' %}">
+                        </div>
+                        <div class="client-info">
+                            <h4>Brock Lee</h4>
+                            <span>Developer</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+
+{% endblock %}

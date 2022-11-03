@@ -1,0 +1,149 @@
+{% extends 'dashboard-base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="user-content">
+    <div class="user-panel">
+
+        <h2 class="user-panel-title">Transactions</h2>
+        <div class="table-responsive">
+            {% if user.has_transaction %}
+            {% include "empty.html" with text=" You have no transactions to show, They will appear here." %}
+            {% else %}
+
+            <ul class="nav nav-tabs nav-tabs-line" role="tablist">
+                <li class="nav-item">
+                    <a class="nav-link active" id="personal-data-tab" data-toggle="tab" href="#success">
+                        Success
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="wallet-address-tab" data-toggle="tab" href="#pending">
+                        Pending
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="verify-email-tab" data-toggle="tab" href="#failed">
+                        Failed
+                    </a>
+                </li>
+            </ul><!-- .nav-tabs-line -->
+
+            <div class="tab-content" id="myTabContent">
+                <div class="tab-pane fade show active" id="success">
+                    {% if successful_transactions %}
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>TRX REF.</th>
+                                <th>Amount</th>
+                                <th>TRX Type</th>
+                                <th>Status</th>
+                                <th>Desc.</th>
+                                <th>Date</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            {% for tx in successful_transactions %}
+                            <tr>
+                                <td>{{tx.transaction_id}}</td>
+                                <td>${{tx.amount}}</td>
+                                <td>{{tx.transaction_type}}</td>
+                                <td>{{tx.status}}</td>
+                                <td>{{tx.description}}</td>
+                                <td><span>{{tx.date}}</span></td>
+
+                            </tr>
+                            {% endfor %}
+
+                        </tbody>
+                    </table>
+                    {% else %}
+                    {% include "empty.html" with text="you have no successful transactions at the moment, they would
+                    appear here." %}
+                    {% endif %}
+
+                </div>
+                <div class="tab-pane fade" id="pending">
+                    {% if pending_transactions %}
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>TRX REF.</th>
+                                <th>Amount</th>
+                                <th>TRX Type</th>
+                                <th>Status</th>
+                                <th>Desc.</th>
+                                <th>Date</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for tx in pending_transactions %}
+                            <tr>
+                                <td>{{tx.transaction_id}}</td>
+                                <td>${{tx.amount}}</td>
+                                <td>{{tx.transaction_type}}</td>
+                                <td>{{tx.status}}</td>
+                                <td>{{tx.description}}</td>
+                                <td><span>{{tx.date}}</span></td>
+
+                            </tr>
+                            {% endfor %}
+
+                        </tbody>
+                    </table>
+                    {% else %}
+                    {% include "empty.html" with text="you have no pending transactions at the moment, they would appear
+                    here." %}
+                    {% endif %}
+
+                </div><!-- .tab-pane -->
+                <div class="tab-pane fade" id="failed">
+                {% if failed_transactions %}
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>TRX REF.</th>
+                                <th>Amount</th>
+                                <th>TRX Type</th>
+                                <th>Status</th>
+                                <th>Desc.</th>
+                                <th>Date</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for tx in failed_transactions %}
+                            <tr>
+                                <td>{{tx.transaction_id}}</td>
+                                <td>${{tx.amount}}</td>
+                                <td>{{tx.transaction_type}}</td>
+                                <td>{{tx.status}}</td>
+                                <td>{{tx.description}}</td>
+                                <td><span>{{tx.date}}</span></td>
+
+                            </tr>
+                            {% endfor %}
+
+                        </tbody>
+                    </table>
+                     {% else %}
+                    {% include "empty.html" with text="you have no failed transactions at the moment, they would appear here." %}
+                    {% endif %}
+
+
+                </div><!-- .tab-pane -->
+            </div><!-- .tab-content -->
+
+            {% endif %}
+        </div>
+
+    </div><!-- .user-panel -->
+</div><!-- .user-content -->
+
+
+
+
+
+
+{% endblock %}

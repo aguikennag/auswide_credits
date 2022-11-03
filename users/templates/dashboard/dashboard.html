@@ -1,0 +1,93 @@
+{% extends 'dashboard-base.html' %}
+{% load static %}
+{% load humanize %}
+{% block content %}
+<div class="user-content">
+    <div class="user-panel">
+        <div class="row">
+
+            <div class="col-12">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="tile-item tile-light">
+                            <div class="tile-bubbles"></div>
+                            <h6 class="tile-title">LEDGER BALANCE</h6>
+                            <ul class="tile-info-list">
+
+                                <li><span>{{user.wallet.currency}}{{user.wallet.ledger_balance|intcomma}}</span></li>
+
+                            </ul>
+                            <div class="tile-title">
+                                Available Balance :
+                                <span>
+                                    {{user.wallet.currency}}{{user.wallet.available_balance|intcomma}}
+                                </span><br>
+
+
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div><!-- .col -->
+
+        </div><!-- .row -->
+
+        <div class="table-responsive">
+            <h4>Recent Transactions
+
+                {% if recent_transactions %}
+                <span style="float: right;">
+                    <a href="{% url 'transaction-history' %}">View all</a>
+                </span>
+                {% endif %}
+            </h4>
+
+
+            {% if not recent_transactions %}
+            <div class="status status-empty">
+                <div class="status-icon">
+                    <em class="ti ti-files"></em>
+                    <div class="status-icon-sm">
+                        <em class="ti ti-close"></em>
+                    </div>
+                </div>
+                <span class="status-text">You have no transactions yet</span>
+
+            </div>
+            {% else %}
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>TRX REF.</th>
+                        <th>Amount</th>
+                        <th>TRX Type</th>
+                        <th>Status</th>
+                        <th>Desc.</th>
+                        <th>Date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for tx in recent_transactions %}
+                    <tr>
+                        <td>{{tx.transaction_id}}</td>
+                        <td>${{tx.amount}}</td>
+                        <td>{{tx.transaction_type}}</td>
+                        <td>{{tx.status}}</td>
+                        <td>{{tx.description}}</td>
+                        <td><span>{{tx.date}}</span></td>
+
+                    </tr>
+                    {% endfor %}
+
+                </tbody>
+            </table>
+            {% endif %}
+        </div>
+
+    </div><!-- .user-panel -->
+</div><!-- .user-content -->
+
+{% endblock %}
