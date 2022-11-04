@@ -14,7 +14,7 @@
 
     <link rel="shortcut icon" href="images/favicon.ico">
 
-    <title>{{site_name}}  |  Modern banking experience</title>
+    <title>{{site_name}} | Modern banking experience</title>
 
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700|Poppins" rel="stylesheet">
@@ -30,138 +30,153 @@
     <link href="{% static 'asset_alit/css/pe-icon-7-stroke.css' %}" rel="stylesheet">
 
     <!--Slider-->
-    <link rel="stylesheet" href="{% static 'asset_alit/css/owl.carousel.min.css' %}"/> 
-    <link rel="stylesheet" href="{% static 'asset_alit/css/owl.theme.css' %}"/> 
-    <link rel="stylesheet" href="{% static 'asset_alit/css/owl.transitions.css' %}"/>
-    <link rel="stylesheet" href="{% static 'asset_alit/css/slick.css' %}"/> 
-    <link rel="stylesheet" href="{% static 'asset_alit/css/slick-theme.css' %}"/>  
+    <link rel="stylesheet" href="{% static 'asset_alit/css/owl.carousel.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'asset_alit/css/owl.theme.css' %}" />
+    <link rel="stylesheet" href="{% static 'asset_alit/css/owl.transitions.css' %}" />
+    <link rel="stylesheet" href="{% static 'asset_alit/css/slick.css' %}" />
+    <link rel="stylesheet" href="{% static 'asset_alit/css/slick-theme.css' %}" />
 
     <!-- Custom styles for this template -->
     <link href="{% static 'asset_alit/css/style.css' %}" rel="stylesheet">
     <link href="{% static 'asset_alit/css/menu.css' %}" rel="stylesheet">
     <link href="{% static 'asset_alit/css/default.css' %}" rel="stylesheet">
 
+    <!--Start of Tawk.to Script-->
+    <script type="text/javascript">
+        var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
+        (function () {
+            var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
+            s1.async = true;
+            s1.src = 'https://embed.tawk.to/63642332daff0e1306d59776/1ggvij09t';
+            s1.charset = 'UTF-8';
+            s1.setAttribute('crossorigin', '*');
+            s0.parentNode.insertBefore(s1, s0);
+        })();
+    </script>
+    <!--End of Tawk.to Script-->
+
 </head>
 
-    <body>
-        <!-- Loader -->
-        <div id="preloader">
-            <div id="status">
-                <div class="spinner">
-                    <div class="double-bounce1"></div>
-                    <div class="double-bounce2"></div>
-                </div>
+<body>
+    <!-- Loader -->
+    <div id="preloader">
+        <div id="status">
+            <div class="spinner">
+                <div class="double-bounce1"></div>
+                <div class="double-bounce2"></div>
             </div>
         </div>
+    </div>
 
-        <!-- Navigation Bar-->
-        <div class="tagline hidden-md">
-            <div class="container">
-                <div class="float-left">
-                    <div class="phone">
-                        <i class="fas fa-phone"></i> +1 123 456 78 90
-                    </div>
+    <!-- Navigation Bar-->
+    <div class="tagline hidden-md">
+        <div class="container">
+            <div class="float-left">
+                <div class="phone">
+                    <i class="fas fa-phone"></i> +1 123 456 78 90
                 </div>
-                <div class="float-right">
-                    <!--ul class="top_socials">
+            </div>
+            <div class="float-right">
+                <!--ul class="top_socials">
                         <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
                         <li><a href="#"><i class="fab fa-twitter"></i></a></li>
                         <li><a href="#"><i class="fab fa-instagram"></i></a></li>
                         <li><a href="#"><i class="fab fa-dribbble"></i></a></li>
                         <li><a href="#"><i class="fab fa-pinterest"></i></a></li>
                     </ul-->
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+
+    <!-- Navigation Bar-->
+    <header id="topnav" class="defaultscroll fixed-top navbar-sticky sticky">
+        <div class="container">
+            <!-- Logo container-->
+            <div>
+                <a href="{% url 'index' %}" class="logo">
+                    <img src="{% static 'asset_alit/images/logo.png' %}" alt="missing_logo" height="30">
+                </a>
+            </div>
+            <!-- End Logo container-->
+            <div class="menu-extras">
+                <div class="menu-item">
+                    <!-- Mobile menu toggle-->
+                    <a class="navbar-toggle">
+                        <div class="lines">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                    </a>
+                    <!-- End mobile menu toggle-->
                 </div>
-                <div class="clear"></div>
+            </div>
+
+            <div id="navigation">
+                <!-- Navigation Menu-->
+                <ul class="navigation-menu">
+                    <li class="has-submenu">
+                        <a href="#">{{site_name}}</a><span class="menu-arrow"></span>
+                        <ul class="submenu">
+                            <li>
+                                <a href="{% url 'about' %}" class="nav-link active">About us</a>
+                            </li>
+                            <li>
+                                <a href="{% url 'faq' %}" class="nav-link ">Help Center</a>
+                            </li>
+                            <li>
+                                <a href="{% url 'careers' %}" class="nav-link">Careers</a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li class="has-submenu">
+                        <a href="#">Product & Services</a><span class="menu-arrow"></span>
+                        <ul class="submenu">
+                            <li>
+                                <a href="#" class="nav-link active">Vitual Cards</a>
+                            </li>
+                        </ul>
+
+                    </li>
+                    <li>
+                        <a href="{% url 'modern-banking' %}" class="nav-link">Modern Banking</a>
+                    </li>
+                    <li>
+                        {% if user.is_authenticated %}
+                        <a href="{% url 'dashboard' %}" class="nav-link">Dashboard</a>
+                        {% else %}
+                        <a href="{% url 'login' %}" class="nav-link">Register / Login</a>
+                        {% endif %}
+                    </li>
+
+                </ul>
+                <!-- End navigation menu-->
             </div>
         </div>
-        
-        <!-- Navigation Bar-->
-        <header id="topnav" class="defaultscroll fixed-top navbar-sticky sticky">
+    </header>
+    <!-- End Navigation Bar-->
+    {% block content %}
+
+    {% endblock %}
+    <!-- FOOTER START -->
+    <footer class="footer">
+        <div class="section-two">
             <div class="container">
-                <!-- Logo container-->
-                <div>
-                    <a href="index-2.html" class="logo">
-                        <img src="{% static 'asset_alit/images/logo.png' %}" alt="missing_logo" height="20">
-                    </a>
-                </div>
-                <!-- End Logo container-->
-                <div class="menu-extras">
-                    <div class="menu-item">
-                        <!-- Mobile menu toggle-->
-                        <a class="navbar-toggle">
-                            <div class="lines">
-                                <span></span>
-                                <span></span>
-                                <span></span>
-                            </div>
-                        </a>
-                        <!-- End mobile menu toggle-->
-                    </div>
-                </div>
-
-                <div id="navigation">
-                    <!-- Navigation Menu-->
-                    <ul class="navigation-menu">
-                        <li class="has-submenu">
-                            <a href="#">{{site_name}}</a><span class="menu-arrow"></span>
-                            <ul class="submenu">
-                                <li >
-                                    <a href="{% url 'about' %}" class="nav-link active">About us</a>
-                                </li>
-                                <li >
-                                    <a href="{% url 'faq' %}" class="nav-link ">Help Center</a>
-                                </li>
-                                <li >
-                                    <a href="{% url 'careers' %}" class="nav-link">Careers</a>
-                                </li>                                           
-                            </ul>
-                        </li>
-
-                        <li class="has-submenu">
-                            <a href="#">Product & Services</a><span class="menu-arrow"></span>
-                            <ul class="submenu">
-                                <li >
-                                    <a href="#" class="nav-link active">Vitual Cards</a>
-                                </li>
-                            </ul>
-                            
-                        </li>
-                        <li >
-                            <a href="{% url 'modern-banking' %}" class="nav-link">Modern Banking</a>
-                        </li>
-                        <li >
-                            {% if user.is_authenticated %}
-                            <a href="{% url 'dashboard' %}" class="nav-link">Dashboard</a>
-                            {% else %}
-                            <a href="{% url 'login' %}" class="nav-link">Register / Login</a>
-                            {% endif %}
-                        </li>
-                    
-                    </ul>
-                    <!-- End navigation menu-->
-                </div>
-            </div>
-        </header>
-        <!-- End Navigation Bar-->
-        {% block content %} 
-
-        {% endblock %}
-        <!-- FOOTER START -->
-        <footer class="footer">
-            <div class="section-two">
-                <div class="container">
-                    <!--Footer Info -->
-                    <div class="row footer-info">
-                        <div class="col-lg-3 col-md-12 col-sm-12">
-                            <div class="">
-                                <a href="index-2.html" class="logo">
-                                    <img src="{% static 'asset_alit/images/logo-white.png' %}" alt="missing_logo" height="20">
-                                </a>
-                            </div>
-                            <p class="text-footer-clr mt-3">
-                               Join the better bank, and watch your money serve you better.
-                            </p>
-                            <!--div>
+                <!--Footer Info -->
+                <div class="row footer-info">
+                    <div class="col-lg-3 col-md-12 col-sm-12">
+                        <div class="">
+                            <a href="{% url 'index' %}" class="logo">
+                                <img src="{% static 'asset_alit/images/logo-white.png' %}" alt="missing_logo"
+                                    height="30">
+                            </a>
+                        </div>
+                        <p class="text-footer-clr mt-3">
+                            Join the better bank, and watch your money serve you better.
+                        </p>
+                        <!--div>
                                 <ul class="list-unstyled social-icon">
                                     <li class="list-inline-item"><a href="#"><i class="fab fa-apple"></i></a></li>
                                     <li class="list-inline-item"><a href="#"><i class="fab fa-facebook-f"></i></a></li>
@@ -170,54 +185,56 @@
                                     <li class="list-inline-item"><a href="#"><i class="fab fa-twitter"></i></a></li>
                                 </ul>
                             </div-->
+                    </div>
+                    <div class="col-lg-2 col-md-4 col-sm-4">
+                        <div class="footer-head">
+                            <h5 class="text-light">Company</h5>
                         </div>
-                        <div class="col-lg-2 col-md-4 col-sm-4">
-                            <div class="footer-head">
-                                <h5 class="text-light">Company</h5>
-                            </div>
-                            <div class="footer-item mt-3">
-                                <ul class="list-unstyled">
-                                    <li><a href="#"><i class="fas fa-chevron-right mr-2"></i> About us</a></li>
-                                    <li><a href="#"><i class="fas fa-chevron-right mr-2"></i> Products & Services</a></li>
-                                    <li><a href="#"><i class="fas fa-chevron-right mr-2"></i> FAQ</a></li>
-                                </ul>
-                            </div>
+                        <div class="footer-item mt-3">
+                            <ul class="list-unstyled">
+                                <li><a href="#"><i class="fas fa-chevron-right mr-2"></i> About us</a></li>
+                                <li><a href="#"><i class="fas fa-chevron-right mr-2"></i> Products & Services</a></li>
+                                <li><a href="#"><i class="fas fa-chevron-right mr-2"></i> FAQ</a></li>
+                            </ul>
                         </div>
-                        <div class="col-lg-2 col-md-4 col-sm-4">
-                            <div class="footer-head">
-                                <h5 class="text-light">Useful</h5>
-                            </div>
-                            <div class="footer-item mt-3">
-                                <ul class="list-unstyled">
-                                    <li><a href="#"><i class="fas fa-chevron-right mr-2"></i> Accounts</a></li>
-                                    <li><a href="#"><i class="fas fa-chevron-right mr-2"></i> Sales & Support</a></li>
-                                </ul>
-                            </div>
+                    </div>
+                    <div class="col-lg-2 col-md-4 col-sm-4">
+                        <div class="footer-head">
+                            <h5 class="text-light">Useful</h5>
                         </div>
+                        <div class="footer-item mt-3">
+                            <ul class="list-unstyled">
+                                <li><a href="#"><i class="fas fa-chevron-right mr-2"></i> Accounts</a></li>
+                                <li><a href="#"><i class="fas fa-chevron-right mr-2"></i> Sales & Support</a></li>
+                            </ul>
+                        </div>
+                    </div>
 
-                        <div class="col-lg-3 col-md-6 col-sm-12">
-                            <div class="footer-head">
-                                <h5 class="text-light">Newsletter</h5>
-                            </div>
-                            <div class="footer-news mt-3">
-                                <p class="text-footer-clr">Subscribe to our email newsletter to receive useful articles and special offers.</p>
-                                <div class="subscribed-form">
-                                    <div class="subcribed-form">
-                                        <form action="#">
-                                            <input name="email_sub" type="email" placeholder="Your Email" required="">
-                                            <button type="submit" class=""><span class="fab fa-telegram-plane"></span></button>
-                                        </form>
-                                    </div>
+                    <div class="col-lg-3 col-md-6 col-sm-12">
+                        <div class="footer-head">
+                            <h5 class="text-light">Newsletter</h5>
+                        </div>
+                        <div class="footer-news mt-3">
+                            <p class="text-footer-clr">Subscribe to our email newsletter to receive useful articles and
+                                special offers.</p>
+                            <div class="subscribed-form">
+                                <div class="subcribed-form">
+                                    <form action="#">
+                                        <input name="email_sub" type="email" placeholder="Your Email" required="">
+                                        <button type="submit" class=""><span
+                                                class="fab fa-telegram-plane"></span></button>
+                                    </form>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <!-- End Footer Info -->
                 </div>
+                <!-- End Footer Info -->
             </div>
-            <hr>
+        </div>
+        <hr>
 
-            <!-- Copyright Bar ->
+        <!-- Copyright Bar ->
             <section class="section-30">
                 <div class="container">
                     <div class="row justify-content-center">
@@ -230,38 +247,39 @@
                 </div>
             </section>
             <!-- End Copyright Bar -->
-        </footer>
-        <!-- FOOTER END -->
+    </footer>
+    <!-- FOOTER END -->
 
-        <!-- Back to top -->    
-        <a href="#" class="back-to-top" id="back-to-top"> 
-            <i class="mdi mdi-chevron-up"> </i> 
-        </a>
-        <!-- Back to top --> 
+    <!-- Back to top -->
+    <a href="#" class="back-to-top" id="back-to-top" style="left:30px">
+        <i class="mdi mdi-chevron-up"> </i>
+    </a>
+    <!-- Back to top -->
 
-        <!-- js placed at the end of the document so the pages load faster -->
-        <script src="{% static 'asset_alit/js/jquery.min.js' %}""></script>
-        <script src="{% static 'asset_alit/js/popper.min.js' %}""></script>
-        <script src="{% static 'asset_alit/js/bootstrap.min.js' %}""></script>
+    <!-- js placed at the end of the document so the pages load faster -->
+    <script src="{% static 'asset_alit/js/jquery.min.js' %}""></script>
+        <script src=" {% static 'asset_alit/js/popper.min.js' %}""></script>
+    <script src="{% static 'asset_alit/js/bootstrap.min.js' %}""></script>
         <!-- Portfolio -->
-        <script src="{% static 'asset_alit/js/jquery.magnific-popup.min.js' %}""></script>
-        <script src="{% static 'asset_alit/js/isotope.js' %}""></script>
-        <script src="{% static 'asset_alit/js/portfolio-filter.js' %}""></script> 
-        <!-- Carousel -->
-        <script src="{% static 'asset_alit/js/owl.carousel.min.js' %}""></script>
-        <script src="{% static 'asset_alit/js/owlcarousel.init.js' %}""></script>
-        <script src="{% static 'asset_alit/js/slick.min.js' %}""></script> 
-        <script src="{% static 'asset_alit/js/slick.init.js' %}""></script> 
-        <!-- PARALLAX -->
-        <script src="{% static 'asset_alit/js/parallax.js' %}""></script> 
+        <script src=" {% static 'asset_alit/js/jquery.magnific-popup.min.js' %}""></script>
+    <script src="{% static 'asset_alit/js/isotope.js' %}""></script>
+        <script src=" {% static 'asset_alit/js/portfolio-filter.js' %}""></script>
+    <!-- Carousel -->
+    <script src="{% static 'asset_alit/js/owl.carousel.min.js' %}""></script>
+        <script src=" {% static 'asset_alit/js/owlcarousel.init.js' %}""></script>
+    <script src="{% static 'asset_alit/js/slick.min.js' %}""></script> 
+        <script src=" {% static 'asset_alit/js/slick.init.js' %}""></script>
+    <!-- PARALLAX -->
+    <script src="{% static 'asset_alit/js/parallax.js' %}""></script> 
         <!-- VIDEO ICON -->
-        <script src="{% static 'asset_alit/js/magnific.init.js' %}""></script>
-        <!-- COUNTER -->
-        <script src="{% static 'asset_alit/js/counter.init.js' %}""></script>
+        <script src=" {% static 'asset_alit/js/magnific.init.js' %}""></script>
+    <!-- COUNTER -->
+    <script src="{% static 'asset_alit/js/counter.init.js' %}""></script>
         <!--custom script-->
-        <script src="{% static 'asset_alit/js/app.js' %}""></script>
-    </body>
+        <script src=" {% static 'asset_alit/js/app.js' %}""></script>
+</body>
 
 
 <!-- business-3.html 42:40-->
+
 </html>
