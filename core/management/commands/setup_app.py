@@ -67,7 +67,7 @@ class Command(BaseCommand):
         self.is_test = options.get("test", False)
         self.stdout.write("setting up server ...")
         #self.download_dependencies()
-        self.create_admin()
+        #self.create_admin()
         self.load_data()
 
         self.stdout.write("setup is complete, finishing...")
