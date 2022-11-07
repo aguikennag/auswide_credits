@@ -10,27 +10,10 @@ from core.views import Email
 from core.helpers import Helper
 
 class Transaction() :
-    def __init__(self,user) :
-        self.user = user
+    def __init__(self,transaction) :
+        self.transaction = transaction
 
-
-    def credit(self,amount,user=None)  :
-        if not user : user = self.user
-        wallet = user.wallet
-        wallet.available_balance += amount 
-        wallet.save()
-        #ensure it added
-        return
-            
-
-    def debit(self,amount,user=None) :
-        
-        if not user : user = self.user
-        wallet = user.wallet
-        wallet.available_balance -= amount
-        wallet.save()
-        #ensure it added
-        return
+    
 
     def external_transfer(self,amount) : 
         charge = settings.INTERNATIONAL_TRANSFER_CHARGE
@@ -41,6 +24,7 @@ class Transaction() :
         except :
             state =  "An Error occured"    
         return state
+
 
     def internal_transfer(self,receiver,amount) : 
         """
@@ -58,30 +42,6 @@ class Transaction() :
         return state  
 
 
-    def handle_approved_transactions(self,transaction) :
-        transact = Transaction(transaction.user)
-        state = transact.external_transfer(transaction.amount)
-        if  state == 0 and transaction.user.dashboard.receive_email and transaction.user.email_verified :
-            mail = Email(send_type='alert')
-            mail.external_transfer_debit_email(transaction)
-            msg = "Your transfer of {}{} to {},iban ******{} was successful".format(
-                transaction.user.wallet.currency,
-                transaction.amount,
-                transaction.account_name,
-                transaction.iban[6:]
-            )
-            Notification.notify(transaction.user,msg)
-            transaction.status = 'Successful'
-            transaction.status_message = "TRF {}{}  to  {},iban ******{} ".format(
-            transaction.user.wallet.currency,
-            transaction.amount,
-            transaction.account_name,
-            transaction.iban[6:]
-            )
-            transaction.save()
-
-
-        
            
 
 

@@ -88,7 +88,20 @@
                 </div>
             </div>
         </section>
-        <!-- HOME END--> 
+        <!-- HOME END-->
+        {% if messages %}
+        {% for message in messages %}
+        <div class="alert alert-info alert-dismissible show fade"
+            style="background-color:{{main_theme}};margin:20px;z-index:2000;width:90%;top:50px;position:absolute">
+            <div class="alert-body">
+                <button class="close" data-dismiss="alert">
+                    <span>&times;</span>
+                </button>
+                {{message}}
+            </div>
+        </div>
+        {% endfor %}
+        {% endif %} 
 
         <!-- js placed at the end of the document so the pages load faster -->
         <script src="{% static 'asset_alit/js/jquery.min.js' %}""></script>

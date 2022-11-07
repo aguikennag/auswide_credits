@@ -1,0 +1,112 @@
+{% extends 'base-mail.html' %}
+
+{% load static %}
+{% load humanize %}
+{% load vocabulary %}
+{% load wallet %}
+
+
+{% block content %}
+<tr>
+  <td>
+    <h2 style="text-align:left"><b>{{site_name}} Transaction</b></h2>
+    <!--strong>
+      <h4>The Safer Way To Trade</h4>
+    </strong-->
+
+
+
+    <p>
+      This is to notify you that {% if transaction.trx_form|startswith_vowel %} an {% else %} a {% endif %}
+      {{transaction.trx_form|upper}} transaction just occured on your {{site_name}} account. <br>You should always
+      verify the legitimacy of any transaction by checking your {{site_name}}
+      <a href="https://www.mypayswift.com{% url 'transactions' %}">Dashboard</a> or visit the <a
+        href="https://www.mypayswift.com{% url 'transaction-detail' transaction.pk  %}"> transaction detail</a>.
+
+
+    </p>
+    <p>
+
+    </p>
+
+    <p>
+      if you did not authorize this activity please <a href="https://www.mypayswift.com{% url 'settings' %}">change your password</a> and contact
+      <a href="https://www.mypayswift.com{% url 'support' %}">support</a> immediately.
+    </p>
+
+    <p>
+      Below are the details of this transaction ;
+    </p>
+
+
+
+    <table style="background-color: #00A9A41A; margin-bottom:30px;padding:10px">
+      <tbody style="color: #000000;">
+        <tr>
+          <td>Transaction Type</td>
+          <td>{{transaction.trx_type|upper}}</td>
+        </tr>
+         <hr>
+         <tr>
+          <td>Transaction Form</td>
+          <td>{{transaction.trx_form|upper}}</td>
+        </tr>
+         <hr>
+        <tr>
+          <td>Transaction Amount</td>
+          <td>{{currency_sign}}{{transaction.amount|intcomma}}</td>
+        </tr>
+        <hr>
+        <tr>
+          <td>Wallet</td>
+          <td>{{transaction.wallet|upper}}</td>
+        </tr>
+        <hr>
+        <tr>
+          <td>Naration</td>
+          <td>{{transaction.description}}</td>
+        </tr>
+        <hr>
+        <tr>
+          <td>Transaction REF</td>
+          <td>{{transaction.trx_id}}</td>
+        </tr>
+        <hr>
+
+        <tr>
+          <td>Available {{transaction.wallet|capitalize}} Balance</td>
+          <td>{{currency_sign}}{{transaction.user|get_available_wallet_balance:transaction.wallet}}</td>
+        </tr>
+        <hr>
+        <tr>
+          <td>Total {{transaction.wallet|capitalize}} Balance</td>
+          <td>{{currency_sign}}{{transaction.user|get_total_wallet_balance:transaction.wallet}}</td>
+        </tr>
+        <hr>
+
+        <tr>
+          <td>Date and Time</td>
+          <td>{{transaction.date|date:"j b, Y"}} {{transaction.date.time}}</td>
+        </tr>
+
+
+
+      </tbody>
+
+    </table>
+
+
+    <br>
+    <i>This is an automatically generated message, it does not accept replies.</i>
+
+
+    {% autoescape off %}
+    {{text}}
+    {% endautoescape %}
+
+
+
+
+  </td>
+</tr>
+{% endblock %}

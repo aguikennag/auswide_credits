@@ -1,0 +1,59 @@
+{% extends 'dashboard-base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<div class="user-content">
+    <div class="user-panel">
+        <h2 class="user-panel-title">Account Settings</h2>
+      
+        <ul class="nav nav-tabs nav-tabs-line" role="tablist">
+            <li class="nav-item">
+                <a class="nav-link active" id="personal-data-tab" data-toggle="tab" href="#transaction-pin">
+                    Transaction Pin
+                </a>
+            </li>
+            <!--li class="nav-item">
+                <a class="nav-link" id="wallet-address-tab" data-toggle="tab" href="#wallet-address">Wallet Address</a>
+            </li-->
+            <!--li class="nav-item">
+                <a class="nav-link"  id="verify-email-tab" data-toggle="tab" href="#verify-email">Verify Email</a>
+            </li-->
+        </ul><!-- .nav-tabs-line -->
+        <div class="tab-content" id="myTabContent">
+            <div class="tab-pane fade show active" id="transaction-pin">
+                <form action="{% url 'change-transaction-pin' %}" method="POST">
+                    {% csrf_token %}
+                    {{change_pin_form|crispy}}
+                    <div class="gaps-1x"></div><!-- 10px gap -->
+                    <div class="d-sm-flex justify-content-between align-items-center">
+                        <button class="btn btn-primary">Update</button>
+                      
+                    </div>
+                </form><!-- form -->
+            </div><!-- .tab-pane -->
+            <div class="tab-pane fade" id="wallet-address">
+              
+            
+            </div><!-- .tab-pane -->
+            <div class="tab-pane fade" id="verify-email">
+
+        
+            </div><!-- .tab-pane -->
+        </div><!-- .tab-content -->
+    </div><!-- .user-panel -->
+</div><!-- .user-content -->
+{% endblock %}
+
+{% block js %}
+<script>
+    $(document).ready(function () {
+        var tab = "{{tab}}"
+        $("#" + tab + "-tab").trigger("click")
+    })
+
+    $("#verify-email-click").click(function () {
+        $("#verify-email-tab").trigger("click")
+    })
+</script>
+{% endblock %}

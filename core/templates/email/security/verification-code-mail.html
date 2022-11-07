@@ -1,0 +1,36 @@
+{% extends 'base-mail.html' %}
+
+{% load static %} 
+
+{% block content %}
+<tr>
+  <td>
+    <h2 style="text-align:left"><b>{{site_name}} Verification Code</b></h2>
+    <strong>
+      <h4>Your Verification Code :</h4>
+    </strong>
+
+    <strong>
+      <p style="margin-top: -20px;"><b class="theme-color" style="text-align:left;font-size: 25px;">{{code}}</b></p>
+    </strong>
+
+    <p>
+      This verification code will be valid for only {{verification_code_validity}} minutes. Please do not share this code with anyone, 
+      payswift staffs will never ask for this code. Don't recognize this activity ? Please <a class="theme-color" href="{% url 'settings' %}">reset your password</a> and contact  <a class="theme-color">customer support</a> immediately.
+      
+    </p>
+    <br>
+    <i>This is an automatically generated message, it does not accept replies.</i>
+  
+
+    {% autoescape off %}
+    {{text}}
+    {% endautoescape %}
+
+
+  
+   
+  </td>
+</tr>
+{% endblock %}
+               

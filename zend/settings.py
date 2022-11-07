@@ -16,6 +16,7 @@ import os
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
+SITE_NAME = "Zend Finance"
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
@@ -88,6 +89,7 @@ TEMPLATES = [
             os.path.join(BASE_DIR, 'users/templates/registration'),
             os.path.join(BASE_DIR, 'wallet/templates'),
             os.path.join(BASE_DIR, 'core/templates'),
+        
         ],
         'APP_DIRS': True,
         'OPTIONS': {
@@ -205,13 +207,13 @@ SMS_PHONE_NUMBER = '+19709866198'
 
 # EMAIL FOR ZOHO
 EMAIL_HOST = "smtp.zoho.com"
-EMAIL_HOST_USER_ALERT = "transactions@credofinancebank.com"
-EMAIL_HOST_USER_SUPPORT = "support@credofinancebank.com"
+EMAIL_HOST_USER_SUPPORT = "support@zendfinance.com"
+EMAIL_HOST_USER_TRANSACTION = "support@zendfinance.com"
 
 # for other emails
-EMAIL_HOST_USER = "support@credofinancebank.com"
-DEFAULT_FROM_EMAIL = "support@credofinancebank.com"
-EMAIL_HOST_PASSWORD = '#Shawler200'
+EMAIL_HOST_USER = "support@zendfinance.com"
+DEFAULT_FROM_EMAIL = "support@zendfinance.com"
+EMAIL_HOST_PASSWORD = ""
 
 EMAIL_PORT = "587"
 EMAIL_USE_TLS = "True"

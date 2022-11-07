@@ -1,0 +1,71 @@
+{% extends 'dashboard-base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<div class="user-content">
+    <div class="user-panel">
+        <h3 class="user-panel-title">Complete Transaction</h3>
+
+
+
+        <div class="tab-pane fade show active" id="internal">
+            <form action="" method="POST" id="enter-pin-form">
+                {% csrf_token %}
+               {{form|crispy}}
+               <div class="d-sm-flex justify-content-between align-items-center">
+                <button id="submit-button" class="btn-md btn-primary">Complete Transaction</button>
+            </div>
+            </form>
+
+        </div><!-- .tab-pane -->
+
+
+
+
+    </div><!-- .tab-content -->
+</div><!-- .user-content -->
+{% endblock %}
+
+{% block js %}
+<script>
+   
+$(document).on('submit','#enter-pin-form',function(event){
+    event.preventDefault();
+    btnText = $("#submit-button").html()
+    $("#submit-button").prop('disabled',true)
+    $("#submit-button").html("Processing...")
+    var form  = $(this);
+    
+    $.ajax({
+        type:"POST",
+        url : form.attr('action'),
+        data : form.serialize(),
+        dataType : 'json',
+        success : function(data){
+         if(data.success){
+            $("#submit-button").removeClass("btn-primary")
+            $("#submit-button").addClass("btn-success")
+            $("#submit-button").html('Success!')
+            $("#modal-message").html(data.success)
+            $("#pop-modal").modal("show")
+            setTimeout(()=>{
+               window.location.url = data.success_url
+            },4000)
+         }
+
+       
+         else if(data.error){
+            $("#submit-button").html(btnText)
+            $("#submit-button").prop("disabled",false)
+            $("#modal-message").html(data.error)
+            $("#pop-modal").modal("show")
+        
+         }
+        }
+    });
+    return false;
+});
+
+</script>
+{% endblock %}

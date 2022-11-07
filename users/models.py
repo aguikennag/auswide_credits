@@ -31,7 +31,7 @@ class User(AbstractUser):
 
     ACCOUNT_TYPE = (('Savings', 'SAVINGS'), ('Current', 'CURRENT'))
 
-    name = models.CharField(max_length=60, blank=True, null=False)
+    
     email_verified = models.BooleanField(default=False, blank=True)
     phone_number = models.CharField(max_length=30, blank=False, null=False)
     phone_number_verified = models.BooleanField(default=False, blank=True)
@@ -79,32 +79,7 @@ class User(AbstractUser):
     def save(self, *args, **kwargs):
         if not self.account_number:
             self.account_number = self.get_account_number()
-
-        if self.is_blocked:
-
-            # email user
-
-            name = self.name or self.username
-            mail = Email(send_type='support')
-            reason = self.block_reason or ''
-            ctx = {'name': name, 'reason': reason}
-            mail.send_html_email(
-                [self.email], 'Account Blocked', 'account-blocked-email.html', ctx=ctx)
-
-        if self.is_activated:
-            if not self.date_activated:
-                # first time actiated
-                self.date_activated = timezone.now()
-                name = self.name or self.username
-                mail = Email(send_type='support')
-                reason = self.block_reason or ''
-                ctx = {'name': name, 'account_number': self.account_number}
-                mail.send_html_email(
-                    [self.email], 'Account Activated', 'account-activated-email.html', ctx=ctx)
-
-            else:
-                # has been activated before
-                pass
+        
         super(User, self).save(*args, **kwargs)
 
 

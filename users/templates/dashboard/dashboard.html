@@ -58,28 +58,45 @@
 
             </div>
             {% else %}
-            <table class="table">
+            <table class="data-table tranx-table">
                 <thead>
+                   
                     <tr>
-                        <th>TRX REF.</th>
-                        <th>Amount</th>
-                        <th>TRX Type</th>
-                        <th>Status</th>
-                        <th>Desc.</th>
-                        <th>Date</th>
+                        <!--th>TRX REF.</th-->
+                        <th class="activity-time">
+                            <span>Date</span>
+                        </th>
+                        <th class="activity-time">
+                            <span>Amount</span>
+                        </th>
+                       
+                        <th class="activity-time">
+                            <span>Action</span>
+                        </th>
+                       
                     </tr>
                 </thead>
                 <tbody>
+
                     {% for tx in recent_transactions %}
                     <tr>
-                        <td>{{tx.transaction_id}}</td>
-                        <td>${{tx.amount}}</td>
-                        <td>{{tx.transaction_type}}</td>
-                        <td>{{tx.status}}</td>
-                        <td>{{tx.description}}</td>
-                        <td><span>{{tx.date}}</span></td>
-
+                     
+                        <td class="tranx-no"><span>
+                            <c style="font-size: 11px;">{{tx.description}}</c>
+                        </span>{{tx.date|date:"d M, Y  T:H"}}</td>
+                        <td class="tranx-token"><span>
+                            {% if tx.transaction_type == "debit" %}
+                            -{{user.wallet.currency}}{{tx.amount}}
+                            {% else %}
+                            +{{user.wallet.currency}}{{tx.amount}}
+                            {% endif %}
+                        </span></td>
+                       
+                        <td class="tranx-action">
+                            <a href="#" data-toggle="modal" data-target="#tranxApproved"><em class="ti ti-more-alt"></em></a>
+                        </td>
                     </tr>
+                 
                     {% endfor %}
 
                 </tbody>

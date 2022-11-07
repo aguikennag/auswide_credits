@@ -145,7 +145,7 @@
                         <li><a href="{% url 'transaction-history' %}"><em
                                     class="ti ti-control-shuffle"></em>Transactions</a></li>
                         <li><a href="{% url 'profile' %}"><em class="ti ti-user"></em>Account</a></li>
-
+                        <li><a href="{% url 'settings' %}"><em class="ti ti-pie-chart"></em>Settings</a></li>
 
                     </ul><!-- .user-icon-nav -->
                     <div class="user-sidebar-sap"></div><!-- .user-sidebar-sap -->
@@ -191,6 +191,18 @@
     </div>
     {% endfor %}
     {% endif %}
+
+    <!-- modal -->
+    <!-- Modal @s -->
+    <div class="modal fade" id="pop-modal">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <a href="#" hidden class="modal-close" data-dismiss="modal" aria-label="Close"><em class="ti ti-close"></em></a>
+                <div class="modal-body p-md-4 p-lg-5" id="modal-message">
+                </div>
+            </div>
+        </div>
+    </div><!-- .modal @e -->
 
 
     <div class="footer-bar">

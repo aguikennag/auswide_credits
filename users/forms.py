@@ -122,3 +122,30 @@ class LoanForm(forms.Form) :
 
 
 
+class ChangePinForm(forms.Form) :
+    old_pin = forms.CharField(required = True,help_text="Enter Your Old Pin")
+    new_pin = forms.CharField(required = True,help_text="Enter Your New Pin(4 digits)")
+
+    def __init__(self,user  = None,*args,**kwargs) :
+        super(ChangePinForm,self).__init__(*args,**kwargs)
+        self.user = user 
+
+
+    def clean_old_pin(self) :
+        o_pin = self.cleaned_data['old_pin']
+        if o_pin !=  self.user.wallet.transaction_pin :
+            self.o_pin = o_pin
+            raise forms.ValidationError("Pin Mismatch !,Your old pin  does not match please contact support")
+        return  o_pin 
+
+    def clean_new_pin(self) :
+        new_pin = self.cleaned_data['new_pin']
+       
+        if len(new_pin) != 4 :
+            raise forms.ValidationError("Pin Must be exactly 4 digits")
+        #if self.o_pin == new_pin :
+            #raise forms.ValidationError("Sorry !,your old pin corresponds to your new pin") 
+        return  new_pin     
+
+
+
