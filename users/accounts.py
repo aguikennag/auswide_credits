@@ -5,7 +5,7 @@ from django.views.generic.base  import RedirectView
 from django.http import HttpResponseRedirect
 from django.contrib.auth import authenticate,login
 from wallet.models import Wallet
-from core.views import Email
+
 from .models import  User,Dashboard
 from .forms import UserCreateForm,PhoneNumberForm
 

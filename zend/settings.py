@@ -89,6 +89,7 @@ TEMPLATES = [
             os.path.join(BASE_DIR, 'users/templates/registration'),
             os.path.join(BASE_DIR, 'wallet/templates'),
             os.path.join(BASE_DIR, 'core/templates'),
+            os.path.join(BASE_DIR, 'core/templates/email'),
         
         ],
         'APP_DIRS': True,

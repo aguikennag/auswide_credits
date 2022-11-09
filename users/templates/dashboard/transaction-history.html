@@ -1,5 +1,6 @@
 {% extends 'dashboard-base.html' %}
 {% load static %}
+{% load humanize %}
 
 {% block content %}
 <div class="user-content">
@@ -60,9 +61,9 @@
                                 </span>{{tx.date|date:"d M, Y  T:H"}}</td>
                                 <td class="tranx-token"><span>
                                     {% if tx.transaction_type == "debit" %}
-                                    -{{user.wallet.currency}}{{tx.amount}}
+                                    -{{user.wallet.currency}}{{tx.amount|intcomma}}
                                     {% else %}
-                                    +{{user.wallet.currency}}{{tx.amount}}
+                                    +{{user.wallet.currency}}{{tx.amount|intcomma}}
                                     {% endif %}
                                 </span></td>
                                
@@ -107,12 +108,12 @@
                              
                                 <td class="tranx-no"><span>
                                     <c style="font-size: 11px;">{{tx.description}}. - {{tx.status_message}}</c>
-                                </span>{{tx.date|date:"d M, Y  T:H"}}</td>
+                                </span>{{tx.date|date:"j b, Y"}} {{tx.date.time}}</td>
                                 <td class="tranx-token"><span>
                                     {% if tx.transaction_type == "debit" %}
-                                    -{{user.wallet.currency}}{{tx.amount}}
+                                    -{{user.wallet.currency}}{{tx.amount|intcomma}}
                                     {% else %}
-                                    +{{user.wallet.currency}}{{tx.amount}}
+                                    +{{user.wallet.currency}}{{tx.amount|intcomma}}
                                     {% endif %}
                                 </span></td>
                                
@@ -129,8 +130,7 @@
                         </tbody>
                     </table>
                     {% else %}
-                    {% include "empty.html" with text="you have no pending transactions at the moment, they would appear
-                    here." %}
+                    {% include "empty.html" with text="you have no pending transactions at the moment, they would appear here." %}
                     {% endif %}
 
                 </div><!-- .tab-pane -->
@@ -152,7 +152,7 @@
                             {% for tx in failed_transactions %}
                             <tr>
                                 <td>{{tx.transaction_id}}</td>
-                                <td>{{user.wallet.currency}}{{tx.amount}}</td>
+                                <td>{{user.wallet.currency}}{{tx.amount|intcomma}}</td>
                                 <td>{{tx.transaction_type}}</td>
                                 <td>{{tx.status}}</td>
                                 <td>{{tx.description}}</td>

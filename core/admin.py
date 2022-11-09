@@ -5,7 +5,6 @@ from django.shortcuts import render
 from django.http import HttpResponseRedirect
 
 from django.contrib.auth.mixins import LoginRequiredMixin,UserPassesTestMixin
-from .views import Email
 from .models import *
 from .forms import SendMailForm
 

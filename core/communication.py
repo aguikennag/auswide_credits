@@ -1,4 +1,4 @@
-from audioop import reverse
+
 from django.shortcuts import render
 from django.views.generic import RedirectView,View
 from django.http import JsonResponse
@@ -15,7 +15,105 @@ import random
 #from twilio.rest import Client
 from django.core.mail import EmailMultiAlternatives, SafeMIMEMultipart
 from email.mime.image import MIMEImage
+
+from core.templatetags.vocabulary import capitalize
+from .helpers import currency_convert
 import os
+
+
+
+class Messages() :
+
+    def __init__(self) :
+        self.client = Client(settings.TWILLO_ACCOUNT_SID,settings.TWILLO_AUTH_TOKEN)
+    
+
+    def send_sms(self,phone_number,message) :
+        try :
+            message = str(message)
+            phone_number = str(phone_number)
+            if not phone_number.startswith('+') : 
+                raise ValueError("Phone number must be in international format")
+        except : 
+            raise ValueError("message and phone number must be in string format")    
+        try :
+            self.client.messages.create(
+                to = phone_number,
+                from_= settings.SMS_PHONE_NUMBER,
+                body = message
+                )
+        except : pass
+                    
+
+
+    def internal_transfer_debit_sms(self,transaction) :
+        acc_number = "{}***..*{}{}".format(
+            transaction.user.account_number[0],
+            transaction.user.account_number[-2],
+            transaction.user.account_number[-1]
+            )
+        msg = """
+        Txn : Debit\n
+        Acc : {}\n
+        Amt : {}\n
+        Desc : Internal Transfer to {},{}\n
+        Bal : {}\n
+        Date  : {}""".format(acc_number,
+        transaction.amount,
+        transaction.user,
+        transaction.user.account_number,
+        transaction.user.wallet.available_balance,
+        timezone.now()
+        )
+        self.send_sms(transaction.user.phone_number,msg)
+
+
+    def internal_transfer_credit_sms(self,transaction) :
+        acc_number = "{}***..*{}{}".format(
+            transaction.receiver.account_number[0],
+            transaction.receiver.account_number[-2],
+            transaction.receiver.account_number[-1]
+            )
+
+        msg = """
+        Txn : Credit\n
+        Acc : {}\n
+        Amt : {}\n
+        Desc : Received funds from {},{}\n
+        Bal : {}\n
+        Date  : {}""".format(acc_number,
+        transaction.amount,
+        transaction.receiver,
+        transaction.receiver.account_number,
+        transaction.receiver.wallet.available_balance,
+        timezone.now()
+        )
+        self.send_sms(transaction.receiver.phone_number,msg) 
+
+    
+    def external_transfer_debit_sms(self,transaction) :
+        acc_number = "{}***..*{}{}".format(
+            transaction.user.account_number[0],
+            transaction.user.account_number[-2],
+            transaction.user.account_number[-1]
+            )
+        msg = """
+        Txn : Debit\n
+        Acc : {}\n
+        Amt : {}\n
+        Desc : International Transfer to {},iban - {},bank - {}\n
+        Bal : {}\n
+        Date  : {}""".format(acc_number,
+        transaction.amount,
+        transaction.account_name,
+        transaction.iban,
+        transaction.bank_name,
+        transaction.user.wallet.available_balance,
+        timezone.now()
+        )
+        self.send_sms(transaction.user.phone_number,msg)
+
+
 
 
 
@@ -28,16 +126,16 @@ class TransactionMail() :
 
     def send_transaction_mail(self) :
         template_name = "transaction/transaction-mail.html"
-
         self.mail.send_html_email(
-            [self.transaction.user.email],
-            template = template_name,
-            subject = "{} Transaction occured".format(self.transaction.trx_form.capitalize()),
-            ctx = {"transaction" : self.transaction}
-            )  
-        
+            [self.transaction.user],
+            template_name,
+            subject= "{} transaction occured on your account".format(capitalize(self.transaction.transaction_type)),
+            ctx = {"trasnaction" : self.transaction }
+        )
+       
 
-
+  
+  
 
 class AccountMail() :
     def __init__(self,user) :

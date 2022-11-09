@@ -1,9 +1,8 @@
 from email.policy import default
+from msilib.schema import Property
 from django.db import models
 from django.contrib.auth.models import AbstractUser
 from django.utils.text import slugify
-from django.utils import timezone
-from core.views import Messages, Email
 import random
 
 
@@ -52,6 +51,15 @@ class User(AbstractUser):
     # admin controls account from here
     is_blocked = models.BooleanField(default=False)
     block_reason = models.TextField(blank=True, null=True)
+
+    @property
+    def account_number_hidden(self) :
+        return  "{}***..*{}{}".format(
+        self.account_number[0],
+        self.account_number[-2],
+        self.account_number[-1]
+        )
+
 
     @property
     def has_transaction(self) :

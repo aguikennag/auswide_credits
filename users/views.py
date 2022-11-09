@@ -6,7 +6,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.http import HttpResponseRedirect
 from django.urls import reverse
 from .forms import PhoneNumberForm, EmailForm
-from core.views import ValidationCode, Messages, Email
+from core.views import ValidationCode
 
 
 class VerifyEmail(LoginRequiredMixin, View):

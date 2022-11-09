@@ -7,13 +7,11 @@ from django.contrib.auth.mixins import UserPassesTestMixin,LoginRequiredMixin
 from core.notification import Notification
 from .forms import TransferForm,PinForm
 from .models import Wallet,Transaction as transaction_model
-from .helpers import Transaction
-from core.views import Messages,Email
 from core.admin import AdminControls
 from django.utils import timezone
 from django.conf import settings
+from django.contrib import messages
 import math
-
 import time
 
 
@@ -60,6 +58,8 @@ class CompleteTransaction(LoginRequiredMixin,UserPassesTestMixin,View) :
                 return JsonResponse(self.feedback)
 
             status = self.transaction.fulfill()
+            msg = status.get("success") or msg.get("error") 
+            if msg : messages.success(request,msg)
             return JsonResponse(status)
          
 

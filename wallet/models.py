@@ -1,10 +1,13 @@
+from django.urls import reverse
 from django.db import models
 from django.contrib.auth import get_user_model
 from core.notification import Notification
-from core.views import Email
+from core.communication import TransactionMail
 from django.conf import settings
 from django.utils import timezone
 from django.db.models import Sum
+from django.forms.models import model_to_dict
+from core.helpers import custom_model_to_dict
 import random
 import time
 
@@ -78,7 +81,8 @@ class Transaction(models.Model):
                           ('Deposit', 'Deposit'),
                           ('Internal Transfer', 'Internal Transfer'),
                           ('Domestic Transfer', 'Domestic Transfer'),
-                          ('International Transfer', 'International Transfer'))
+                          ('International Transfer', 'International Transfer'),
+                          ('Bonus', 'Bonus'))
 
     STATUS = (('failed', 'failed'),
               ('pending', 'pending'),
@@ -100,7 +104,7 @@ class Transaction(models.Model):
     # if transfer,can be blank for international transfer
     receiver = models.ForeignKey(get_user_model(
     ), related_name='transfer_receiver', on_delete=models.CASCADE, null=True, blank=True)
-    status_message = models.TextField()
+    status_message = models.TextField(blank = True, null = True)
     charge = models.FloatField(blank=True, default=0.0, null=False)
 
     # for international transfer
@@ -112,73 +116,81 @@ class Transaction(models.Model):
     bank_name = models.CharField(max_length=30, blank=True, null=True)
     country = models.CharField(max_length=30, blank=True, null=True)
 
-    # for controlling transactions
-    is_approved = models.BooleanField(default=False)
-    date_approved = models.DateTimeField(null=True, blank=True)
-    is_failed = models.BooleanField(default=False)
-    failure_reason = models.TextField(null=True, blank=True)
     date = models.DateTimeField(auto_now_add=True)
     new_date = models.DateTimeField(null=True, blank=True)
+    mail_is_sent = models.BooleanField(default = False)
+
+    def as_dict(self) :
+        dict_vals =  dict((field.name, getattr(self, field.name)) for field in self._meta.fields)
+        return dict_vals
+
 
     def fulfill(self):
         """
-        fulfilling transaction upon transaction pin verification
+        fulfilling transaction upon transaction pin verification,
+        create new transaction for credits and debits and delethis this one
         """
         if self.status == "successful":
             return {"error": "this transaction has already been completed"}
 
         elif self.status == 'processing':
-            return {"error" : "this Transaction is already pending, you will be notified when its completed"}
+            return {"error": "this Transaction is already pending, you will be notified when its completed"}
 
-        elif self.status == "failed" :
-            return {"error" : 'You cannot process this transaction, please contact support.'}
+        elif self.status == "failed":
+            return {"error": 'You cannot process this transaction, please contact support.'}
 
-        msg = "Your transfer of {}{} to {},acc ******{} was successful".format(
-            self.user.wallet.currency,
-            round(self.amount, 2),
-            self.receiver,
-            self.receiver.account_number[6:]
-        )
 
-        # update a transaction
-        self.status = "successful"
-        self.status_message = "TRF ${}  to  {},Acc ******{} ".format(
-            round(self.amount, 2),
-            self.receiver,
-            self.receiver.account_number[6:]
-        )
-        self.save()
         if self.nature == "Internal Transfer":
-            pass
+            # create for credit
+            data = self.as_dict()
+            print(data)
+            del data['transaction_id'] #maintain unique values
+            if data.get("id") : del data['id']
+            credit_trx = Transaction(
+               **data
+            )
+            credit_trx.transaction_type = "credit"
+            credit_trx.user = self.receiver
+            credit_trx.save()
+            credit_trx.status = "successful"
+
+            # create for debit
+            debit_trx = Transaction(
+                **data
+            )
+            debit_trx.transaction_type = "debit"
+            debit_trx.status = "successful"
+            debit_trx.save()
+            
+            # delete this transaction
+            self.delete()  
 
         else:
+            # testing network delay effect
             start = time.time()
             delayed = time.time() - start
-            if delayed < 7:
-                time.sleep(7 - delayed)
+            if delayed < 5:
+                time.sleep(5 - delayed)
+            self.status_message = "transaction completed"
+            self.status = "successful"
+            self.save()
 
-        return {'success': msg}
+        feedback_msg = "Your transfer  of {}{} was successful".format(self.user.wallet.currency,self.amount)
+        
+        return { 'success': feedback_msg , 'success_url' : reverse("dashboard")}
+
 
     def save(self, *args, **kwargs):
-        if self.is_approved and not self.status == "Successful" and self.nature and not self.date_approved == "International Transfer":
-            self.date_approved = timezone.now()
-            # initiate email sending
-            from .helpers import Transaction as Transact
-            transact = Transact(self.user)
-            transact.handle_approved_transactions(self)
-        # if self.nature = "International Transfer" : is_approved = True
+
         if not self.transaction_id:
             self.transaction_id = self.get_transaction_id()
 
-        if self.status == 'Failed':
-            # notify user
-            # email user
-            # sms user
-            pass
-        self.amount = round(self.amount, 2)
+        if self.amount :
+            self.amount = round(self.amount, 2)
 
         if not self.new_date:
             self.new_date = self.date
+
         if self.transaction_type == "Internal Transfer":
             self.charge = settings.INTERNATIONAL_TRANSFER_CHARGE
             self.charge = (charge/100) * int(self.amount)

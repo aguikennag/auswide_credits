@@ -1,10 +1,8 @@
 from django.shortcuts import render
 from django.views.generic import TemplateView,View
 from django.http import JsonResponse
-from core.views import Email
 from django.template.loader import render_to_string
 from .forms import ContactForm
-from core.views import Messages
 from django.core.mail import EmailMessage,send_mail
 
 
