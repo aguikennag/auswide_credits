@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+      <!-- ERROR PAGE -->
+      <section class="section bg-home " style="background-image: url('{% static 'asset_alit/images/home/500.jpg' %}');">
+        <div class="bg-overlay"></div>
+        <div class="home-center pt-4">
+            <div class="home-desc-center">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12 text-center error-page">
+                            <a href="index-2.html">
+                                <img src="images/logo-white.png" alt="missing_logo" height="20">
+                            </a>
+                            <h4 class="mt-3 text-white">Error 403:Not Authorized</h4>
+                            <h1 class="text-white">403!</h1>
+                            <h4 class="text-white">
+                                Your {{site_name}} account has been currently blocked. 
+                                {% if request.user.block_reason %} Reason :  {% endif %}
+                                <b>{{request.user.block_reason}}</b>
+                            </h4>
+                            <p class="text-white mt-3">
+                                Please contact support using the live chat option or email support@zendfinance.com with this error message.
+                            </p>
+                            <a href="{% url 'index' %}" class="btn btn-custom mt-4">Go Back Home</a>
+                        </div>
+                    </div>
+                </div> <!-- end container -->
+            </div>
+        </div>
+    </section>
+    <!-- ERROR PAGE -->
+{% endblock %}

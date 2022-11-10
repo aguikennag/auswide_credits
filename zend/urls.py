@@ -8,10 +8,10 @@ from django.conf.urls.static import static
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('accounts/', include('django.contrib.auth.urls')),
-    path('', include('users.urls')),
+    path('accounts/', include('users.urls')),
     path("", include("company.urls")),
     path('', include('core.urls')),
-    path('', include('wallet.urls')),
+    path('accounts/', include('wallet.urls')),
 ]
 
 if settings.DEBUG :

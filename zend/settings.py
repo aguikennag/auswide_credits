@@ -63,6 +63,7 @@ INSTALLED_APPS = [
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 MIDDLEWARE = [
+   
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -71,6 +72,7 @@ MIDDLEWARE = [
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
+     'zend.middleware.AccountManagementMiddleware',
     'django_auto_logout.middleware.auto_logout',
     # language translation
     # 'django.middleware.locale.LocalMiddleware',
@@ -192,9 +194,7 @@ STATIC_URL = '/static/'
 
 # TWILLO
 TWILLO_ACCOUNT_SID = 'AC213bba1c05225bedc1ebccccd8dbd9e0'
-
 TWILLO_AUTH_TOKEN = '8512ae91f275f2bf0c8bf864e61692f3'
-
 SMS_PHONE_NUMBER = '+19709866198'
 
 # EMAIL FOR GMAIL
@@ -209,7 +209,7 @@ SMS_PHONE_NUMBER = '+19709866198'
 # EMAIL FOR ZOHO
 EMAIL_HOST = "smtp.zoho.com"
 EMAIL_HOST_USER_SUPPORT = "support@zendfinance.com"
-EMAIL_HOST_USER_TRANSACTION = "support@zendfinance.com"
+EMAIL_HOST_USER_TRANSACTION = "transaction@zendfinance.com"
 
 # for other emails
 EMAIL_HOST_USER = "support@zendfinance.com"
