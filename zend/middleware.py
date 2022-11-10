@@ -14,7 +14,7 @@ class AccountManagementMiddleware(object):
         restricted_paths = ['/accounts/']
         if request.user.is_authenticated:
             if request.user.is_blocked and any(request.path.startswith(base_path) for base_path in restricted_paths) :
-                template_name = "custom-response.html"
+                template_name = "account-blocked.html"
                 return render(request, template_name, locals())
 
         response = self.get_response(request)

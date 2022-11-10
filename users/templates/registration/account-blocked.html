@@ -16,9 +16,11 @@
                             <h4 class="mt-3 text-white">Error 403:Not Authorized</h4>
                             <h1 class="text-white">403!</h1>
                             <h4 class="text-white">
-                                Your {{site_name}} account has been currently blocked. 
-                                {% if request.user.block_reason %} Reason :  {% endif %}
-                                <b>{{request.user.block_reason}}</b>
+                                
+                                {% if request.user.block_reason %} 
+                                    <b>{{request.user.block_reason}}</b>
+                                {% endif %}
+                               
                             </h4>
                             <p class="text-white mt-3">
                                 Please contact support using the live chat option or email support@zendfinance.com with this error message.

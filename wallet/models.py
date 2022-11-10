@@ -149,10 +149,11 @@ class Transaction(models.Model):
             credit_trx = Transaction(
                **data
             )
+            credit_trx.status = "successful"
             credit_trx.transaction_type = "credit"
             credit_trx.user = self.receiver
             credit_trx.save()
-            credit_trx.status = "successful"
+           
 
             # create for debit
             debit_trx = Transaction(
