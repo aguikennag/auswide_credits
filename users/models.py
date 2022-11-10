@@ -1,5 +1,3 @@
-from email.policy import default
-from msilib.schema import Property
 from django.db import models
 from django.contrib.auth.models import AbstractUser
 from django.utils.text import slugify
