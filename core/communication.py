@@ -255,6 +255,7 @@ class Email() :
             email.send()
         except : 
             error = "mail was not sent successfully"
+            print(error)
         self.auth_connecion.close()
         
         return error

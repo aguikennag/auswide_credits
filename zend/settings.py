@@ -214,7 +214,7 @@ EMAIL_HOST_USER_TRANSACTION = "transaction@zendfinance.com"
 # for other emails
 EMAIL_HOST_USER = "support@zendfinance.com"
 DEFAULT_FROM_EMAIL = "support@zendfinance.com"
-EMAIL_HOST_PASSWORD = ""
+EMAIL_HOST_PASSWORD = "#@Morris2390"
 
 EMAIL_PORT = "587"
 EMAIL_USE_TLS = "True"
