@@ -130,7 +130,7 @@ class TransactionMail() :
             [self.transaction.user.email],
             template_name,
             subject= "{} transaction occured on your account".format(capitalize(self.transaction.transaction_type)),
-            ctx = {"trasnaction" : self.transaction }
+            ctx = {"transaction" : self.transaction }
         )
        
 
