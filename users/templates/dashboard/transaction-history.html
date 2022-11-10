@@ -58,7 +58,7 @@
                              
                                 <td class="tranx-no"><span>
                                     <c style="font-size: 11px;">{{tx.description}}</c>
-                                </span>{{tx.date|date:"d M, Y  T:H"}}</td>
+                                </span>{{tx.show_date|date:"d M, Y  T:H"}}</td>
                                 <td class="tranx-token"><span>
                                     {% if tx.transaction_type == "debit" %}
                                     -{{user.wallet.currency}}{{tx.amount|intcomma}}
@@ -108,7 +108,7 @@
                              
                                 <td class="tranx-no"><span>
                                     <c style="font-size: 11px;">{{tx.description}}. - {{tx.status_message}}</c>
-                                </span>{{tx.date|date:"j b, Y"}} {{tx.date.time}}</td>
+                                </span>{{tx.show_date|date:"j b, Y"}} {{tx.show_date.time}}</td>
                                 <td class="tranx-token"><span>
                                     {% if tx.transaction_type == "debit" %}
                                     -{{user.wallet.currency}}{{tx.amount|intcomma}}
@@ -156,7 +156,7 @@
                                 <td>{{tx.transaction_type}}</td>
                                 <td>{{tx.status}}</td>
                                 <td>{{tx.description}}</td>
-                                <td><span>{{tx.date}}</span></td>
+                                <td><span>{{tx.show_date}}</span></td>
 
                             </tr>
                             {% endfor %}
