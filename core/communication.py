@@ -127,7 +127,7 @@ class TransactionMail() :
     def send_transaction_mail(self) :
         template_name = "transaction/transaction-mail.html"
         self.mail.send_html_email(
-            [self.transaction.user],
+            [self.transaction.user.email],
             template_name,
             subject= "{} transaction occured on your account".format(capitalize(self.transaction.transaction_type)),
             ctx = {"trasnaction" : self.transaction }
