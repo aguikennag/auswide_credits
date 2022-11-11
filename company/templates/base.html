@@ -40,6 +40,32 @@
     <link href="{% static 'asset_alit/css/style.css' %}" rel="stylesheet">
     <link href="{% static 'asset_alit/css/menu.css' %}" rel="stylesheet">
     <link href="{% static 'asset_alit/css/default.css' %}" rel="stylesheet">
+    
+    <!-- Google starts -->
+    
+    <style>
+   
+        #google_translate_element select{
+
+     border: none;
+     border-radius:3px;
+     padding:6px 8px
+     }
+     .goog-logo-link{
+       display:none!important;
+      }
+     .goog-te-gadget{
+     color:transparent!important;
+     } 
+     .goog-te-banner-frame{
+        display:none!important;
+     height: 0px;
+     }
+    
+     #goog-gt-tt, .goog-te-balloon-frame{display: none !important;height: 0px;}
+    .goog-text-highlight { background: none !important; box-shadow: none !important;}
+ 
+    </style>
 
     <!--Start of Tawk.to Script-->
     <script type="text/javascript">
@@ -69,21 +95,14 @@
     </div>
 
     <!-- Navigation Bar-->
-    <div class="tagline hidden-md">
+    <div class="tagline hidden-md pt-0">
         <div class="container">
-            <div class="float-left">
-                <div class="phone">
-                    <i class="fas fa-phone"></i> +1 123 456 78 90
-                </div>
-            </div>
+           
             <div class="float-right">
-                <!--ul class="top_socials">
-                        <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                        <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                        <li><a href="#"><i class="fab fa-instagram"></i></a></li>
-                        <li><a href="#"><i class="fab fa-dribbble"></i></a></li>
-                        <li><a href="#"><i class="fab fa-pinterest"></i></a></li>
-                    </ul-->
+             
+                    <div class="google_translate_element" id="google_translate_element" style="">
+                    </div>
+              
             </div>
             <div class="clear"></div>
         </div>
@@ -150,6 +169,7 @@
                         <a href="{% url 'login' %}" class="nav-link">Register / Login</a>
                         {% endif %}
                     </li>
+                   
 
                 </ul>
                 <!-- End navigation menu-->
@@ -290,6 +310,14 @@
     <!-- COUNTER -->
     <script src="{% static 'asset_alit/js/counter.init.js' %}""></script>
         <!--custom script-->
+        <script type="text/javascript">
+            function googleTranslateElementInit() {
+              new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
+            }
+        </script>
+            
+        <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+        
         <script src=" {% static 'asset_alit/js/app.js' %}""></script>
 </body>
 
