@@ -455,7 +455,7 @@
 
 @media (max-width: 425px) {
     .navbar-sticky {
-        top: 0px !important;
+        top: 44px !important;
     }
 }
 
