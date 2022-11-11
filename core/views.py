@@ -1,4 +1,5 @@
 from pipes import Template
+from re import template
 from django.shortcuts import render
 from django.views.generic import RedirectView,View,TemplateView
 from django.http import JsonResponse
@@ -67,7 +68,7 @@ class ValidationCode()     :
 
 
 class TestTemplate(TemplateView) :
-    template_name = "transaction/transaction-mail.html"
+    template_name = "403.html"
 
     def get_context_data(self, **kwargs)  :
         from wallet.models import Transaction
@@ -77,5 +78,17 @@ class TestTemplate(TemplateView) :
 
 
 
+def error_404_handler(request,exception) :
+    template_name = "404.html"
+    return render(request,template_name,locals())
+
+
+def error_500_handler(request) :
+    template_name = "500.html"
+    return render(request,template_name,locals())
+
+def error_403_handler(request,exception) :
+    template_name = "403.html"
+    return render(request,template_name,locals())
 
 

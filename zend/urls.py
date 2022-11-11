@@ -17,3 +17,6 @@ urlpatterns = [
 if settings.DEBUG :
     urlpatterns += static(settings.MEDIA_URL,document_root = settings.MEDIA_ROOT)
 
+handler404 = 'core.views.error_404_handler'
+handler500 = 'core.views.error_500_handler'
+handler403 = 'core.views.error_403_handler'

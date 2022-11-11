@@ -25,8 +25,9 @@ SITE_NAME = "Zend Finance"
 SECRET_KEY = 'h0eantw*e!)@@!q@&)j5k1!znc#m66&^-)349#4%+_=_@(822^'
 
 
+
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
@@ -53,7 +54,7 @@ INSTALLED_APPS = [
     'company.apps.CompanyConfig',
     'core.apps.CoreConfig',
     # 3rdparty
-    # 'whitenoise.runserver_nostatic',
+    'whitenoise.runserver_nostatic',
     'crispy_forms',
     'djmoney'
     # 'phonenumber_field',
@@ -68,7 +69,7 @@ MIDDLEWARE = [
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     # whitenoise
-    # 'whitenoise.middleware.WhiteNoiseMiddleware',
+     'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
@@ -190,7 +191,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, "asset")
 
 STATIC_URL = '/static/'
 
-#STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # TWILLO
 TWILLO_ACCOUNT_SID = 'AC213bba1c05225bedc1ebccccd8dbd9e0'
