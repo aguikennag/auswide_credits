@@ -1,118 +1,186 @@
 {% extends 'dashboard-base.html' %}
 {% load static %}
+{% load mytags %}
 {% load humanize %}
 {% block content %}
 <div class="user-content">
-    <div class="user-panel">
-        <div class="row">
 
-            <div class="col-12">
-                <div class="row">
-                    <div class="col-12">
-                        <div class="tile-item tile-light">
-                            <div class="tile-bubbles"></div>
-                            <h6 class="tile-title">LEDGER BALANCE</h6>
-                            <ul class="tile-info-list">
+    <!-- Wallet Card -->
+    <div class="section wallet-card-section pt-1">
+        <div class="wallet-card">
+            <h2>
+                <span  style="color:rgba(0, 0, 0, 0.915)"> Hi, Welcome back! </span><br>
+               {{user.name|upper}}</h2>
+            <!-- Balance -->
+            <div class="balance mb-0">
+                <div class="left">
 
-                                <li><span>{{user.wallet.currency}}{{user.wallet.ledger_balance|intcomma}}</span></li>
-
-                            </ul>
-                            <div class="tile-title">
-                                Available Balance :
-                                <span>
-                                    {{user.wallet.currency}}{{user.wallet.available_balance|intcomma}}
-                                </span><br>
-
-
-
-                            </div>
+                    <span class="title">Account Balance</span>
+                    <h2 class="total">{{user.wallet.currency}} {{user.wallet.available_balance|to_decimal|intcomma}}</h2>
+                    
+                </div>
+            
+                <div class="right">
+                    <a href="#" class="button" data-bs-toggle="modal" data-bs-target="#depositActionSheet">
+                        <ion-icon name="add-outline"></ion-icon>
+                    </a>
+                </div>
+            </div>
+            <div class="balance mt-0">
+                <div class="left">
+                    
+                    <span class="title">Ledger Balance</span>
+                    <h1 class="total">{{user.wallet.currency}} {{user.wallet.ledger_balance|to_decimal|intcomma}}</h1>
+                    
+                </div>
+            
+            </div>
+            <!-- * Balance -->
+            <!-- Wallet Footer -->
+            <div class="wallet-footer">
+                <div class="item">
+                    <a href="#" data-bs-toggle="modal" data-bs-target="#withdrawActionSheet">
+                        <div class="icon-wrapper bg-danger">
+                            <ion-icon name="arrow-down-outline"></ion-icon>
                         </div>
-                    </div>
-
+                        <strong>Withdraw</strong>
+                    </a>
                 </div>
-
-            </div><!-- .col -->
-
-        </div><!-- .row -->
-
-        <div class="table-responsive">
-            <h4>Recent Transactions
-
-                {% if recent_transactions %}
-                <span style="float: right;">
-                    <a href="{% url 'transaction-history' %}">View all</a>
-                </span>
-                {% endif %}
-            </h4>
-
-
-            {% if not recent_transactions %}
-            <div class="status status-empty">
-                <div class="status-icon">
-                    <em class="ti ti-files"></em>
-                    <div class="status-icon-sm">
-                        <em class="ti ti-close"></em>
-                    </div>
+                <div class="item">
+                    <a href="{% url 'transfer' %}" data-bs-toggle="modal" data-bs-target="#sendActionSheet">
+                        <div class="icon-wrapper">
+                            <ion-icon name="arrow-forward-outline"></ion-icon>
+                        </div>
+                        <strong>Send Money</strong>
+                    </a>
                 </div>
-                <span class="status-text">You have no transactions yet</span>
+                <div class="item">
+                    <a href="#0">
+                        <div class="icon-wrapper bg-success">
+                            <ion-icon name="card-outline"></ion-icon>
+                        </div>
+                        <strong>Cards</strong>
+                    </a>
+                </div>
+                <div class="item">
+                    <a href="#" data-bs-toggle="modal" data-bs-target="#exchangeActionSheet">
+                        <div class="icon-wrapper bg-warning">
+                            <ion-icon name="swap-vertical"></ion-icon>
+                        </div>
+                        <strong>Support Ticket</strong>
+                    </a>
+                </div>
 
             </div>
-            {% else %}
-            <table class="data-table tranx-table">
-                <thead>
-                   
-                    <tr>
-                        <!--th>TRX REF.</th-->
-                        <th class="activity-time">
-                            <span>Date</span>
-                        </th>
-                        <th class="activity-time">
-                            <span>Amount</span>
-                        </th>
-                       
-                        <th class="activity-time">
-                            <span>Action</span>
-                        </th>
-                       
-                    </tr>
-                </thead>
-                <tbody>
-
-                    {% for tx in recent_transactions %}
-                    <tr>
-                     
-                        <td class="tranx-no"><span>
-                            <c style="font-size: 11px;">{{tx.description}}</c>
-                        </span>{{tx.show_date|date:"j b, Y"}} {{tx.show_date.time}}</td>
-                        <td class="tranx-token"><span>
-                            {% if tx.transaction_type == "debit" %}
-                            -{{user.wallet.currency}}{{tx.amount|intcomma}}
-                            {% else %}
-                            +{{user.wallet.currency}}{{tx.amount|intcomma}}
-                            {% endif %}
-                        </span></td>
-                       
-                        <td >
-                            {% if tx.status == "pending" %}
-                            <a href="{% url 'complete-transaction' tx.transaction_id %}" 
-                            class="btn btn-xs btn-warning">
-                                complete
-                            </a>
-                         
-                            {% else %}
-                            <a href="#" data-toggle="modal" data-target="#tranxApproved"><em class="ti ti-more-alt"></em></a>
-                            {% endif %}
-                        </td>
-                    </tr>
-                 
-                    {% endfor %}
-
-                </tbody>
-            </table>
-            {% endif %}
+            <!-- * Wallet Footer -->
         </div>
+    </div>
+    <!-- Wallet Card -->
 
-    </div><!-- .user-panel -->
-</div><!-- .user-content -->
+
+
+    <!-- Stats -->
+    <div class="section">
+        <div class="row mt-2">
+            <div class="col-6">
+                <div class="stat-box">
+                    <div class="title">Total Income</div>
+                    <div class="value text-success">{{user.wallet.currency}} {{user.wallet.income|to_decimal|intcomma}}</div>
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="stat-box">
+                    <div class="title">Total Expenses</div>
+                    <div class="value text-danger">{{user.wallet.currency}} {{user.wallet.expense|to_decimal|intcomma}}</div>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-2">
+            <div class="col-6">
+                <div class="stat-box">
+                    <div class="title">Total Bills</div>
+                    <div class="value">{{user.wallet.currency}} {{user.wallet.bills|to_decimal|intcomma}}</div>
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="stat-box">
+                    <div class="title">Savings</div>
+                    <div class="value">{{user.wallet.currency}} {{user.wallet.savings|to_decimal|intcomma}}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- * Stats -->
+
+    <!-- Transactions -->
+    <div class="section mt-4 pt-3">
+        <div class="section-heading">
+            <h2 class="title">Recent Transactions</h2>
+            <a href="{% url 'transaction-history' %}" class="link">View All</a>
+        </div>
+        
+
+        {% if not recent_transactions %}
+        <div class="status status-empty">
+            <div class="status-icon">
+                <em class="ti ti-files"></em>
+                <div class="status-icon-sm">
+                    <em class="ti ti-close"></em>
+                </div>
+            </div>
+            <span class="status-text">You have no transactions yet</span>
+
+        </div>
+        {% else %}
+
+        <ul class="listview image-listview">
+     
+            <ul class="listview image-listview">
+
+                {% for tx in recent_transactions %}
+                <li>
+                    <div class="item">
+                        {% if tx.transaction_type == "debit" %}
+                        <div class="icon-box bg-danger" style="color:white">
+                            <ion-icon name="arrow-up-outline"></ion-icon>
+                        </div>
+                        {% else %}
+                        <div class="icon-box bg-success" style="color:white">
+                            <ion-icon name="arrow-down-outline"></ion-icon>
+                        </div>
+                        {% endif %}
+
+                        <div class="in">
+                            <div>
+
+                                {{tx.description}}
+                                <footer>
+                                    {{tx.show_date|date:"d M, Y T:H"}}
+                                </footer>
+                            </div>
+                            <span class="">
+
+                                {{user.wallet.currency}}{{tx.amount|to_decimal|intcomma}}
+
+                            </span>
+                        </div>
+                    </div>
+                </li>
+                {% endfor %}
+
+
+
+
+            </ul>
+
+
+        </ul>
+
+        {% endif %}
+    </div>
+    <!-- * Transactions -->
+
+
+</div>
 
 {% endblock %}

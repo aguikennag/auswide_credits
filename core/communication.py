@@ -234,7 +234,7 @@ class Email() :
         email.mixed_subtype = "related"
  
         BASE_DIR = settings.STATIC_URL
-        logo_path = os.path.join(settings.BASE_DIR,"static/asset_alit/images/logo.png")
+        logo_path = os.path.join(settings.BASE_DIR,"static/img/logo.png")
         with open(logo_path,'rb') as f :
             logo = MIMEImage(f.read())
             logo.add_header("Content-ID","<logo.png>")
@@ -251,11 +251,11 @@ class Email() :
             image.add_header('Content-ID',"<logo>") """   
     
         #if settings.DEBUG : print(msg)  
-        #try :
-        email.send()
-        """except : 
+        try :
+            email.send()
+        except : 
             error = "mail was not sent successfully"
-            print(error)"""
+            print(error)
         self.auth_connecion.close()
         
         return error

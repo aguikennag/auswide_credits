@@ -2,7 +2,7 @@
 
 def core(request) :
     context = {
-        'site_name' : "Zend finance",
-        'site_name_short' : "Zend"
+        'site_name' : "Metros Capital Bank",
+        'site_name_short' : "Metros Capital"
     }
     return context

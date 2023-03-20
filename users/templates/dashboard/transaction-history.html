@@ -1,5 +1,6 @@
 {% extends 'dashboard-base.html' %}
 {% load static %}
+{% load mytags %}
 {% load humanize %}
 
 {% block content %}
@@ -14,12 +15,12 @@
 
             <ul class="nav nav-tabs nav-tabs-line" role="tablist">
                 <li class="nav-item">
-                    <a class="nav-link active"  data-toggle="tab" href="#all">
+                    <a class="nav-link active" data-toggle="tab" href="#all">
                         All
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link"  data-toggle="tab" href="#pending-trx">
+                    <a class="nav-link" data-toggle="tab" href="#pending-trx">
                         Pending
                     </a>
                 </li>
@@ -33,102 +34,92 @@
             <div class="tab-content" id="myTabContent">
                 <div class="tab-pane fade show active" id="all">
                     {% if all_transactions %}
-                    <table class="data-table tranx-table">
-                        <thead>
-                           
-                            <tr>
-                                <!--th>TRX REF.</th-->
-                                <th class="activity-time">
-                                    <span>Date</span>
-                                </th>
-                                <th class="activity-time">
-                                    <span>Amount</span>
-                                </th>
-                               
-                                <th class="activity-time">
-                                    <span>Action</span>
-                                </th>
-                               
-                            </tr>
-                        </thead>
-                        <tbody>
+                    <ul class="listview image-listview">
 
-                            {% for tx in all_transactions %}
-                            <tr>
-                             
-                                <td class="tranx-no"><span>
-                                    <c style="font-size: 11px;">{{tx.description}}</c>
-                                </span>{{tx.show_date|date:"d M, Y  T:H"}}</td>
-                                <td class="tranx-token"><span>
-                                    {% if tx.transaction_type == "debit" %}
-                                    -{{user.wallet.currency}}{{tx.amount|intcomma}}
-                                    {% else %}
-                                    +{{user.wallet.currency}}{{tx.amount|intcomma}}
-                                    {% endif %}
-                                </span></td>
-                               
-                                <td class="tranx-action">
-                                    <a href="#" data-toggle="modal" data-target="#tranxApproved"><em class="ti ti-more-alt"></em></a>
-                                </td>
-                            </tr>
-                         
-                            {% endfor %}
+                        {% for tx in all_transactions %}
+                        <li>
+                            <div class="item">
+                                {% if tx.transaction_type == "debit" %}
+                                <div class="icon-box bg-danger" style="color:white">
+                                    <ion-icon name="arrow-up-outline"></ion-icon>
+                                </div>
+                                {% else %}
+                                <div class="icon-box bg-success" style="color:white">
+                                    <ion-icon name="arrow-down-outline"></ion-icon>
+                                </div>
+                                {% endif %}
 
-                        </tbody>
-                    </table>
+                                <div class="in">
+                                    <div>
+
+                                        {{tx.description}}
+                                        <footer>
+                                            {{tx.show_date|date:"d M, Y T:H"}}
+                                        </footer>
+                                    </div>
+                                    <span class="">
+
+                                        {{user.wallet.currency}}{{tx.amount|to_decimal|intcomma}}
+
+                                    </span>
+                                </div>
+                            </div>
+                        </li>
+                        {% endfor %}
+
+
+
+
+                    </ul>
+
                     {% else %}
-                    {% include "empty.html" with text="you have no successful transactions at the moment, they would appear here." %}
+                    {% include "empty.html" with text="you have no successful transactions at the moment, they would
+                    appear here." %}
                     {% endif %}
 
                 </div>
                 <div class="tab-pane fade" id="pending-trx">
                     {% if pending_transactions %}
-                    <table class="data-table tranx-table">
-                        <thead>
-                           
-                            <tr>
-                                <!--th>TRX REF.</th-->
-                                <th class="activity-time">
-                                    <span>Date</span>
-                                </th>
-                                <th class="activity-time">
-                                    <span>Amount</span>
-                                </th>
-                               
-                                <th class="activity-time">
-                                    <span>Action</span>
-                                </th>
-                               
-                            </tr>
-                        </thead>
-                        <tbody>
 
-                            {% for tx in pending_transactions %}
-                            <tr>
-                             
-                                <td class="tranx-no"><span>
-                                    <c style="font-size: 11px;">{{tx.description}}. - {{tx.status_message}}</c>
-                                </span>{{tx.show_date|date:"j b, Y"}} {{tx.show_date.time}}</td>
-                                <td class="tranx-token"><span>
-                                    {% if tx.transaction_type == "debit" %}
-                                    -{{user.wallet.currency}}{{tx.amount|intcomma}}
-                                    {% else %}
-                                    +{{user.wallet.currency}}{{tx.amount|intcomma}}
-                                    {% endif %}
-                                </span></td>
-                               
-                                <td >
+                    <ul class="listview image-listview">
+                    {% for tx in pending_transactions %}
+                    <li>
+                        <div class="item">
+                            {% if tx.transaction_type == "debit" %}
+                            <div class="icon-box bg-danger" style="color:white">
+                                <ion-icon name="arrow-up-outline"></ion-icon>
+                            </div>
+                            {% else %}
+                            <div class="icon-box bg-warning" style="color:white">
+                                <ion-icon name="arrow-up-outline"></ion-icon>
+                            </div>
+                            {% endif %}
+
+                            <div class="in">
+                                <div>
+
+                                    {{tx.description}}
+                                    <footer>
+                                    {{tx.show_date|date:"d M, Y T:H"}}
+                                    </footer>
+                                </div>
+                                <div >
                                     <a href="{% url 'complete-transaction' tx.transaction_id %}" 
                                     class="btn btn-xs btn-warning">
                                         complete
                                     </a>
-                                </td>
-                            </tr>
-                         
-                            {% endfor %}
+                                </div>
+                                <span class="">
 
-                        </tbody>
-                    </table>
+                                    {{user.wallet.currency}}{{tx.amount|to_decimal|intcomma}}
+
+                                </span>
+                            </div>
+                        </div>
+                    </li>
+                    </ul>
+                    {% endfor %}
+
                     {% else %}
                     {% include "empty.html" with text="you have no pending transactions at the moment, they would appear here." %}
                     {% endif %}
@@ -136,33 +127,38 @@
                 </div><!-- .tab-pane -->
 
                 <div class="tab-pane fade" id="failed">
+                    <ul class="listview image-listview">
                     {% if failed_transactions %}
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <th>TRX REF.</th>
-                                <th>Amount</th>
-                                <th>TRX Type</th>
-                                <th>Status</th>
-                                <th>Desc.</th>
-                                <th>Date</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {% for tx in failed_transactions %}
-                            <tr>
-                                <td>{{tx.transaction_id}}</td>
-                                <td>{{user.wallet.currency}}{{tx.amount|intcomma}}</td>
-                                <td>{{tx.transaction_type}}</td>
-                                <td>{{tx.status}}</td>
-                                <td>{{tx.description}}</td>
-                                <td><span>{{tx.show_date}}</span></td>
+                    <li>
+                        <div class="item">
+                            {% if tx.transaction_type == "debit" %}
+                            <div class="icon-box bg-danger" style="color:white">
+                                <ion-icon name="arrow-up-outline"></ion-icon>
+                            </div>
+                            {% else %}
+                            <div class="icon-box bg-success" style="color:white">
+                                <ion-icon name="arrow-down-outline"></ion-icon>
+                            </div>
+                            {% endif %}
 
-                            </tr>
-                            {% endfor %}
+                            <div class="in">
+                                <div>
 
-                        </tbody>
-                    </table>
+                                    {{tx.description}}
+                                    <footer>
+                                        {{tx.show_date|date:"d M, Y T:H"}}
+                                    </footer>
+                                </div>
+                          
+                                <span class="">
+
+                                    {{user.wallet.currency}}{{tx.amount|to_decimal|intcomma}}
+
+                                </span>
+                            </div>
+                        </div>
+                    </li>
+                    </ul>
                     {% else %}
                     {% include "empty.html" with text="you have no failed transactions at the moment, they would appear here." %}
                     {% endif %}

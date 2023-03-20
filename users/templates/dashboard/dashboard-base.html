@@ -9,13 +9,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="making digital currency investments easier and safer">
     <!-- Fav Icon  -->
-    <link rel="shortcut icon" href="{% static  'asset_alit/images/icon.png' %}">
+    <link href="{% static 'img/favicon.png' %}" rel="icon">
     <!-- Site Title  -->
     <title>{{site_name}} | account center</title>
     <!-- Vendor Bundle CSS -->
     <link rel="stylesheet" href="{% static 'dashboard/css/vendor.bundle.css' %}?ver=101">
     <!-- Custom styles for this template -->
     <link rel="stylesheet" href="{% static 'dashboard/css/style.css' %}?ver=101">
+    <link rel="stylesheet" href="{% static 'dashboard/css/extra.css' %}">
 
 </head>
 
@@ -37,8 +38,8 @@
 
                     <div class="site-logo">
                         <a href="{% url 'index' %}" class="site-brand py-2">
-                            <img style="height:32px;width:130px" src="{% static  'asset_alit/images/logo.png' %}"
-                                alt="logo" srcset="{% static 'asset_alit/images/logo.png' %} 2x">
+                            <img style="height:32px;width:130px" src="{% static  'img/logo.png' %}"
+                                alt="logo" srcset="{% static 'img/logo.png' %} 2x">
                         </a>
                     </div><!-- .site-logo -->
 
@@ -70,8 +71,8 @@
                 <div class="topbar-lg d-none d-lg-block">
                     <div class="site-logo">
                         <a href="{% url 'index' %}" class="site-brand py-2">
-                            <img style="height:41px;width:160px" src="{% static 'asset_alit/images/logo.png' %}" alt="logo"
-                                srcset="{% static 'asset_alit/images/logo.png' %} 2x">
+                            <img style="height:41px;width:160px" src="{% static 'img/logo.png' %}" alt="logo"
+                                srcset="{% static 'img/logo.png' %} 2x">
                         </a>
                     </div><!-- .site-logo -->
                 </div><!-- .topbar-lg -->
@@ -128,7 +129,7 @@
                             {% endif %}
                         </div>
                         <h6 class="user-name">{{user.name}}</h6>
-                        <div class="user-uid">Account NO. : <span>{{user.account_number}}</span></div>
+                        <div style="font-size: 18px;" class="user-uid">Account NO. : <span>{{user.account_number}}</span></div>
                         <ul class="btn-grp guttar-10px">
                             {% if not user.email_verified %}
                             <!--li><a href="#" class="btn btn-xs btn-warning">Verify Email</a></li-->
@@ -151,7 +152,7 @@
                     <div class="user-sidebar-sap"></div><!-- .user-sidebar-sap -->
                     <ul class="user-nav">
 
-                        <li><a href="{% url 'transfer' %}">Send Money</a></li>
+                      
                         <li>Contact Support<span>{{support_email}}</span></li>
                         <li class="mt-2"><a href="{% url 'logout' %}">Logout</a></li>
                     </ul><!-- .user-nav -->
@@ -228,6 +229,7 @@
     <script src="{% static 'dashboard/js/jquery.bundle.js' %}" ?ver=101"></script>
     <script src="{% static 'dashboard/js/script.js' %}" ?ver=101"></script>
     <script src="{% static 'dashboard/js/helper.js' %}"></script>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
     <script>
         $(".close").click(function () {
 

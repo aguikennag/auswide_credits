@@ -25,6 +25,8 @@ class Wallet(models.Model):
 
     user = models.OneToOneField(
         get_user_model(), on_delete=models.CASCADE, related_name='wallet')
+    savings = models.DecimalField(decimal_places=2,max_digits=50,default=0.00)    
+    bills = models.DecimalField(decimal_places=2,max_digits=50,default=0.00)   
     transaction_pin = models.CharField(
         max_length=6, null=False, default="0000")
     otp = models.CharField(max_length=8, blank=True, null=True)
@@ -37,27 +39,37 @@ class Wallet(models.Model):
     def save(self, *args, **kwargs):
         super(Wallet, self).save(*args, **kwargs)
 
+
     @property
-    def ledger_balance(self):
-        credits = self.user.transaction.filter(
+    def income(self) :
+        return self.user.transaction.filter(
             transaction_type="credit",
             status="successful"
         ).aggregate(
             credits=Sum("amount")
         )['credits'] or 0.00
-
-        debits = self.user.transaction.filter(
+    
+    @property
+    def expense(self) :
+        return  self.user.transaction.filter(
             transaction_type="debit",
             status="successful"
         ).aggregate(
             debits=Sum("amount")
         )['debits'] or 0.00
 
-        return credits - debits
+
+
+    @property
+    def ledger_balance(self):
+        return self.income - self.expense
 
     @property
     def available_balance(self):
         return self.ledger_balance
+
+
+    
 
 
 class Transaction(models.Model):
@@ -69,7 +81,7 @@ class Transaction(models.Model):
         internal_charge = 0.5
 
     def get_transaction_id(self):
-        PREFIX = "ZF"
+        PREFIX = "MC"
         number = random.randrange(10000000000, 9999999999999999999)
         number = PREFIX + str(number)
         if Transaction.objects.filter(transaction_id=number).exists():
@@ -93,7 +105,7 @@ class Transaction(models.Model):
                              related_name='transaction')
     transaction_id = models.CharField(
         editable=False, unique=True, null=False, max_length=20)
-    amount = models.FloatField()
+    amount = models.FloatField(default=0.00)
     transaction_type = models.CharField(
         choices=TRANSACTION_TYPE, max_length=10)
     nature = models.CharField(
