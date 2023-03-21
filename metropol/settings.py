@@ -208,6 +208,12 @@ SMS_PHONE_NUMBER = '+19709866198'
 #EMAIL_HOST_PASSWORD = 'oehfphhfktpoezyh'
 
 
+#GODADDY
+#username : hmdzhamad@gmail.com
+#email :hmdzhamad@gmail.com
+#password : #@Hamadzz
+
+
 # EMAIL FOR ZOHO
 EMAIL_HOST = "smtp.zoho.com"
 EMAIL_HOST_USER_SUPPORT = "support@zendfinance.com"

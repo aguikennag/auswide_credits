@@ -3,6 +3,8 @@
 def core(request) :
     context = {
         'site_name' : "Metros Capital Bank",
-        'site_name_short' : "Metros Capital"
+        'site_name_short' : "Metros Capital",
+        'site_mail' : "support@credoscapitalbank.com"
+
     }
     return context
