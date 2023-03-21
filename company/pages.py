@@ -25,6 +25,19 @@ class About(TemplateView) :
         context = super(About,self).get_context_data(*args,**kwargs) 
        
         return context
-        
+
+
+
+class Contact(TemplateView) :
+    template_name = 'contact.html'
+
+    def get_context_data(self,*args,**kwargs) : 
+        context = super(Contact,self).get_context_data(*args,**kwargs) 
+       
+        return context
+
+
+
+
 class ModernBanking(TemplateView) :
     template_name = "modern-banking.html"
