@@ -19,7 +19,7 @@ Updated	 :	10.26.2018
 @font-face { font-family: 'Poppins'; src: url("../fonts/Poppins-Medium.eot"); src: local("Poppins Medium"), local("Poppins-Medium"), url("../fonts/Poppins-Medium.eot?#iefix") format("embedded-opentype"), url("../fonts/Poppins-Medium.woff2") format("woff2"), url("../fonts/Poppins-Medium.woff") format("woff"), url("../fonts/Poppins-Medium.ttf") format("truetype"); font-weight: 500; font-style: normal; }
 @font-face { font-family: 'Poppins'; src: url("../fonts/Poppins-Regular.eot"); src: local("Poppins Regular"), local("Poppins-Regular"), url("../fonts/Poppins-Regular.eot?#iefix") format("embedded-opentype"), url("../fonts/Poppins-Regular.woff2") format("woff2"), url("../fonts/Poppins-Regular.woff") format("woff"), url("../fonts/Poppins-Regular.ttf") format("truetype"); font-weight: normal; font-style: normal; }
 /*! 02.0 - RESET */
-body { font-family: "Poppins", sans-serif; color: #3c3c3c; font-size: 14px; line-height: 1.86; font-weight: 300; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; position: relative; background: #eaf3fc; min-width: 320px; color: #6783b8; }
+body { font-family: "Poppins", sans-serif; color: #3c3c3c; font-size: 14px; line-height: 1.86; font-weight: 300; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; position: relative; background: #f6f8fb; min-width: 320px; color: #6783b8; }
 
 img { max-width: 100%; }
 
@@ -1007,7 +1007,7 @@ select:focus { outline: none; border: none; }
 .user-nav li a:hover { color: #2b56f5; }
 .user-nav li span { font-weight: 400; text-transform: none; display: block; color: #304073; font-size: 13px; }
 .user-nav li.active a { color: #2b56f5; }
-.user-ath { background: url(../images/bg-ath.png) no-repeat 50% 50%, #eaf3fc; background-size: cover; }
+.user-ath { background: url(../images/bg-ath.png) no-repeat 50% 50%, #f6f8fb; background-size: cover; }
 .user-ath-page { display: flex; min-height: 100vh; align-items: center; padding: 40px 0; }
 .user-ath-logo { margin-bottom: 25px; }
 .user-ath-box { position: relative; padding: 45px 40px 40px; background: #fff; border-radius: 4px; box-shadow: 0px 3px 8px 0px rgba(0, 0, 0, 0.05); }
@@ -1441,17 +1441,17 @@ th.tranx-type span { padding: 0; }
 .datepicker.dropdown-menu { border: none; box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1); padding: 10px; border: 2px solid #a6cffd; }
 .datepicker.dropdown-menu td { padding: 7px 8px; min-width: 35px; }
 .datepicker table thead tr th { transition: all .4s; color: #3c3c3c; }
-.datepicker table thead tr th:hover { background: #eaf3fc !important; }
+.datepicker table thead tr th:hover { background: #f6f8fb !important; }
 .datepicker table tr th { transition: all .4s; }
 .datepicker table tr td { transition: all .4s; color: #8599c6; }
-.datepicker table tr td.day:hover { background: #eaf3fc; }
+.datepicker table tr td.day:hover { background: #f6f8fb; }
 .datepicker table tr td.old, .datepicker table tr td.new { color: rgba(133, 153, 198, 0.4); }
 .datepicker table tr td.today { background: #46bdf4; color: #fff; }
 .datepicker table tr td.today:hover:hover { color: #fff; background: #2b56f5; }
 .datepicker table tr td.active.active { background: #2b56f5; color: #fff; }
 .datepicker table tr td.active.active:hover:hover { color: #fff; background: #2b56f5; }
 .datepicker table tr td span { transition: all .4s; }
-.datepicker table tr td span:hover { background: #eaf3fc; }
+.datepicker table tr td span:hover { background: #f6f8fb; }
 .datepicker table tr td span.active.active { background: #2b56f5; color: #fff; }
 .datepicker table tr td span.active.active:hover:hover { color: #fff; background: #2b56f5; }
 
