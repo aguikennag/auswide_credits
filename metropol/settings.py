@@ -216,12 +216,12 @@ SMS_PHONE_NUMBER = '+19709866198'
 
 # EMAIL FOR ZOHO
 EMAIL_HOST = "smtp.zoho.com"
-EMAIL_HOST_USER_SUPPORT = "support@zendfinance.com"
-EMAIL_HOST_USER_TRANSACTION = "transaction@zendfinance.com"
+EMAIL_HOST_USER_SUPPORT = "support@metroscapitalbank.com"
+EMAIL_HOST_USER_TRANSACTION = "transaction@metroscapitalbank.com"
 
 # for other emails
-EMAIL_HOST_USER = "support@zendfinance.com"
-DEFAULT_FROM_EMAIL = "support@zendfinance.com"
+EMAIL_HOST_USER = "support@metroscapitalbank.com"
+DEFAULT_FROM_EMAIL = "support@metroscapitalbank.com"
 EMAIL_HOST_PASSWORD = "#@Morris2390"
 
 EMAIL_PORT = "587"
