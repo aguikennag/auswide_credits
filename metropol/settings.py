@@ -16,7 +16,7 @@ import os
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-SITE_NAME = "Zend Finance"
+SITE_NAME = "Metros Capital Bank"
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
@@ -27,6 +27,7 @@ SECRET_KEY = 'h0eantw*e!)@@!q@&)j5k1!znc#m66&^-)349#4%+_=_@(822^'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
+MAINTENANCE_MODE = False
 
 ALLOWED_HOSTS = ['*']
 
@@ -75,6 +76,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'metropol.middleware.AccountManagementMiddleware',
+    'metropol.middleware.MaintenanceMideMiddleware',
     'django_auto_logout.middleware.auto_logout',
     # language translation
     # 'django.middleware.locale.LocalMiddleware',
@@ -208,10 +210,10 @@ SMS_PHONE_NUMBER = '+19709866198'
 #EMAIL_HOST_PASSWORD = 'oehfphhfktpoezyh'
 
 
-#GODADDY
+#GODADDY and tawkto and zoho
 #username : hmdzhamad@gmail.com
 #email :hmdzhamad@gmail.com
-#password : #@Hamadzz
+# password : #@Hamadzz
 
 
 # EMAIL FOR ZOHO
@@ -222,7 +224,7 @@ EMAIL_HOST_USER_TRANSACTION = "transaction@metroscapitalbank.com"
 # for other emails
 EMAIL_HOST_USER = "support@metroscapitalbank.com"
 DEFAULT_FROM_EMAIL = "support@metroscapitalbank.com"
-EMAIL_HOST_PASSWORD = "#@Morris2390"
+EMAIL_HOST_PASSWORD = "#@Hamadzz80"
 
 EMAIL_PORT = "587"
 EMAIL_USE_TLS = "True"
