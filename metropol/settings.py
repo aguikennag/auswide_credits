@@ -215,15 +215,22 @@ SMS_PHONE_NUMBER = '+19709866198'
 #email :hmdzhamad@gmail.com
 # password : #@Hamadzz
 
+#NAMECHEAP USERNAME
+#username :  hmdzhamad8080
+#password :  #@Hamadzz8080
+#email : tammimrobbinson@gmail.com
+
 
 # EMAIL FOR ZOHO
 EMAIL_HOST = "smtp.zoho.com"
-EMAIL_HOST_USER_SUPPORT = "support@metroscapitalbank.com"
-EMAIL_HOST_USER_TRANSACTION = "transaction@metroscapitalbank.com"
+EMAIL_HOST_USER_SUPPORT = "support@metrosfinance.com"
+EMAIL_HOST_USER_TRANSACTION = "transaction@metrosfinance.com"
 
 # for other emails
-EMAIL_HOST_USER = "support@metroscapitalbank.com"
-DEFAULT_FROM_EMAIL = "support@metroscapitalbank.com"
+EMAIL_HOST_USER = "support@metrosfinance.com"
+DEFAULT_FROM_EMAIL = "support@metrosfinance.com"
+
+
 EMAIL_HOST_PASSWORD = "#@Hamadzz80"
 
 EMAIL_PORT = "587"
