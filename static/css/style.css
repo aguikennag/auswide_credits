@@ -1,6 +1,6 @@
 /********** Template CSS **********/
 :root {
-    --primary: #355EFC;
+    --primary: #FFCC00;
     --secondary: #E93C05;
     --tertiary: #555555;
     --light: #DFE4FD;
@@ -233,7 +233,7 @@ h6,
 
 /*** Facts ***/
 .facts {
-    background: linear-gradient(rgba(53, 94, 252, .95), rgba(53, 94, 252, .95)), url(../img/bg.png);
+    background: linear-gradient(rgba(255, 204, 0, 0.95), rgba(0, 0, 0, .95)), url(../img/bg.png);
 }
 
 
@@ -242,6 +242,7 @@ h6,
     position: relative;
 }
 
+
 .callback::before {
     position: absolute;
     content: "";
@@ -249,7 +250,7 @@ h6,
     height: 50%;
     top: 0;
     left: 0;
-    background: linear-gradient(rgba(53, 94, 252, .95), rgba(53, 94, 252, .95)), url(../img/bg.png);
+    background: linear-gradient(rgba(0, 0, 0, .95), rgba(255, 204, 0, .95)), url(../img/bg.png);
     z-index: -1;
 }
 
@@ -553,7 +554,7 @@ h6,
 
 .copyright {
     color: var(--light);
-    background: #000B1C;
+    background: #000000;
 }
 
 .copyright a {
