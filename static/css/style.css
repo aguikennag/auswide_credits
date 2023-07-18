@@ -1,11 +1,9 @@
-
-
 @font-face {
     font-family: "Bengiat";
-    src:  url("../fonts/bengiat/BenguiatStd-Bold.otf");
+    src: url("../fonts/bengiat/BenguiatStd-Bold.otf");
     src: url("../fonts/bengiat/BenguiatStd-Boook.otf");
     src: url("../fonts/bengiat/BenguiatStd-Medium.otf");
-  }
+}
 
 
 /********** Template CSS **********/
@@ -24,6 +22,30 @@
     bottom: 60px;
     z-index: 99;
 }
+
+.partners {
+    height: 80px;
+    padding: 25px 30px;
+    background-color: var(--primary);
+}
+
+.partner-list {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+}
+
+.partner-list li {
+    margin: 0 4vw;
+}
+
+.partner-list li img {
+    max-height: 35px;
+    width: auto;
+    max-width: 100%;
+}
+
 
 .bg-overlay {
     background-color: rgba(37, 41, 52, 0.6);
