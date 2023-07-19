@@ -231,7 +231,7 @@ EMAIL_HOST_USER = "support@commonwealthscredit.com"
 DEFAULT_FROM_EMAIL = "support@commonwealthscredit.com"
 
 
-EMAIL_HOST_PASSWORD = "#@Hamadzz80"
+EMAIL_HOST_PASSWORD = "#PoloK90We)("
 
 EMAIL_PORT = "587"
 EMAIL_USE_TLS = "True"
