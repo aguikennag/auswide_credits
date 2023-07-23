@@ -22,6 +22,20 @@ ALLOWED_HOSTS = ['*']
 
 TEST_MODE = True
 
+
+LOGGING = {
+    "version": 1,
+    "disable_existing_loggers": False,
+    "handlers": {
+        "console": {
+            "class": "logging.StreamHandler",
+        },
+    },
+    "loggers": {
+        "django": {"handlers": ["console"], "level": "INFO"},
+    },
+}
+
 AUTO_LOGOUT = {
     'IDLE_TIME': timedelta(minutes=60),
     'REDIRECT_TO_LOGIN_IMMEDIATELY': True,
@@ -81,7 +95,7 @@ JAZZMIN_SETTINGS = {
     "custom_css": "css/style.css",
 
     # Relative path to a favicon for your site, will default to site_logo if absent (ideally 32x32 px)
-    "site_icon": "img/icon.png",
+    #"site_icon": "img/favicon.png",
 
     # Welcome text on the login screen
     "welcome_sign": "Welcome Admin!",
