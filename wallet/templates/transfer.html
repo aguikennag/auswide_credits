@@ -15,8 +15,8 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link " id="internal-tab" data-toggle="tab" href="#local">
-                    Local Transfer
+                <a class="nav-link " id="internal-tab" data-toggle="tab" href="#domestic">
+                    Domestic Transfer
                 </a>
             </li>
             <li class="nav-item">
@@ -48,18 +48,19 @@
 
             </div><!-- .tab-pane -->
             
-            <div class="tab-pane fade show " id="local">
-                <form action="" method="POST" id="internal-transfer-form">
+            <div class="tab-pane fade show " id="domestic">
+                <form action="" method="POST" id="domestic-transfer-form">
                     {% csrf_token %}
-                    <input readonly hidden name="transfer_type" value="Local Transfer">
+                    <input readonly hidden name="transfer_type" value="Domestic Transfer">
                     {{form.account_number|as_crispy_field}}
+                    {{form.local_bank|as_crispy_field}}
                     {{form.amount|as_crispy_field}}
                    
                     {{form.description|as_crispy_field}}
                     <div class="gaps-1x"></div><!-- 10px gap -->
                     <center>
                         <div class="d-sm-flex justify-content-between align-items-center">
-                            <button type="submit" form="internal-transfer-form" class="btn btn-primary">Send</button>
+                            <button type="submit" form="domestic-transfer-form" class="btn btn-primary">Send</button>
                         </div>
                     </center>
                 </form>

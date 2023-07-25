@@ -155,7 +155,7 @@ class Transaction(models.Model):
         if self.nature == "Internal Transfer":
             # create for credit
             data = self.as_dict()
-            print(data)
+        
             del data['transaction_id'] #maintain unique values
             if data.get("id") : del data['id']
             credit_trx = Transaction(

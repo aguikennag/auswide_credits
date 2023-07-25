@@ -242,17 +242,9 @@ STATIC_URL = '/static/'
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # TWILLO
-TWILLO_ACCOUNT_SID = 'AC213bba1c05225bedc1ebccccd8dbd9e0'
-TWILLO_AUTH_TOKEN = '8512ae91f275f2bf0c8bf864e61692f3'
-SMS_PHONE_NUMBER = '+19709866198'
-
-# EMAIL FOR GMAIL
-#EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-#EMAIL_HOST = 'smtp.gmail.com'
-#EMAIL_USE_TLS = True
-#EMAIL_PORT = 587
-#EMAIL_HOST_USER = 'geeetech.inc@gmail.com'
-#EMAIL_HOST_PASSWORD = 'oehfphhfktpoezyh'
+TWILLO_ACCOUNT_SID = ''
+TWILLO_AUTH_TOKEN = ''
+SMS_PHONE_NUMBER = ''
 
 
 #GODADDY and tawkto and zoho
