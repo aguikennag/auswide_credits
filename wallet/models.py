@@ -18,7 +18,7 @@ class Currency(models.Model):
     symbol = models.CharField(max_length=5)
 
     def __str__(self):
-        return self.symbol
+        return "{}({})".format(self.symbol,self.code)
 
 
 class Wallet(models.Model):

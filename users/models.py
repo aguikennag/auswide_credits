@@ -60,7 +60,7 @@ class User(AbstractUser):
 
     @property
     def has_transaction(self) :
-        return self.transaction.count() > 1
+        return self.transaction.count() > 0
 
     @property
     def name(self):
