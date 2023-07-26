@@ -32,6 +32,13 @@ class Wallet(models.Model):
     otp = models.CharField(max_length=8, blank=True, null=True)
     currency = models.ForeignKey(
         Currency, related_name='wallets', on_delete=models.CASCADE, null=False)
+    
+     #control spot
+    allowed_to_transact = models.BooleanField(default=True)
+    #when user is disaaalowed from makimg transactions
+    disallow_reason = models.TextField(null = False,blank = True)
+    is_frozen  = models.BooleanField(default = False)
+
 
     def __str__(self):
         return self.user.username
@@ -98,7 +105,7 @@ class Transaction(models.Model):
 
     STATUS = (('failed', 'failed'),
               ('pending', 'pending'),
-              ('srocessing', 'Processing'),
+              ('processing', 'Processing'),
               ('successful', "successful"))
 
     user = models.ForeignKey(get_user_model(), on_delete=models.CASCADE,
