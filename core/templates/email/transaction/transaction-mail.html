@@ -54,7 +54,7 @@
          <hr>
         <tr>
           <td>Transaction Amount</td>
-          <td>{{transaction.user.wallet.currency}}{{transaction.amount|intcomma}}</td>
+          <td>{{transaction.user.wallet.currency.code}}{{transaction.amount|intcomma}}</td>
         </tr>
         <hr>
      
@@ -71,7 +71,7 @@
 
         <tr>
           <td>Available Balance</td>
-          <td>{{transaction.user.wallet.currency}}
+          <td>{{transaction.user.wallet.currency.code}}
             {{transaction.user.wallet.available_balance|intcomma}}
           </td>
         </tr>
@@ -79,7 +79,7 @@
         <tr>
           <td>Ledger Balance</td>
           <td>
-            {{transaction.user.wallet.currency}}
+            {{transaction.user.wallet.currency.code}}
             {{transaction.user.wallet.available_balance|intcomma}}
           </td>
         </tr>
