@@ -286,7 +286,7 @@ class Transfer(LoginRequiredMixin, View):
 
             else:
 
-                """ check if details match for international transfer """
+                # check if details match for international transfer 
                 if transact_type != "Internal Transfer":
                     delay_time = 4
                     charge = settings.INTERNATIONAL_TRANSFER_CHARGE or 2
