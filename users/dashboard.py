@@ -86,6 +86,6 @@ class Profile(LoginRequiredMixin, UpdateView):
         instance['country'] = request.user.country
         form = self.form_class(initial=instance)
         form.instance.country = request.user.country
+        
         return render(request, self.template_name, locals())
-
 

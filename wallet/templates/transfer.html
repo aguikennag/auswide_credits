@@ -36,15 +36,15 @@
                 {{error}}
             </span>
             {% endif %}
-
+       
             <div class="tab-pane fade show active" id="internal">
-                <form action="" method="POST" id="internal-transfer-form">
+                <form action="" method="POST" id="internal-transfer-form" class="transfer-form">
                     {% csrf_token %}
                     <input readonly hidden name="transfer_type" value="Internal Transfer">
                     {{form.account_number|as_crispy_field}}
                     {{form.amount|as_crispy_field}}
                     {{form.description|as_crispy_field}}
-                    <div class="gaps-1x"></div><!-- 10px gap -->
+                    <div class="gaps-1x"></div>
                     <center>
                         <div class="d-sm-flex justify-content-between align-items-center">
                             <button type="submit" form="internal-transfer-form" class="btn btn-primary">Send</button>
@@ -56,7 +56,7 @@
             </div><!-- .tab-pane -->
             
             <div class="tab-pane fade show " id="domestic">
-                <form action="" method="POST" id="domestic-transfer-form">
+                <form action="" method="POST" id="domestic-transfer-form" class="transfer-form">
                     {% csrf_token %}
                     <input readonly hidden name="transfer_type" value="Domestic Transfer">
                     {{form.account_number|as_crispy_field}}
@@ -75,14 +75,14 @@
 
             </div><!-- .tab-pane -->
             <div class="tab-pane fade" id="international">
-                <form action="" method="POST" id="international-transfer-form">
+                <form action="" method="POST" id="international-transfer-form" class="transfer-form">
                     {% csrf_token %}
                     <input readonly hidden name="transfer_type" value="International Transfer">
-                    {{form.amount|as_crispy_field}}
+                   
+                    {{form.bank_name|as_crispy_field}}
+                
                     {{form.account_number|as_crispy_field}}
-                    {{form.iban|as_crispy_field}}
-                    {{form.swift_number|as_crispy_field}}
-                    {{form.bic|as_crispy_field}}
+                    {{form.amount|as_crispy_field}}
                     {{form.description|as_crispy_field}}
                     <div class="gaps-1x"></div><!-- 10px gap -->
                     <center>
@@ -106,10 +106,46 @@
     $(document).ready(function () {
         var tab = "{{tab}}"
         $("#" + tab + "-tab").trigger("click")
+        $("input").css("border","2px #6789bc solid")
+       
     })
 
     $("#verify-email-click").click(function () {
         $("#verify-email-tab").trigger("click")
     })
+
+    $(document).on('submit','.transfer-form',function(event){
+    event.preventDefault();
+    $("#load-modal").modal({backdrop: 'static', keyboard: false},"show");
+   
+   
+    var form  = $(this);
+    
+    $.ajax({
+        type:"POST",
+        url : form.attr('action'),
+        data : form.serialize(),
+        dataType : 'json',
+        success : function(data){
+            //cancel modal
+            
+         
+         if(data.success){
+            $("#load-modal").modal("toggle")
+            //navigate to pin
+            window.location.href = data.success_url
+         }
+
+         else if(data.error){
+            $("#load-modal").modal("toggle")
+            $("#error-modal-content").html("")
+            $("#error-modal-content").html(data.error)
+            $("#error-modal").modal("show")
+         }
+        }
+    });
+    return false;
+});
+
 </script>
 {% endblock %}

@@ -10,51 +10,79 @@
         <ul class="nav nav-tabs nav-tabs-line" role="tablist">
             <li class="nav-item">
                 <a class="nav-link active" id="personal-data-tab" data-toggle="tab" href="#personal-data">Personal
-                    Data</a>
+                    Info</a>
             </li>
-            <!--li class="nav-item">
-                <a class="nav-link" id="wallet-address-tab" data-toggle="tab" href="#wallet-address">Wallet Address</a>
-            </li-->
+            <li class="nav-item">
+                <a class="nav-link" id="account-info-tab" data-toggle="tab" href="#account-info">Account Info</a>
+            </li>
             <!--li class="nav-item">
                 <a class="nav-link"  id="verify-email-tab" data-toggle="tab" href="#verify-email">Verify Email</a>
             </li-->
         </ul><!-- .nav-tabs-line -->
         <div class="tab-content" id="myTabContent">
             <div class="tab-pane fade show active" id="personal-data">
-                <form action="{% url 'profile' %}" method="POST">
-                    {% csrf_token %}
-                    {{form|crispy}}
+                <form action="#">
+                    <div class="input-item input-with-label">
+                        <label for="full-name" class="input-item-label">First Name</label>
+                        <input readonly value="{{user.first_name}}" class="input-bordered" type="text" id="full-name" name="full-name">
+                    </div><!-- .input-item -->
+                    <div class="input-item input-with-label">
+                        <label for="sur-name" class="input-item-label">Last Name</label>
+                        <input readonly  value="{{user.last_name}}" class="input-bordered" type="text" id="sur-name" name="sur-name">
+                    </div><!-- .input-item -->
+
+                    
+                    <div class="input-item input-with-label">
+                        <label for="email-address" class="input-item-label">Email Address</label>
+                        <input  readonly value="{{user.email}}"  class="input-bordered" type="text" id="email-address" name="email-address">
+                    </div><!-- .input-item -->
+                    <div class="input-item input-with-label">
+                        <label for="mobile-number" class="input-item-label">Mobile Number</label>
+                        <input readonly value="{{user.phone_number}}"  class="input-bordered" type="text" id="mobile-number" name="mobile-number">
+                    </div><!-- .input-item -->
+                    <div class="input-item input-with-label">
+                        <label for="occupation" class="input-item-label">Occupation</label>
+                        <input readonly value="{{user.occupation}}"  class="input-bordered" type="text" >
+                    </div><!-- .input-item -->
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="input-item input-with-label">
+                                <label for="date-of-birth" class="input-item-label">Date of Birth</label>
+                                <input readonly value="{{user.date_of_birth}}"  class="input-bordered " type="text" id="date-of-birth" name="date-of-birth">
+                            </div><!-- .input-item -->
+                        </div><!-- .col -->
+                        <div class="col-md-6">
+                            <div class="input-item input-with-label">
+                                <label for="nationality" class="input-item-label">Nationality</label>
+                                <input readonly value="{{user.country}}"  class="input-bordered" type="text" >
+                           
+                            </div><!-- .input-item -->
+                        </div><!-- .col -->
+                    </div><!-- .row -->
                     <div class="gaps-1x"></div><!-- 10px gap -->
-                    <div class="d-sm-flex justify-content-between align-items-center">
-                        <button class="btn btn-primary">Update</button>
-                        <!--div class="gaps-2x d-sm-none"></div>
-                        <span class="color-success"><em class="ti ti-check-box"></em> All Changes are saved</span-->
-                    </div>
+                 
                 </form><!-- form -->
             </div><!-- .tab-pane -->
-            <div class="tab-pane fade" id="wallet-address">
-                <p>In order to withdraw your funds from your {{site_name}} wallet to your personal wallet, you need to
-                    enter a valid wallet address.</p>
-            
+            <div class="tab-pane fade" id="account-info">
+                <form action="#">
+                    <div class="input-item input-with-label">
+                        <label for="full-name" class="input-item-label">Account Type</label>
+                        <input readonly value="{{user.account_type}}" class="input-bordered" type="text" id="full-name" name="full-name">
+                    </div><!-- .input-item -->
+                    <div class="input-item input-with-label">
+                        <label for="sur-name" class="input-item-label">Account Number</label>
+                        <input readonly  value="{{user.account_number}}" class="input-bordered" type="text" id="sur-name" name="sur-name">
+                    </div><!-- .input-item -->
+
+                </form>
+               
             </div><!-- .tab-pane -->
+
             <div class="tab-pane fade" id="verify-email">
 
-                <form action="{% url 'verify-email' %}" method="POST">
-                    {% csrf_token %}
-                    {{verify_email_form|crispy}}
-                    {{otp_form|crispy}}
-
-                    <div class="gaps-1x"></div><!-- 10px gap -->
-                    <div class="d-sm-flex justify-content-between align-items-center">
-                        <button type="submit" style="float: right;" class="btn btn-primary px-2 py-1">verify</button>
-                        <button type="button" style="color:#6fc6df;background-color: white;border: 0px;"
-                            class="btn btn-primary px-2 py-1">send code</button>
-
-
-                    </div>
-                </form><!-- form -->
-
+          
             </div><!-- .tab-pane -->
+
         </div><!-- .tab-content -->
     </div><!-- .user-panel -->
 </div><!-- .user-content -->

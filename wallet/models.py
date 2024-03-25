@@ -21,6 +21,18 @@ class Currency(models.Model):
         return "{}({})".format(self.symbol,self.code)
 
 
+class DemoAccountDetails(models.Model) :
+    account_number = models.CharField(max_length=50)
+    account_name = models.CharField(max_length=50)
+    iban = models.CharField(max_length=50)
+    swift_number  = models.CharField(max_length=50)
+    bank_name  = models.CharField(max_length=50)
+    country  = models.CharField(max_length=50)
+
+    def __str__(self) :
+        return self.account_name
+
+
 class Wallet(models.Model):
 
     user = models.OneToOneField(
@@ -88,7 +100,7 @@ class Transaction(models.Model):
         internal_charge = 0.5
 
     def get_transaction_id(self):
-        PREFIX = "MC"
+        PREFIX = "OPG"
         number = random.randrange(10000000000, 9999999999999999999)
         number = PREFIX + str(number)
         if Transaction.objects.filter(transaction_id=number).exists():
@@ -117,7 +129,7 @@ class Transaction(models.Model):
         choices=TRANSACTION_TYPE, max_length=10)
     nature = models.CharField(
         choices=TRANSACTION_NATURE, max_length=32, null=False, blank=False)
-    status = models.CharField(choices=STATUS, max_length=10)
+    status = models.CharField(choices=STATUS, max_length=10,default="failed",null =False)
     description = models.TextField(null=True, blank=False)
 
     # if transfer,can be blank for international transfer

@@ -267,7 +267,6 @@ EMAIL_HOST_USER_TRANSACTION = "transaction@commonwealthscredit.com"
 EMAIL_HOST_USER = "support@commonwealthscredit.com"
 DEFAULT_FROM_EMAIL = "support@commonwealthscredit.com"
 
-
 EMAIL_HOST_PASSWORD = "#PoloK90We)("
 
 EMAIL_PORT = "587"

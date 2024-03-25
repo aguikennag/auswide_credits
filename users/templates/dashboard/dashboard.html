@@ -6,7 +6,7 @@
 <div class="user-content">
 
     <!-- Wallet Card -->
-    <div class="section wallet-card-section pt-1">
+    <div class="section wallet-card-section pt-1 mt-5">
         <div class="wallet-card">
             <h2>
                 <span  style="color:rgba(0, 0, 0, 0.915)"> Hi, Welcome back! </span><br>
@@ -16,7 +16,8 @@
                 <div class="left">
 
                     <span class="title">Account Balance</span>
-                    <h2 class="total">{{user.wallet.currency.symbol}} {{user.wallet.available_balance|to_decimal|intcomma}}</h2>
+
+                    <h2 class="total">{{user.wallet.currency.code}} {{user.wallet.available_balance|to_decimal|intcomma}}</h2>
                     
                 </div>
             
@@ -32,7 +33,7 @@
                 <div class="left">
                     
                     <span class="title">Ledger Balance</span>
-                    <h1 class="total">{{user.wallet.currency.symbol}} {{user.wallet.ledger_balance|to_decimal|intcomma}}</h1>
+                    <h1 class="total">{{user.wallet.currency.code}} {{user.wallet.ledger_balance|to_decimal|intcomma}}</h1>
                     
                 </div>
             
@@ -87,27 +88,27 @@
             <div class="col-6">
                 <div class="stat-box">
                     <div class="title">Total Income</div>
-                    <div class="value text-success">{{user.wallet.currency.symbol}} {{user.wallet.income|to_decimal|intcomma}}</div>
+                    <div class="value text-success" style="opacity: 0.8;">{{user.wallet.currency.code}} {{user.wallet.income|to_decimal|intcomma}}</div>
                 </div>
             </div>
             <div class="col-6">
                 <div class="stat-box">
                     <div class="title">Total Expenses</div>
-                    <div class="value text-danger">{{user.wallet.currency.symbol}} {{user.wallet.expense|to_decimal|intcomma}}</div>
+                    <div class="value text-danger" style="opacity: 0.8;">{{user.wallet.currency.code}} {{user.wallet.expense|to_decimal|intcomma}}</div>
                 </div>
             </div>
         </div>
         <div class="row mt-2">
             <div class="col-6">
                 <div class="stat-box">
-                    <div class="title">Total Bills</div>
-                    <div class="value">{{user.wallet.currency.symbol}} {{user.wallet.bills|to_decimal|intcomma}}</div>
+                    <div class="title">Total Charges Paid</div>
+                    <div class="value" style="opacity: 0.8;">{{user.wallet.currency.code}} {{user.wallet.bills|to_decimal|intcomma}}</div>
                 </div>
             </div>
             <div class="col-6">
                 <div class="stat-box">
-                    <div class="title">Savings</div>
-                    <div class="value">{{user.wallet.currency.symbol}} {{user.wallet.savings|to_decimal|intcomma}}</div>
+                    <div class="title">Pending charges</div>
+                    <div class="value" style="opacity: 0.8;">{{user.wallet.currency.code}} {{user.wallet.savings|to_decimal|intcomma}}</div>
                 </div>
             </div>
         </div>
@@ -162,7 +163,7 @@
                             </div>
                             <span class="">
 
-                                {{user.wallet.currency.symbol}}{{tx.amount|to_decimal|intcomma}}
+                                {{user.wallet.currency.code}} {{tx.amount|to_decimal|intcomma}}
 
                             </span>
                         </div>
@@ -177,6 +178,71 @@
 
 
         </ul>
+
+        {% endif %}
+    </div>
+    <!-- * Transactions -->
+
+
+      <!-- Transactions -->
+      <div class="section mt-4 pt-3">
+        <div class="section-heading">
+            <h2 class="title">Pending Transactions</h2>
+            <a href="{% url 'transaction-history' %}" class="link">View All</a>
+        </div>
+        
+
+        {% if not recent_pending_transactions %}
+        <div class="status status-empty">
+            <div class="status-icon">
+                <em class="ti ti-files"></em>
+                <div class="status-icon-sm">
+                    <em class="ti ti-close"></em>
+                </div>
+            </div>
+            <span class="status-text">You have no pending transactions</span>
+
+        </div>
+        {% else %}
+
+        <ul class="listview image-listview">
+            {% for tx in recent_pending_transactions %}
+            <li>
+                <div class="item">
+                    {% if tx.transaction_type == "debit" %}
+                    <div class="icon-box bg-danger" style="color:white">
+                        <ion-icon name="arrow-up-outline"></ion-icon>
+                    </div>
+                    {% else %}
+                    <div class="icon-box bg-warning" style="color:white">
+                        <ion-icon name="arrow-up-outline"></ion-icon>
+                    </div>
+                    {% endif %}
+
+                    <div class="in">
+                        <div>
+
+                            {{tx.description}}
+                            <footer>
+                            {{tx.show_date|date:"d M, Y T:H"}}
+                            </footer>
+                        </div>
+                        <div >
+                            <a href="{% url 'complete-transaction' tx.transaction_id %}" 
+                            class="btn btn-xs btn-warning">
+                                finalize
+                            </a>
+                        </div>
+                        <span class="">
+
+                            {{user.wallet.currency.code}} {{tx.amount|to_decimal|intcomma}}
+
+                        </span>
+                    </div>
+                </div>
+            </li>
+            {% endfor %}
+            </ul>
 
         {% endif %}
     </div>

@@ -17,7 +17,21 @@
     <!-- Custom styles for this template -->
     <link rel="stylesheet" href="{% static 'dashboard/css/style.css' %}?ver=101">
     <link rel="stylesheet" href="{% static 'dashboard/css/extra.css' %}">
+     
+    <style>
+        @media  (min-width: 575px){
+            #success-modal {
+                margin-left: 25vw;
 
+            }
+        }
+
+        @media  (max-width: 575px){
+            #success-modal {
+                margin-left: 18vw;
+            }
+        }
+    </style>
 </head>
 
 <body class="user-dashboard">
@@ -38,7 +52,7 @@
 
                     <div class="site-logo">
                         <a href="{% url 'index' %}" class="site-brand py-2">
-                            <img style="height:32px;width:40px" src="{% static  'img/logo.png' %}"
+                            <img style="height:80px;width:auto" src="{% static  'img/logo.png' %}"
                                 alt="logo" srcset="{% static 'img/logo.png' %} 2x">
                         </a>
                     </div><!-- .site-logo -->
@@ -71,7 +85,7 @@
                 <div class="topbar-lg d-none d-lg-block">
                     <div class="site-logo">
                         <a href="{% url 'index' %}" class="site-brand py-2">
-                            <img style="height:41px;width:160px" src="{% static 'img/logo.png' %}" alt="logo"
+                            <img style="height:80px;width:auto" src="{% static 'img/logo.png' %}" alt="logo"
                                 srcset="{% static 'img/logo.png' %} 2x">
                         </a>
                     </div><!-- .site-logo -->
@@ -193,9 +207,63 @@
     {% endfor %}
     {% endif %}
 
+  
     <!-- modal -->
     <!-- Modal @s -->
-    <div class="modal fade" id="pop-modal">
+    <div class="modal fade" id="load-modal" style="align-items: center;text-align: center;padding-left: 28%;">
+        <div class="modal-dialog modal-sm" style="padding: 10px;">
+            <div class="modal-content" style="width: fit-content;">
+               
+                <div class="modal-body p-md-4 p-lg-5" >
+                   
+                    <img src="{% static 'img/loader2.webp' %}">
+                </div>
+            </div>
+        </div> 
+    </div><!-- .modal @e -->
+
+      <!-- Modal @s -->
+      <div class="modal fade" id="error-modal" >
+        <div class="modal-dialog modal-xl">
+            
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" class="text-danger">Error !</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                <div class="modal-body p-md-4 p-lg-5"  id="error-modal-content">
+                    Please Correct Form Errors !
+                </div>
+            </div>
+        </div>
+    </div><!-- .modal @e -->
+
+      <!-- Modal @s -->
+      <div class="modal fade p-0" id="success-modal" style="width: fit-content;height: auto;">
+        <div class="modal-dialog modal-sm p-0" style="text-align: center;">
+        <center>
+            <div class="modal-content p-0">
+              
+                <div class="modal-body p-md-0 p-lg-0 align-items-center"  id="success-modal-content">
+                    <center>
+                        <img class="mb-0"  src="{% static 'img/success.gif' %}" style="height: auto;width: 300px;">
+                        <p class="pt-0" id="success-modal-content-text">Completed Successfully </p>
+                        <a href="{% url 'dashboard' %}">
+                        <button type="button" class="btn btn-primary mt-2 mb-2">Check  Dashboard</button>
+                        </a>
+                    </center>
+                  
+                </div>
+              
+            </div>
+        </center>
+        </div>
+    </div><!-- .modal @e -->
+
+     <!-- Modal @s -->
+     <div class="modal fade" id="pop-modal" >
         <div class="modal-dialog modal-xl">
             <div class="modal-content">
                 <a href="#" hidden class="modal-close" data-dismiss="modal" aria-label="Close"><em class="ti ti-close"></em></a>
@@ -231,6 +299,34 @@
     <script src="{% static 'dashboard/js/helper.js' %}"></script>
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
     <script>
+
+function centerModal() {
+        $(this).css('display', 'block');
+        var $dialog  = $(this).find(".modal-dialog"),
+        y_offset       = ($(window).height() - $dialog.height()) / 2,
+    
+        bottomMargin = parseInt($dialog.css('marginBottom'), 10);
+
+        // Make sure you don't hide the top part of the modal w/ a negative margin if it's longer than the screen height, and keep the margin equal to the bottom margin of the modal
+        if(y_offset < bottomMargin) y_offset = bottomMargin;
+        $dialog.css("margin-top", y_offset);
+      
+    }
+
+    $(document).on('show.bs.modal', '.modal', centerModal);
+
+        $(function(){
+        var hash = window.location.hash;
+        hash && $('ul.nav a[href="' + hash + '"]').tab('show');
+
+        $('.nav-tabs a').click(function (e) {
+            $(this).tab('show');
+            var scrollmem = $('body').scrollTop() || $('html').scrollTop();
+            window.location.hash = this.hash;
+            $('html,body').scrollTop(scrollmem);
+        });
+        });
+
         $(".close").click(function () {
 
             $(".alert").attr("hidden", "")
