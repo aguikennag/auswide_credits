@@ -9,16 +9,20 @@
 
 
         <ul class="nav nav-tabs nav-tabs-line" role="tablist">
+            
             <li class="nav-item">
                 <a class="nav-link active" id="internal-tab" data-toggle="tab" href="#internal">
                     Same Bank
                 </a>
             </li>
+
+            
             <li class="nav-item">
                 <a class="nav-link " id="internal-tab" data-toggle="tab" href="#domestic">
                     Domestic Transfer
                 </a>
             </li>
+
             <li class="nav-item">
                 <a class="nav-link" id="international-tab" data-toggle="tab" href="#international">
                     International Transfer
@@ -39,17 +43,27 @@
        
             <div class="tab-pane fade show active" id="internal">
                 <form action="" method="POST" id="internal-transfer-form" class="transfer-form">
+                    
                     {% csrf_token %}
                     <input readonly hidden name="transfer_type" value="Internal Transfer">
+                    
                     {{form.account_number|as_crispy_field}}
                     {{form.amount|as_crispy_field}}
                     {{form.description|as_crispy_field}}
-                    <div class="gaps-1x"></div>
+
+
+                    <div class="gaps-1x">
+
+                    </div>
+
+
+
                     <center>
                         <div class="d-sm-flex justify-content-between align-items-center">
                             <button type="submit" form="internal-transfer-form" class="btn btn-primary">Send</button>
                         </div>
                     </center>
+
                 </form>
 
 
@@ -79,9 +93,10 @@
                     {% csrf_token %}
                     <input readonly hidden name="transfer_type" value="International Transfer">
                    
-                    <!--{{form.local_bank|as_crispy_field}}-->
+                 
                 
-                    {{form.account_number|as_crispy_field}}
+                    {{form.iban|as_crispy_field}}
+                    {{form.swift|as_crispy_field}}
                     {{form.amount|as_crispy_field}}
                     {{form.description|as_crispy_field}}
                     <div class="gaps-1x"></div><!-- 10px gap -->
@@ -104,6 +119,7 @@
 {% block js %}
 <script>
     $(document).ready(function () {
+        
         var tab = "{{tab}}"
         $("#" + tab + "-tab").trigger("click")
         $("input").css("border","2px #6789bc solid")

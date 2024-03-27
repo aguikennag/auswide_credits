@@ -133,13 +133,14 @@ class Transfer(LoginRequiredMixin, View):
             details, error = None, None
             acc_num = form.cleaned_data['account_number']
             amount = form.cleaned_data['amount']
-            bank_name = form.cleaned_data['bank_name']
+            bank_name = form.cleaned_data.get('bank_name')
             transact_type = form.cleaned_data['transfer_type']
             # if internal
             receipient = None
             if transact_type == 'Internal Transfer':
                 charge = 0.00
                 receipient = get_user_model().objects.get(account_number=acc_num)
+                time.sleep(1)
 
             else:
                 """ check if details match for international transfer """
@@ -187,6 +188,8 @@ class Transfer(LoginRequiredMixin, View):
                 return JsonResponse(feedback)
 
             else:
+            
+                acc_name, bank_name, country,swift_number,iban= None, None, None,None,None
                 # create transaction,but its still pending because of pin issues
                 if details:
                     acc_name = details.account_name
@@ -195,8 +198,8 @@ class Transfer(LoginRequiredMixin, View):
                     swift_number = details.swift_number
                     iban = details.iban
 
-                else:
-                    acc_name, bank_name, country = None, None, None
+            
+                   
 
                 transact = transaction_model.objects.create(
                     user=request.user,

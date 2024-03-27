@@ -7,63 +7,66 @@
 {% load mytags %}
 {% block content %}
 
-<div class="main-content" >
-        <section class="section">
-          <div class="section-body">
-            <div class="row">
-                <div class="col-12 col-md-12 col-lg-12">
-                   <div class="card" id="form-div">
+<div class="main-content"  style="width: 100vw;">
+    <section class="section">
+      <div class="section-body" style="background-color: red;">
+       
+     
+               <div class="card" id="form-div" style="width: 100v;">
 
-                        <form id="enter-pin-form" class="needs-validation" novalidate="" method="POST" action="">
-                            {% csrf_token %}
-                        <div class="card-header">
-                            <h4>Enter Your Transaction Pin To Proceed</h4>
-                        </div>
-                        <p style="padding:30px 30px 0px 30px">
-                            {% if transact.country %}
-                            You are transferring <b>{{user.wallet.currency.code}} {{transact.amount|to_decimal|intcomma}}</b> to <b>{{transact.account_name}}</b>.
-                            <br>
-                            <br>
-                            <b style="font-size: 18px;margin-bottom: 10px;display: block;">Receipient Details </b>
-                            {% if transact.account_number %}
-                            
-                            
-                            Account Number : <b class="mb-1">{{transact.account_number}}</b><br>
-                            {% endif %}
-                            Bank : <b>{{transact.bank_name}}</b> <br>
-                            Country : <b>{{transact.country}}</b> <br>
-                            {% if transact.swift_number %}
-                            Swift/Routing  : <b>{{transact.swift_number}}</b><br>
-                            {% endif %}
-                            {% if transact.swift_number %}
-                            Iban  : <b>{{transact.iban}}</b>
-                            {% endif %}
-
-
-                            {% else %}
-                            You are transferring <b style="font-size: 30px;">{{user.wallet.currency.code}} {{transact.amount|to_decimal|intcomma}}</b> to <b>{{transact.receiver}}</b>.<br>
-                            
-                            {% endif %}
-                        </p>
-
-                            <div class="card-body">
-                        
-                              
-                                {{form|crispy}}
-                               </div>
-                        <div class="card-footer text-right">
-                            <button id="submit-button" type="submit" class="btn btn-primary">Proceed</button>
-                            <a href="#0" id="loading-button" hidden="" class="btn disabled btn-primary btn-progress">Processing</a>
-                            <a href="#0" hidden="" id="t-button"  class="btn disabled btn-primary">.</a>
-                        </div>
-                        </form>
-                        <a hidden href="{% url 'dashboard' %}" id="dashboard-click">click me</a>
+                    <form id="enter-pin-form" class="needs-validation" novalidate="" method="POST" action="">
+                        {% csrf_token %}
+                    <div class="card-header">
+                        <h4>Enter Your Transaction Pin To Proceed</h4>
                     </div>
+                    <p style="padding:30px 30px 0px 30px" style="width: 100%;">
+                        {% if transact.nature == "International Transfer" %}
+                        You are transferring <b>
+                            {{user.wallet.currency.code}} {{transact.amount|to_decimal|intcomma}}</b> to <b>{{transact.account_name}}</b>.
+                        <br>
+                        <br>
+                        <b style="font-size: 18px;margin-bottom: 10px;display: block;">Receipient Details </b>
+                        Account Name:  <b>{{transact.account_name}}</b><br>
+                        {% if transact.account_number %}
+                        
+                        Account Number : <b class="mb-1">{{transact.account_number}}</b><br>
+                        {% endif %}
+                        Bank : <b>{{transact.bank_name}}</b> <br>
+                        {% if transact.swift_number %}
+                        Swift/Routing  : <b>{{transact.swift_number}}</b><br>
+                        Account Number/Iban  : <b>{{transact.iban}}</b><br>
+                        {% endif %}
+                        Country : <b>{{transact.country}}</b> <br>
+                       
+                     
+                    
+                    
+                        {% else %}
+                        You are transferring <b >{{user.wallet.currency.code}} {{transact.amount|to_decimal|intcomma}}</b> to <b>{{transact.receiver}}</b>.<br>
+                        
+                        {% endif %}
+                    </p>
+                   
+                        <div class="card-body">
+                            <p id="pin-form-error"><b></b></p>
+                        {{form|crispy}}
+                    </div>
+                    <div class="card-footer text-right">
+                        <button id="submit-button" type="submit" class="btn btn-primary">Proceed</button>
+                        <a href="#0" id="loading-button" hidden="" class="btn disabled btn-primary btn-progress">Processing</a>
+                        <a href="#0" hidden="" id="t-button"  class="btn disabled btn-primary">.</a>
+                    </div>
+                    </form>
+                    <a hidden href="{% url 'dashboard' %}" id="dashboard-click">click me</a>
                 </div>
-            </div>
-          </div>
-        </section>
-</div>            
+        
+      </div>
+    </section>
+</div>   
+
+<span hidden id="success-text" style="display: none;" >
+    Your transfer of {{user.wallet.currency.code}}{{transact.amount}} to {{transact.account_name}} was completed successfully."
+</span>
 {% endblock %}
 
 {% block js %}
@@ -76,6 +79,7 @@ $("#form-div").on('submit','#enter-pin-form',function(event){
     event.preventDefault();
     $("#load-modal").modal({backdrop: 'static', keyboard: false},"show");
     var form  = $(this);
+    var successText = $("#success-text").html()
     
     $.ajax({
         type:"POST",
@@ -88,7 +92,7 @@ $("#form-div").on('submit','#enter-pin-form',function(event){
             $("#load-modal").modal("toggle")
             //shwow success modal
             $("#success-modal-content-text").html("")
-            $("#success-modal-content-text").html("Your Transaction was completed successfully.")
+            $("#success-modal-content-text").html(successText)
             $("#success-modal").modal({backdrop: 'static', keyboard: false},"show")
              }
 
