@@ -61,36 +61,54 @@ class TransferForm(forms.Form):
                    ('Domestic Transfer','Domestic Transfer'))
     transfer_type = forms.ChoiceField(choices=TypeChoices)
     account_number = forms.CharField(
-        required=False, help_text="receipient account number")
-    iban = forms.CharField(required=False, label='IBAN',
-                           help_text="international bank identification number")
-    swift_number = forms.CharField(
-        required=False, label="Swift/ABA Routing Number", help_text="")
-    bic = forms.CharField(required=False, label="BIC",
-                          help_text="Bank identification code")
-    #currency = forms.ModelChoiceField(queryset=Currency.objects.all())
+        required=False, help_text="Recipient Account Number")
+    iban = forms.CharField(
+        required=False,label="IBAN / Account Number")
+    swift = forms.CharField(
+        required=False,label="BIC / Swift Code", help_text="The swift code / routing number/ swift number/ bank identification code")
+  
+    
     amount = forms.FloatField()
     description = forms.CharField()
-
+    
     local_bank = forms.ChoiceField(choices=BankChoices,required = False)
 
     def __init__(self, user=None, *args, **kwargs):
         super(TransferForm, self).__init__(*args, **kwargs)
         self.user = user
+
+    def clean_iban(self) :
+        iban = self.cleaned_data.get("iban")
+        if self.cleaned_data['transfer_type'].lower() == "international transfer" :
+            if not iban : raise forms.ValidationError("IBAN / Account Number is required for international transactions")
+        return iban
+    
+    def clean_swift(self) :
+        iban = self.cleaned_data.get("swift")
+        if self.cleaned_data['transfer_type'].lower() == "international transfer" :
+            if not iban : raise forms.ValidationError("Swift number/BIC is required for international transactions")
+        return iban
+      
     
     def clean_transfer_type(self) :
         t_type =  self.cleaned_data.get('transfer_type')
         
         return  t_type   
+    
 
+    
     def clean_account_number(self):
-      
+        acc_num = self.cleaned_data.get('account_number')
+        if self.cleaned_data['transfer_type'].lower() != "international transfer" :
+            if not acc_num :
+                raise forms.ValidationError("Account Number is required")
+            
         if self.cleaned_data.get('transfer_type') == "Domestic Transfer": 
             raise forms.ValidationError("""
             We're sorry, but it seems this service is temporarily down at the moment, please try again later.
             """)
 
-        acc_num = self.cleaned_data['account_number']
+        
         if self.cleaned_data.get('transfer_type') == "Internal Transfer":
             if not get_user_model().objects.filter(account_number=acc_num).exists():
                 raise forms.ValidationError("""The entered account number does not belong to any {} account,
@@ -103,25 +121,7 @@ class TransferForm(forms.Form):
 
         return acc_num
 
-    def clean_ibxan(self):
-        iban = self.cleaned_data.get('iban')
-        if self.cleaned_data.get('transfer_type') == "International Transfer" and len(iban) < 1:
-            raise forms.ValidationError("Iban number cannot be empty for {} ".format(
-                self.cleaned_data.get('transfer_type')))
-        return iban
-
-    def clean_swift_number(self):
-        swift_number = self.cleaned_data.get('swift_number')
-        if len(swift_number) < 1:
-            return swift_number
-        return swift_number
-
-    """def clean_bic(self) :
-        bic = self.cleaned_data['bic']
-        if self.cleaned_data['transfer_type']  != "Internal Transfer"  and  len(bic) < 1 :
-            raise forms.ValidationError("BIC cannot be empty for {} ".format(self.cleaned_data['transfer_type']))
-        return bic"""
-
+   
     def get_transfer_charge(self):
         """charge_due_amount = 0.08 * amount 
         charge = max_charge if max_charge < charge_due_amount else charge_due_amount"""

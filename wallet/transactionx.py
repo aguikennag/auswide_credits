@@ -56,7 +56,7 @@ class CompleteTransaction(LoginRequiredMixin, UserPassesTestMixin, View):
 
         if form.is_valid():
             # check pin match
-           
+
             pin = form.cleaned_data['pin']
             if not pin == request.user.wallet.transaction_pin:
                 time.sleep(5)
@@ -67,18 +67,18 @@ class CompleteTransaction(LoginRequiredMixin, UserPassesTestMixin, View):
                 time.sleep(5)
                 self.feedback['error'] = request.user.wallet.disallow_reason or "You cannot complete this transaction on your account, please contact support"
                 return JsonResponse(self.feedback)
-            
-            delay_time = 10    
+
+            delay_time = 10
             start = time.time()
-            
+
             status = self.transaction.fulfill()
             msg = status.get("success") or msg.get("error")
             if msg:
                 messages.success(request, msg)
-           
+
             delayed = time.time() - start
             if delayed < delay_time:
-                time.sleep(delay_time-delayed)  
+                time.sleep(delay_time-delayed)
 
             return JsonResponse(status)
 
@@ -115,6 +115,9 @@ class Transfer(LoginRequiredMixin, View):
     # optional 3 for branch
 
     def get(self, request, *args, **kwargs):
+
+        if request.user.is_blocked:
+            return render(request, "account_blocked.html", {})
         account = request.user.wallet
         form = self.form_class
         return render(request, self.template_name, locals())
@@ -122,21 +125,22 @@ class Transfer(LoginRequiredMixin, View):
     def post(self, request, *args, **kwargs):
         start = time.time()
         feedback = {}
+        if request.user.is_blocked:
+            return render(request, "account_blocked.html", {})
+
         form = self.form_class(user=self.request.user, data=request.POST)
         if form.is_valid():
             details, error = None, None
-            acc_num = form.cleaned_data.get('account_number')
-            iban = form.cleaned_data.get("iban")
-            swift_number = form.cleaned_data.get("swift")
+            acc_num = form.cleaned_data['account_number']
             amount = form.cleaned_data['amount']
+            bank_name = form.cleaned_data.get('bank_name')
             transact_type = form.cleaned_data['transfer_type']
-
             # if internal
             receipient = None
-            charge = 0.00
             if transact_type == 'Internal Transfer':
                 charge = 0.00
                 receipient = get_user_model().objects.get(account_number=acc_num)
+                time.sleep(1)
 
             else:
                 """ check if details match for international transfer """
@@ -146,37 +150,36 @@ class Transfer(LoginRequiredMixin, View):
                         delay_time = 5
                     else:
                         delay_time = 0
-                    charge_percentage = settings.INTERNATIONAL_TRANSFER_CHARGE
-                    charge = (charge_percentage /100) * int(amount)
-                    if charge > 50 : 
-                        charge = 50
+                    charge = settings.INTERNATIONAL_TRANSFER_CHARGE
+                    charge = (charge/100) * int(amount)
+                    if charge > 100:
+                        charge = 100
                     # check if details is in our list,else give network error
                     details, error = None, None
-                    print(iban)
+                    print(acc_num)
                     matching_account = DemoAccountDetails.objects.filter(
-                        #since acc_num is not used for international transactions
-                        Q(account_number=iban) | 
-                        Q(iban=iban),
-                        swift_number = swift_number 
+                        Q(account_number=acc_num)
                     )
-
-                    if not matching_account.exists() :
-                        feedback['error'] = "We apologize, but we are temporarily unable to locate the account associated with the provided account details. please try again later, or contact support if the issue persists."
-                        #feedback['error'] = "Connection to the receipient server could not be completed at the moment, please try again later."
+                    if not matching_account.exists():
+                        feedback['error'] = "We apologize, but we were unable to locate the account associated with the provided account number. please try again later."
+                        # feedback['error'] = "Connection to the receipient server could not be completed at the moment, please try again later."
                         time.sleep(3)
                         return JsonResponse(feedback)
-                    
+
                     matching_account = matching_account[0]
                     delayed = time.time() - start
                     if delayed < delay_time:
                         time.sleep(delay_time-delayed)
-                    
+
                     if matching_account:
-            
+                        if matching_account.bank_name.lower() != form.cleaned_data.get("bank_name", "!").lower():
+                            error = "The entered account number is not valid  for the entered bank. "
+                            feedback['error'] = error
+                            return JsonResponse(feedback)
                         details = matching_account
 
                     else:
-                    
+
                         feedback['error'] = error
                         return JsonResponse(feedback)
 
@@ -187,6 +190,8 @@ class Transfer(LoginRequiredMixin, View):
                 return JsonResponse(feedback)
 
             else:
+
+                acc_name, bank_name, country, swift_number, iban = None, None, None, None, None
                 # create transaction,but its still pending because of pin issues
                 if details:
                     acc_name = details.account_name
@@ -195,12 +200,9 @@ class Transfer(LoginRequiredMixin, View):
                     swift_number = details.swift_number
                     iban = details.iban
 
-                else:
-                    acc_name, bank_name, country = None, None, None
-
                 transact = transaction_model.objects.create(
                     user=request.user,
-                    amount=amount + charge,
+                    amount=amount,
                     transaction_type='debit',
                     nature=form.cleaned_data['transfer_type'],
                     description=form.cleaned_data['description'],
@@ -210,7 +212,7 @@ class Transfer(LoginRequiredMixin, View):
                     receiver=receipient,
                     swift_number=swift_number,
                     iban=iban,
-                    account_number=acc_num  or iban,
+                    account_number=acc_num,
                     account_name=acc_name,
                     country=country,
                     bank_name=bank_name
