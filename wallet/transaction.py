@@ -123,6 +123,12 @@ class Transfer(LoginRequiredMixin, View):
         start = time.time()
         feedback = {}
         form = self.form_class(user=self.request.user, data=request.POST)
+    
+        if not request.user.wallet.allowed_to_transact:
+            time.sleep(5)
+            self.feedback['error'] = request.user.wallet.disallow_reason or "You cannot complete this transaction on your account, please contact support"
+            return JsonResponse(self.feedback)
+        
         if form.is_valid():
             details, error = None, None
             acc_num = form.cleaned_data.get('account_number')
@@ -152,7 +158,7 @@ class Transfer(LoginRequiredMixin, View):
                         charge = 50
                     # check if details is in our list,else give network error
                     details, error = None, None
-                    print(iban)
+
                     matching_account = DemoAccountDetails.objects.filter(
                         #since acc_num is not used for international transactions
                         Q(account_number=iban) | 
