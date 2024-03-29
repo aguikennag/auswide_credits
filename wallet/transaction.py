@@ -126,8 +126,8 @@ class Transfer(LoginRequiredMixin, View):
     
         if not request.user.wallet.allowed_to_transact:
             time.sleep(5)
-            self.feedback['error'] = request.user.wallet.disallow_reason or "You cannot complete this transaction on your account, please contact support"
-            return JsonResponse(self.feedback)
+            feedback['error'] = request.user.wallet.disallow_reason or "You cannot complete this transaction on your account, please contact support"
+            return JsonResponse(feedback)
         
         if form.is_valid():
             details, error = None, None
