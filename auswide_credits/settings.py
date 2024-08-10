@@ -120,15 +120,15 @@ MIDDLEWARE = [
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
-    'common_credit.middleware.AccountManagementMiddleware',
-    'common_credit.middleware.MaintenanceMideMiddleware',
+    'auswide_credits.middleware.AccountManagementMiddleware',
+    'auswide_credits.middleware.MaintenanceMideMiddleware',
     'django_auto_logout.middleware.auto_logout',
     # language translation
     # 'django.middleware.locale.LocalMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'common_credit.urls'
+ROOT_URLCONF = 'auswide_credits.urls'
 
 TEMPLATES = [
     {
@@ -158,7 +158,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'common_credit.wsgi.application'
+WSGI_APPLICATION = 'auswide_credits.wsgi.application'
 
 
 # Database
