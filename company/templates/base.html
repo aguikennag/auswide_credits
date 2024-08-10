@@ -3,195 +3,666 @@
 <html lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <title>{{site_name}} | Welcome to Modern Banking</title>
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <meta content="" name="keywords">
-    <meta content="" name="description">
-
-    <!-- Favicon -->
-    <link href="{% static 'img/favicon.png' %}" rel="icon">
-
-    <!-- Google Web Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{{site_name}} || Welcome To Modern Banking</title>
+    <!-- Favicons Icons -->
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'img/favicon.png' %}" />
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'img/favicon.png' %}" />
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'img/favicon.png' %}" />
+    <link rel="manifest" href="images/favicons/site.webmanifest" />
+    <meta name="description" content="Finbank HTML 5 Template " />
+    <!-- fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
     <link
-        href="https://fonts.googleapis.com/css2?family=Jost:wght@500;600;700&family=Open+Sans:wght@400;500&display=swap"
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&display=swap"
         rel="stylesheet">
 
-    <!-- Icon Font Stylesheet -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'vendors/animate/animate.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'vendors/animate/custom-animate.css' %}" />
+    <link rel="stylesheet" href="{% static 'vendors/bootstrap/css/bootstrap.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'vendors/bxslider/jquery.bxslider.css' %}" />
+    <link rel="stylesheet" href="{% static 'vendors/fontawesome/css/all.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'vendors/jquery-magnific-popup/jquery.magnific-popup.css' %}" />
+    <link rel="stylesheet" href="{% static 'vendors/jquery-ui/jquery-ui.css' %}" />
+    <link rel="stylesheet" href="{% static 'vendors/nice-select/nice-select.css' %}" />
+    <link rel="stylesheet" href="{% static 'vendors/odometer/odometer.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'vendors/owl-carousel/owl.carousel.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'vendors/owl-carousel/owl.theme.default.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'vendors/swiper/swiper.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'vendors/vegas/vegas.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'vendors/thm-icons/style.css' %}">
+    <link rel="stylesheet" href="{% static 'vendors/language-switcher/polyglot-language-switcher.css' %}">
+    <!-- Module css -->
+    <link rel="stylesheet" href="{% static 'css/module-css/01-header-section.css' %}">
+    <link rel="stylesheet" href="{% static 'css/module-css/02-banner-section.css' %}">
+    <link rel="stylesheet" href="{% static 'css/module-css/03-about-section.css' %}">
+    <link rel="stylesheet" href="{% static 'css/module-css/04-fact-counter-section.css' %}">
+    <link rel="stylesheet" href="{% static 'css/module-css/05-testimonial-section.css' %}">
+    <link rel="stylesheet" href="{% static 'css/module-css/06-partner-section.css' %}">
+    <link rel="stylesheet" href="{% static 'css/module-css/07-footer-section.css' %}">
+    <link rel="stylesheet" href="{% static 'css/module-css/08-blog-section.css' %}">
 
-    <!-- Libraries Stylesheet -->
-    <link href="{% static 'lib/animate/animate.min.css' %}" rel="stylesheet">
-    <link href="{% static 'lib/owlcarousel/assets/owl.carousel.min.css' %}" rel="stylesheet">
-
-    <!-- Customized Bootstrap Stylesheet -->
-    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
-
-    <!-- Template Stylesheet -->
-    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+    <!-- Template styles -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/color-1.css' %}">
+    <link rel="stylesheet" href="{% static 'css/responsive.css' %}" />
 
 </head>
 
+
 <body>
-    <!-- Spinner Start -->
-    <div id="spinner"
-        class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
-        <div class="spinner-border text-primary" role="status" style="width: 3rem; height: 3rem;"></div>
-    </div>
-    <!-- Spinner End -->
 
-
-    <!-- Navbar Start -->
-    <div class="container-fluid fixed-top px-0 wow fadeIn" data-wow-delay="0.1s">
-        <div class="top-bar row gx-0 align-items-center d-none d-lg-flex">
-            <div class="col-lg-6 px-5 text-start">
-                <small><i class="fa fa-map-marker-alt text-primary me-2"></i>{{site_address}}</small>
-                <small class="ms-4"><i class="fa fa-clock text-primary me-2"></i>9.00 am - 4.00 pm</small>
-            </div>
-            <div class="col-lg-6 px-5 text-end">
-                <small><i class="fa fa-envelope text-primary me-2"></i>{{site_mail}}</small>
-
+    <!-- Start preloader -->
+    <div class="loader-wrap">
+        <div class="preloader">
+            <div class="preloader-close">x</div>
+            <div id="handle-preloader" class="handle-preloader">
+                <div class="animation-preloader">
+                    <div class="spinner"></div>
+                    <div class="txt-loading">
+                        <span data-text-preloader="f" class="letters-loading">
+                            f
+                        </span>
+                        <span data-text-preloader="i" class="letters-loading">
+                            i
+                        </span>
+                        <span data-text-preloader="n" class="letters-loading">
+                            n
+                        </span>
+                        <span data-text-preloader="b" class="letters-loading">
+                            b
+                        </span>
+                        <span data-text-preloader="a" class="letters-loading">
+                            a
+                        </span>
+                        <span data-text-preloader="n" class="letters-loading">
+                            N
+                        </span>
+                        <span data-text-preloader="k" class="letters-loading">
+                            k
+                        </span>
+                    </div>
+                </div>
             </div>
         </div>
+    </div>
+    <!-- End preloader -->
 
-        <nav class="navbar navbar-expand-lg navbar-light py-lg-0 px-lg-5 wow fadeIn" data-wow-delay="0.1s">
-            <a href="{% url 'index' %}" class="navbar-brand ms-4 ms-lg-0">
-                <img src="{% static 'img/logo.png' %}" style="height:55px;width:60px">
-            </a>
 
-            <a hidden style="float: inline-end;" href=""
-                class="btn navbar-toggler btn-primary py-1 px-2 animated slideInDown">
-                Register
-            </a>
-            <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse"
-                data-bs-target="#navbarCollapse">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+    <div class="page-wrapper" >
 
-            <div class="collapse navbar-collapse" id="navbarCollapse">
-                <div class="navbar-nav ms-auto p-4 p-lg-0">
-                    <a href="{% url 'index' %}" class="nav-item nav-link active">Home</a>
-                    <a href="{% url 'index' %}#about-us" class="nav-item nav-link">About Us</a>
-                    <div class="nav-item dropdown">
-                        <a href="#0" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Product & Services</a>
-                        <div class="dropdown-menu border-light m-0">
-                            <a href="{% url 'index' %}#services" class="dropdown-item">Savings Account</a>
-                            <a href="{% url 'index' %}#services" class="dropdown-item">Credit Cards</a>
-                            <a href="{% url 'index' %}#services" class="dropdown-item">Loans</a>
-                            <a href="{% url 'index' %}#services" class="dropdown-item">Investments</a>
-                            <a href="{% url 'index' %}#services" class="dropdown-item">Online Banking</a>
+        <header class="main-header main-header-style2" >
+
+            <!--Start Main Header Style2 Top-->
+            <div class="main-header-style2__top" >
+                <div class="auto-container">
+                    <div class="outer-box">
+                        <!--Start Main Header Style2 Top Left-->
+                        <div class="main-header-style2__top-left" >
+                            <div class="notification-box">
+                                <div class="icon">
+                                    <span class="icon-notification"></span>
+                                </div>
+                                <p>
+                                    Get upto 4%* on our Savings Account Balances with Finbank.
+                                    <a href="#"><span class="icon-right-arrow"></span></a>
+                                </p>
+                            </div>
+                        </div>
+                        <!--End Main Header Style2 Top Left-->
+
+                        <!--Start Main Header Style2 Top Right-->
+                        <div class="main-header-style2__top-right">
+                            <div class="header-menu-style1">
+                                <ul>
+                                    <li><a href="#">Careers</a></li>
+                                    <li><a href="#">Faq’s</a></li>
+                                    <li><a href="#">Offers</a></li>
+                                    <li><a href="#">Calendar</a></li>
+                                </ul>
+                            </div>
+                            <div class="box-search-style1">
+                                <a href="#" class="search-toggler">
+                                    <span class="icon-search"></span>
+                                    Search
+                                </a>
+                            </div>
+                            <div class="language-switcher">
+                                <div id="polyglotLanguageSwitcher">
+                                    <form action="#">
+                                        <select id="polyglot-language-options">
+                                            <option id="en" value="en" selected>English</option>
+                                            <option id="fr" value="fr">French</option>
+                                            <option id="de" value="de">German</option>
+                                            <option id="it" value="it">Italian</option>
+                                            <option id="es" value="es">Spanish</option>
+                                        </select>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                        <!--End Main Header Style2 Top Right-->
+
+                    </div>
+                </div>
+            </div>
+            <!--End Main Header Style2 Top-->
+
+            <nav class="main-menu main-menu-style2">
+                <div class="main-menu__wrapper clearfix">
+                    <div class="container">
+                        <div class="main-menu__wrapper-inner">
+
+                            <div class="main-menu-style2-left">
+                                <div class="logo-box-style2">
+                                    <a href="{% url 'index' %}">
+                                        <img src="{% static 'img/logo.png' %}" alt="Awesome Logo" title="">
+                                    </a>
+                                </div>
+
+                                <div class="looking-banking-box looking-banking-box--style2">
+                                    <div class="icon">
+                                        <span class="icon-binoculars"></span>
+                                    </div>
+                                    <div class="select-box clearfix">
+                                        <p>Looking</p>
+                                        <select class="wide">
+                                            <option data-display="Personal Banking">
+                                                Personal Banking
+                                            </option>
+                                            <option value="1">Business Banking</option>
+                                            <option value="2">Personal Banking 01</option>
+                                            <option value="3">Personal Banking 02</option>
+                                            <option value="4">Personal Banking 03</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="main-menu-style2-right">
+
+                                <div class="main-menu-box">
+                                    <a href="#" class="mobile-nav__toggler">
+                                        <i class="icon-menu"></i>
+                                    </a>
+
+                                    <ul class="main-menu__list">
+                                        <li class="dropdown megamenu">
+                                            <a href="index.html">Home</a>
+                                            <ul>
+                                                <li>
+                                                    <div class="megamenu-content-box">
+                                                        <div class="container">
+                                                            <div class="megamenu-content-box__inner">
+                                                                <div class="row">
+
+                                                                    <!--Start Home Showcase Item-->
+                                                                    <div class="col-lg-3">
+                                                                        <div class="home-showcase__item">
+                                                                            <div class="home-showcase__image">
+                                                                                <img src="{% static 'images/home-showcase/home-showcase-1-1.jpg' %}"
+                                                                                    alt="">
+                                                                                <div class="home-showcase__buttons">
+                                                                                    <a href="index.html"
+                                                                                        class="btn-one home-showcase__buttons__item top">
+                                                                                        <span class="txt">Multi
+                                                                                            Page</span>
+                                                                                    </a>
+                                                                                    <a href="index-one-page.html"
+                                                                                        class="btn-one home-showcase__buttons__item">
+                                                                                        <span class="txt">One
+                                                                                            Page</span>
+                                                                                    </a>
+                                                                                </div>
+                                                                            </div>
+                                                                            <h3 class="home-showcase__title">
+                                                                                Home Page One
+                                                                            </h3>
+                                                                        </div>
+                                                                    </div>
+                                                                    <!--End Home Showcase Item-->
+
+                                                                    <!--Start Home Showcase Item-->
+                                                                    <div class="col-lg-3">
+                                                                        <div class="home-showcase__item">
+                                                                            <div class="home-showcase__image">
+                                                                                <img src="{% static 'images/home-showcase/home-showcase-1-2.jpg' %}"
+                                                                                    alt="">
+                                                                                <div class="home-showcase__buttons">
+                                                                                    <a href="index-2.html"
+                                                                                        class="btn-one home-showcase__buttons__item top">
+                                                                                        <span class="txt">Multi
+                                                                                            Page</span>
+                                                                                    </a>
+                                                                                    <a href="index-2-one-page.html"
+                                                                                        class="btn-one home-showcase__buttons__item">
+                                                                                        <span class="txt">One
+                                                                                            Page</span>
+                                                                                    </a>
+                                                                                </div>
+                                                                            </div>
+                                                                            <h3 class="home-showcase__title">
+                                                                                Home Page Two
+                                                                            </h3>
+                                                                        </div>
+                                                                    </div>
+                                                                    <!--End Home Showcase Item-->
+
+                                                                    <!--Start Home Showcase Item-->
+                                                                    <div class="col-lg-3">
+                                                                        <div class="home-showcase__item">
+                                                                            <div class="home-showcase__image">
+                                                                                <img src="{% static 'images/home-showcase/home-showcase-1-3.jpg' %}"
+                                                                                    alt="">
+                                                                                <div class="home-showcase__buttons">
+                                                                                    <a href="index-3.html"
+                                                                                        class="btn-one home-showcase__buttons__item top">
+                                                                                        <span class="txt">Multi
+                                                                                            Page</span>
+                                                                                    </a>
+                                                                                    <a href="index-3-one-page.html"
+                                                                                        class="btn-one home-showcase__buttons__item">
+                                                                                        <span class="txt">One
+                                                                                            Page</span>
+                                                                                    </a>
+                                                                                </div>
+                                                                            </div>
+                                                                            <h3 class="home-showcase__title">
+                                                                                Home Page Three
+                                                                            </h3>
+                                                                        </div>
+                                                                    </div>
+                                                                    <!--End Home Showcase Item-->
+
+                                                                    <!--Start Home Showcase Item-->
+                                                                    <div class="col-lg-3">
+                                                                        <div class="home-showcase__item">
+                                                                            <div class="home-showcase__image">
+                                                                                <img src="{% static 'images/home-showcase/home-showcase-1-4.jpg' %}"
+                                                                                    alt="">
+                                                                                <div class="home-showcase__buttons">
+                                                                                    <a href="index-dark.html"
+                                                                                        class="btn-one home-showcase__buttons__item top">
+                                                                                        <span class="txt">View
+                                                                                            Page</span>
+                                                                                    </a>
+                                                                                </div>
+                                                                            </div>
+                                                                            <h3 class="home-showcase__title">
+                                                                                Home Dark
+                                                                            </h3>
+                                                                        </div>
+                                                                    </div>
+                                                                    <!--End Home Showcase Item-->
+
+                                                                </div>
+                                                            </div>
+
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </li>
+
+                                        <li class="dropdown">
+                                            <a href="#">Services</a>
+                                            <ul>
+                                                <li class="dropdown">
+                                                    <a href="#">Accounts</a>
+                                                    <ul>
+                                                        <li><a href="accounts.html">All Accounts</a></li>
+                                                        <li><a href="account-savings.html">Savings Account</a></li>
+                                                        <li><a href="account-current.html">Current Account</a></li>
+                                                        <li><a href="account-fixed-dep.html">Fixed Deposit Account</a>
+                                                        </li>
+                                                        <li><a href="account-salary.html">Salary Account</a></li>
+                                                        <li><a href="account-recuring-dep.html">Recuring Deposit a/c</a>
+                                                        </li>
+                                                        <li><a href="account-nri.html">NRI Account</a></li>
+                                                    </ul>
+                                                </li>
+                                                <li class="dropdown">
+                                                    <a href="#">Cards</a>
+                                                    <ul>
+                                                        <li><a href="cards.html">Our All Cards</a></li>
+                                                        <li><a href="cards-business.html">Business</a></li>
+                                                        <li><a href="cards-cashback.html">Cashback</a></li>
+                                                        <li><a href="cards-law-interest.html">Low Interest</a></li>
+                                                        <li><a href="cards-rewards.html">Rewards</a></li>
+                                                        <li><a href="cards-secured.html">Secured</a></li>
+                                                        <li><a href="cards-travel-hotel.html">Travel & Hotel</a></li>
+                                                    </ul>
+                                                </li>
+                                                <li class="dropdown">
+                                                    <a href="#">Loans</a>
+                                                    <ul>
+                                                        <li><a href="loan-home.html">Home Loan</a></li>
+                                                        <li><a href="loan-personal.html">Personal Loan</a></li>
+                                                        <li><a href="loan-vehicle.html">Vehicle Loan</a></li>
+                                                        <li><a href="loan-education.html">Education Loan</a></li>
+                                                        <li><a href="loan-gold.html">Gold Loan</a></li>
+                                                    </ul>
+                                                </li>
+                                            </ul>
+                                        </li>
+
+                                        <li class="dropdown">
+                                            <a href="#">About</a>
+                                            <ul>
+                                                <li><a href="about.html">About Us</a></li>
+                                                <li><a href="team.html">Board of Directors</a></li>
+                                                <li><a href="careers.html">Careers</a></li>
+                                                <li><a href="careers-details.html">Career Detail</a></li>
+                                                <li><a href="faq.html">Faq’s</a></li>
+                                                <li><a href="testimonials.html">Testimonials</a></li>
+                                                <li><a href="404.html">404 Error</a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="dropdown">
+                                            <a href="#">News</a>
+                                            <ul>
+                                                <li><a href="blog.html">Grid View</a></li>
+                                                <li><a href="blog-2.html">List View</a></li>
+                                                <li><a href="blog-3.html">Large Image</a></li>
+                                                <li><a href="blog-single.html">Single Post</a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="dropdown">
+                                            <a href="#">Apply Now</a>
+                                            <ul>
+                                                <li><a href="loan-home.html">Home Loan</a></li>
+                                                <li><a href="loan-personal.html">Personal Loan</a></li>
+                                                <li><a href="loan-vehicle.html">Vehicle Loan</a></li>
+                                                <li><a href="loan-education.html">Education Loan</a></li>
+                                                <li><a href="loan-gold.html">Gold Loan</a></li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <a href="contact.html">Get In Touch</a>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                <div class="header-btn-one">
+                                    <a href="#">Make Payment</a>
+                                </div>
+
+                                <div class="header-logon-box">
+                                    <div class="icon">
+                                        <span class="icon-home-button"></span>
+                                    </div>
+                                    <div class="select-box">
+                                        <select class="wide">
+                                            <option data-display="Login">
+                                                Login
+                                            </option>
+                                            <option value="1">Login</option>
+                                            <option value="2">Register</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                            </div>
 
                         </div>
                     </div>
-                    <a href="{% url 'index' %}#our-expertise" class="nav-link nav-link">Our Expertise</a>
-
-
-
-                    <a href="{% url 'contact' %}" class="nav-item nav-link">Contact</a>
-                    {% if user.is_authenticated %}
-                    <a href="{% url 'dashboard' %}" class="nav-item nav-link">Dashboard</a>
-                    {% else %}
-                    <a href="{% url 'login' %}" class="nav-item nav-link">Login</a>
-                    {% endif %}
                 </div>
+            </nav>
 
-            </div>
-        </nav>
-    </div>
-    <!-- Navbar End -->
+        </header>
 
-    {% block content %}
-    {% endblock %}
 
-    <!-- Footer Start -->
-    <div class="container-fluid bg-dark text-light footer mt-5 py-5 wow fadeIn" data-wow-delay="0.1s">
-        <div class="container py-5">
-            <div class="row g-5">
-                <div class="col-lg-3 col-md-6">
-                    <h4 class="text-white mb-4">Our Office</h4>
-                    <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>{{site_address}}</p>
+        <div class="stricky-header stricky-header--style2 stricked-menu main-menu">
+            <div class="sticky-header__content"></div><!-- /.sticky-header__content -->
+        </div><!-- /.stricky-header -->
 
-                    <p class="mb-2"><i class="fa fa-envelope me-3"></i>{{site_mail}}</p>
-                    
-                </div>
-                <div class="col-lg-3 col-md-6">
-                    <h4 class="text-white mb-4">Services</h4>
-                    
-                    <a class="btn btn-link">Savings Account</a>
-                    <a class="btn btn-link">Credit Cards</a>
-                    <a class="btn btn-link">Loans</a>
-                    <a class="btn btn-link">Investments</a>
-                    <a class="btn btn-link">Online Banking</a>
-                   
-                </div>
-                <div class="col-lg-3 col-md-6">
-                    <h4 class="text-white mb-4">Quick Links</h4>
-                    <a href="{% url 'index' %}" class="btn btn-link">Home</a>
-                    <a href="{% url 'index' %}#about-us" class="btn btn-link">About Us</a>
-                    <a href="{% url 'index' %}#services" class="btn btn-link">Services</a>
-                    <a href="{% url 'index' %}#our-expertise" class="btn btn-link">Our Expertise</a>
+        {% block content %} {% endblock %}
 
 
 
-                    <a href="{% url 'contact' %}" class="btn btn-link">Contact</a>
-                    {% if user.is_authenticated %}
-                    <a href="{% url 'dashboard' %}" class="btn btn-link">Dashboard</a>
-                    {% else %}
-                    <a href="{% url 'login' %}" class="btn btn-link">Login</a>
-                    {% endif %}
-                </div>
-                <div class="col-lg-3 col-md-6">
-                    <h4 class="text-white mb-4">Newsletter</h4>
-                    <p>Keep in tune with our latest news and developments</p>
-                    <div class="position-relative w-100">
-                        <input class="form-control bg-white border-0 w-100 py-3 ps-4 pe-5" type="text"
-                            placeholder="Your email">
-                        <button type="button"
-                            class="btn btn-primary py-2 position-absolute top-0 end-0 mt-2 me-2">SignUp</button>
+        <!--Start footer area -->
+        <footer class="footer-area footer-area--style2">
+
+            <!--Start Footer Top-->
+            <div class="footer-top-style2">
+                <div class="container">
+                    <div class="row">
+
+                        <div class="col-xl-7">
+                            <div class="footer-top-style2__left-content">
+                                <!--Start Our Company Info-->
+                                <div class="our-company-info">
+                                    <div class="footer-logo-style1">
+                                        <a href="index.html">
+                                            <img src="{% static 'images/footer/footer-logo-2.png' %}" alt="Awesome Logo"
+                                                title="">
+                                        </a>
+                                    </div>
+                                    <div class="bottom-text2">
+                                        <p>Simple and easy to distinguish. In a free hour when our power off best
+                                            pleasure is to be welcomed every pleasures business it frequently occur
+                                            that pleasures have to be repudiated.</p>
+                                        <div class="btn-box">
+                                            <a href="#"><span class="icon-right-arrow"></span> More About Us</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--End Our Company Info-->
+                                <!--Start Footer Top Style2 Left Content Inner-->
+                                <div class="footer-top-style2__left-content-inner">
+                                    <ul class="row">
+                                        <li class="col-xl-4 col-lg-4 col-md-4">
+                                            <div class="single-footer-widget single-footer-widget--link-box">
+                                                <div class="footer-widget-links">
+                                                    <ul>
+                                                        <li><a href="#">Home Loan</a></li>
+                                                        <li><a href="#">Car Loan</a></li>
+                                                        <li><a href="#">Two Wheeler Loan</a></li>
+                                                        <li><a href="#">Personal Loan</a></li>
+                                                        <li><a href="#">Tractor Loan</a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </li>
+
+                                        <li class="col-xl-4 col-lg-4 col-md-4">
+                                            <div class="single-footer-widget single-footer-widget--link-box">
+                                                <div class="footer-widget-links">
+                                                    <ul>
+                                                        <li><a href="#">Cards</a></li>
+                                                        <li><a href="#">Deposits</a></li>
+                                                        <li><a href="#">Payments</a></li>
+                                                        <li><a href="#">Insurance</a></li>
+                                                        <li><a href="#">Locker Facility</a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </li>
+
+                                        <li class="col-xl-4 col-lg-4 col-md-4">
+                                            <div class="single-footer-widget single-footer-widget--link-box">
+                                                <div class="footer-widget-links">
+                                                    <ul>
+                                                        <li><a href="#">Career</a></li>
+                                                        <li><a href="#">News Room</a></li>
+                                                        <li><a href="#">Interest Rates</a></li>
+                                                        <li><a href="#">Gold Rate Today</a></li>
+                                                        <li><a href="#">Charges & Fees</a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </li>
+
+                                    </ul>
+                                </div>
+                                <!--End Footer Top Style2 Left Content Inner-->
+                            </div>
+                        </div>
+
+                        <div class="col-xl-5">
+                            <div class="footer-top-style2__right-content">
+                                <div class="footer-contact-info-style">
+                                    <ul>
+                                        <li>
+                                            <div class="icon">
+                                                <span class="icon-map"></span>
+                                            </div>
+                                            <div class="text">
+                                                <h3>Corporate Branch</h3>
+                                                <p>141, First Floor, 12 St Roots Terrace, Los Angeles<br>
+                                                    United States 90010.</p>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="icon">
+                                                <span class="icon-phone-call"></span>
+                                            </div>
+                                            <div class="text">
+                                                <h3>Help Desk</h3>
+                                                <p>Call to: <a href="tel:123456789">+8 55-678-9012</a></p>
+                                                <p>Send a Mail: <a
+                                                        href="mailto:info@templatepath.com">supportyou@finbank.com</a>
+                                                </p>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                <div class="find-nearest-branch-box">
+                                    <div class="top-outer">
+                                        <div class="top">
+                                            <div class="icon">
+                                                <span class="icon-bank-1"></span>
+                                            </div>
+                                            <div class="inner-title">
+                                                <h3>Over 86 Branch,<br> Find Your Nearest One</h3>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-box1">
+                                        <form class="zip-form" action="#">
+                                            <input id="zip" name="zip" type="number" placeholder="Enter Zip Code...">
+                                            <button type="submit">
+                                                <i class="icon-right-arrow"></i>Find
+                                            </button>
+                                        </form>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
-    <!-- Footer End -->
+            <!--End Footer Top-->
 
-
-    <!-- Copyright Start -->
-    <div class="container-fluid copyright py-4">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
-                    &copy; <a class="border-bottom" href="#">Common Wealth Credit</a>, All Right Reserved.
+            <div class="footer-bottom-style2">
+                <div class="container">
+                    <div class="bottom-inner">
+                        <div class="footer-menu">
+                            <ul>
+                                <li><a href="#">&copy; 2022 Finbank</a></li>
+                                <li><a href="#">Privacy Policy</a></li>
+                                <li><a href="#">Terms & Conditions</a></li>
+                                <li><a href="#">Sitemap</a></li>
+                            </ul>
+                        </div>
+                        <div class="scrool-top-btn-style2">
+                            <a href="#" data-target="html" class="scroll-to-target scroll-to-top--style2">
+                                <i class="icon-diagonal-arrow"></i>Back to Top
+                            </a>
+                        </div>
+                    </div>
                 </div>
-                <!--div class="col-md-6 text-center text-md-end">
-                    <!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/->
-                    Designed By <a class="border-bottom" href="https://htmlcodex.com">HTML Codex</a>
-                </div-->
+            </div>
+
+        </footer>
+        <!--End footer area-->
+
+
+    </div>
+    <!-- /.page-wrapper -->
+
+
+
+    <div class="mobile-nav__wrapper">
+        <div class="mobile-nav__overlay mobile-nav__toggler"></div>
+        <div class="mobile-nav__content">
+            <span class="mobile-nav__close mobile-nav__toggler">
+                <i class="fas fa-plus"></i>
+            </span>
+            <div class="logo-box">
+                <a href="index.html" aria-label="logo image">
+                    <img src="{% static 'images/resources/mobile-nav-logo.png' %}" alt="" />
+                </a>
+            </div>
+            <div class="mobile-nav__container"></div>
+            <ul class="mobile-nav__contact list-unstyled">
+                <li>
+                    <i class="fa fa-envelope"></i>
+                    <a href="mailto:info@example.com">info@example.com</a>
+                </li>
+                <li>
+                    <i class="fa fa-phone-alt"></i>
+                    <a href="tel:123456789">444 000 777 66</a>
+                </li>
+            </ul>
+            <div class="mobile-nav__social">
+                <a href="#" class="fab fa-twitter"></a>
+                <a href="#" class="fab fa-facebook-square"></a>
+                <a href="#" class="fab fa-pinterest-p"></a>
+                <a href="#" class="fab fa-instagram"></a>
             </div>
         </div>
     </div>
-    <!-- Copyright End -->
 
 
-    <!-- Back to Top -->
-    <a href="#" class="btn btn-lg btn-primary btn-lg-square rounded-circle back-to-topback-to-top"><i
-            class="bi bi-arrow-up"></i></a>
+    <div class="search-popup">
+        <div class="search-popup__overlay search-toggler"></div>
+        <div class="search-popup__content">
+            <form action="#">
+                <label for="search" class="sr-only">search here</label>
+                <input type="text" id="search" placeholder="Search Here..." />
+                <button type="submit" aria-label="search submit" class="thm-btn">
+                    <i class="icon-search"></i>
+                </button>
+            </form>
+        </div>
+    </div>
 
 
-    <!-- JavaScript Libraries -->
-    <script src="{% static 'js/jquery.min.js' %}""></script>
-    <script src=" {% static 'js/bootstrap.min.js' %}""></script>
-    <script src="{% static 'lib/wow/wow.min.js' %}""></script>
-    <script src=" {% static 'lib/easing/easing.min.js' %}""></script>
-    <script src="{% static 'lib/waypoints/waypoints.min.js' %}""></script>
-    <script src=" {% static 'lib/owlcarousel/owl.carousel.min.js' %}""></script>
-    <script src="{% static 'lib/counterup/counterup.min.js' %}""></script>
 
-    <!-- Template Javascript -->
-    <script src=" {% static 'js/main.js' %}""></script>
+
+
+    <script src="{% static 'vendors/jquery/jquery-3.6.0.min.js' %}""></script>
+    <script src="{% static 'vendors/bootstrap/js/bootstrap.bundle.min.js' %}""></script>
+    <script src="{% static 'vendors/bxslider/jquery.bxslider.min.js' %}""></script>
+    <script src="{% static 'vendors/circleType/jquery.circleType.js' %}""></script>
+    <script src="{% static 'vendors/circleType/jquery.lettering.min.js' %}""></script>
+    <script src="{% static 'vendors/isotope/isotope.js' %}""></script>
+    <script src="{% static 'vendors/jquery-ajaxchimp/jquery.ajaxchimp.min.js' %}""></script>
+    <script src="{% static 'vendors/jquery-appear/jquery.appear.min.js' %}""></script>
+    <script src="{% static 'vendors/jquery-magnific-popup/jquery.magnific-popup.min.js' %}""></script>
+    <script src="{% static 'vendors/jquery-migrate/jquery-migrate.min.js' %}""></script>
+    <script src="{% static 'vendors/jquery-ui/jquery-ui.js' %}""></script>
+    <script src="{% static 'vendors/jquery-validate/jquery.validate.min.js' %}""></script>
+    <script src="{% static 'vendors/nice-select/jquery.nice-select.min.js' %}""></script>
+    <script src="{% static 'vendors/odometer/odometer.min.js' %}""></script>
+    <script src="{% static 'vendors/owl-carousel/owl.carousel.min.js' %}""></script>
+    <script src="{% static 'vendors/swiper/swiper.min.js' %}""></script>
+    <script src="{% static 'vendors/vegas/vegas.min.js' %}""></script>
+    <script src="{% static 'vendors/wnumb/wNumb.min.js' %}""></script>
+    <script src="{% static 'vendors/wow/wow.js' %}""></script>
+    <script src="{% static 'vendors/extra-scripts/jquery.paroller.min.js' %}""></script>
+    <script src="{% static 'vendors/language-switcher/jquery.polyglot.language.switcher.js' %}""></script>
+
+    <!-- Template js -->
+    <script src="{% static 'js/custom.js' %}""></script>
+
+
 </body>
 
 </html>
