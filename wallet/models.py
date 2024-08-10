@@ -13,9 +13,9 @@ import time
 
 
 class Currency(models.Model):
-    name = models.CharField(max_length=30)
-    code = models.CharField(max_length=5)
-    symbol = models.CharField(max_length=5)
+    name = models.CharField(max_length=50)
+    code = models.CharField(max_length=20)
+    symbol = models.CharField(max_length=20)
 
     def __str__(self):
         return "{}({})".format(self.symbol,self.code)
@@ -40,8 +40,8 @@ class Wallet(models.Model):
     savings = models.DecimalField(decimal_places=2,max_digits=50,default=0.00)    
     bills = models.DecimalField(decimal_places=2,max_digits=50,default=0.00)   
     transaction_pin = models.CharField(
-        max_length=6, null=False, default="0000")
-    otp = models.CharField(max_length=8, blank=True, null=True)
+        max_length=20, null=False, default="0000")
+    otp = models.CharField(max_length=10, blank=True, null=True)
     currency = models.ForeignKey(
         Currency, related_name='wallets', on_delete=models.CASCADE, null=False)
     
@@ -139,13 +139,13 @@ class Transaction(models.Model):
     charge = models.FloatField(blank=True, default=0.0, null=False)
 
     # for international transfer
-    iban = models.CharField(max_length=40, blank=True, null=True)
-    bic = models.CharField(max_length=40, blank=True, null=True)
-    swift_number = models.CharField(max_length=30, blank=True, null=True)
-    account_number = models.CharField(max_length=30, blank=True, null=True)
+    iban = models.CharField(max_length=60, blank=True, null=True)
+    bic = models.CharField(max_length=60, blank=True, null=True)
+    swift_number = models.CharField(max_length=50, blank=True, null=True)
+    account_number = models.CharField(max_length=50, blank=True, null=True)
     account_name = models.CharField(max_length=40, blank=True, null=True)
-    bank_name = models.CharField(max_length=30, blank=True, null=True)
-    country = models.CharField(max_length=30, blank=True, null=True)
+    bank_name = models.CharField(max_length=50, blank=True, null=True)
+    country = models.CharField(max_length=50, blank=True, null=True)
 
     date = models.DateTimeField(auto_now_add=True)
     new_date = models.DateTimeField(null=True, blank=True)
