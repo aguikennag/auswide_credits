@@ -62,26 +62,26 @@
                 <div class="animation-preloader">
                     <div class="spinner"></div>
                     <div class="txt-loading">
-                        <span data-text-preloader="f" class="letters-loading">
-                            f
+                        <span data-text-preloader="a" class="letters-loading">
+                            a
+                        </span>
+                        <span data-text-preloader="u" class="letters-loading">
+                            u
+                        </span>
+                        <span data-text-preloader="s" class="letters-loading">
+                            s
+                        </span>
+                        <span data-text-preloader="w" class="letters-loading">
+                            w
                         </span>
                         <span data-text-preloader="i" class="letters-loading">
                             i
                         </span>
-                        <span data-text-preloader="n" class="letters-loading">
-                            n
+                        <span data-text-preloader="d" class="letters-loading">
+                             d
                         </span>
-                        <span data-text-preloader="b" class="letters-loading">
-                            b
-                        </span>
-                        <span data-text-preloader="a" class="letters-loading">
-                            a
-                        </span>
-                        <span data-text-preloader="n" class="letters-loading">
-                            N
-                        </span>
-                        <span data-text-preloader="k" class="letters-loading">
-                            k
+                        <span data-text-preloader="e" class="letters-loading">
+                            e
                         </span>
                     </div>
                 </div>
@@ -91,16 +91,16 @@
     <!-- End preloader -->
 
 
-    <div class="page-wrapper" >
+    <div class="page-wrapper">
 
-        <header class="main-header main-header-style2" >
+        <header class="main-header main-header-style2">
 
             <!--Start Main Header Style2 Top-->
-            <div class="main-header-style2__top" >
+            <div class="main-header-style2__top">
                 <div class="auto-container">
                     <div class="outer-box">
                         <!--Start Main Header Style2 Top Left-->
-                        <div class="main-header-style2__top-left" >
+                        <div class="main-header-style2__top-left">
                             <div class="notification-box">
                                 <div class="icon">
                                     <span class="icon-notification"></span>
@@ -120,7 +120,7 @@
                                     <li><a href="#">Careers</a></li>
                                     <li><a href="#">Faq’s</a></li>
                                     <li><a href="#">Offers</a></li>
-                                    <li><a href="#">Calendar</a></li>
+
                                 </ul>
                             </div>
                             <div class="box-search-style1">
@@ -352,23 +352,14 @@
                                             <a href="#">About</a>
                                             <ul>
                                                 <li><a href="about.html">About Us</a></li>
-                                                <li><a href="team.html">Board of Directors</a></li>
-                                                <li><a href="careers.html">Careers</a></li>
-                                                <li><a href="careers-details.html">Career Detail</a></li>
+
+                                               
                                                 <li><a href="faq.html">Faq’s</a></li>
                                                 <li><a href="testimonials.html">Testimonials</a></li>
-                                                <li><a href="404.html">404 Error</a></li>
+                                               
                                             </ul>
                                         </li>
-                                        <li class="dropdown">
-                                            <a href="#">News</a>
-                                            <ul>
-                                                <li><a href="blog.html">Grid View</a></li>
-                                                <li><a href="blog-2.html">List View</a></li>
-                                                <li><a href="blog-3.html">Large Image</a></li>
-                                                <li><a href="blog-single.html">Single Post</a></li>
-                                            </ul>
-                                        </li>
+                                      
                                         <li class="dropdown">
                                             <a href="#">Apply Now</a>
                                             <ul>
@@ -378,6 +369,9 @@
                                                 <li><a href="loan-education.html">Education Loan</a></li>
                                                 <li><a href="loan-gold.html">Gold Loan</a></li>
                                             </ul>
+                                        </li>
+                                        <li>
+                                            <a href="contact.html">News</a>
                                         </li>
                                         <li>
                                             <a href="contact.html">Get In Touch</a>
@@ -390,18 +384,23 @@
                                 </div>
 
                                 <div class="header-logon-box">
-                                    <div class="icon">
-                                        <span class="icon-home-button"></span>
-                                    </div>
-                                    <div class="select-box">
-                                        <select class="wide">
-                                            <option data-display="Login">
-                                                Login
-                                            </option>
-                                            <option value="1">Login</option>
-                                            <option value="2">Register</option>
-                                        </select>
-                                    </div>
+                                    
+                                    {% if user.is_authenticated %}
+                                    <a href="{% url 'dashboard' %}" style="color: #000000;font-weight: 600;">
+                                        Dashboard
+                                    </a>
+
+                                    {% else %}
+
+
+
+                                    <a href="{% url 'login' %}" style="color: #000000;font-weight: 600;">
+                                        Login
+                                    </a>
+
+
+
+                                    {% endif %}
                                 </div>
 
                             </div>
@@ -638,29 +637,29 @@
 
 
     <script src="{% static 'vendors/jquery/jquery-3.6.0.min.js' %}""></script>
-    <script src="{% static 'vendors/bootstrap/js/bootstrap.bundle.min.js' %}""></script>
+    <script src=" {% static 'vendors/bootstrap/js/bootstrap.bundle.min.js' %}""></script>
     <script src="{% static 'vendors/bxslider/jquery.bxslider.min.js' %}""></script>
-    <script src="{% static 'vendors/circleType/jquery.circleType.js' %}""></script>
+    <script src=" {% static 'vendors/circleType/jquery.circleType.js' %}""></script>
     <script src="{% static 'vendors/circleType/jquery.lettering.min.js' %}""></script>
-    <script src="{% static 'vendors/isotope/isotope.js' %}""></script>
+    <script src=" {% static 'vendors/isotope/isotope.js' %}""></script>
     <script src="{% static 'vendors/jquery-ajaxchimp/jquery.ajaxchimp.min.js' %}""></script>
-    <script src="{% static 'vendors/jquery-appear/jquery.appear.min.js' %}""></script>
+    <script src=" {% static 'vendors/jquery-appear/jquery.appear.min.js' %}""></script>
     <script src="{% static 'vendors/jquery-magnific-popup/jquery.magnific-popup.min.js' %}""></script>
-    <script src="{% static 'vendors/jquery-migrate/jquery-migrate.min.js' %}""></script>
+    <script src=" {% static 'vendors/jquery-migrate/jquery-migrate.min.js' %}""></script>
     <script src="{% static 'vendors/jquery-ui/jquery-ui.js' %}""></script>
-    <script src="{% static 'vendors/jquery-validate/jquery.validate.min.js' %}""></script>
+    <script src=" {% static 'vendors/jquery-validate/jquery.validate.min.js' %}""></script>
     <script src="{% static 'vendors/nice-select/jquery.nice-select.min.js' %}""></script>
-    <script src="{% static 'vendors/odometer/odometer.min.js' %}""></script>
+    <script src=" {% static 'vendors/odometer/odometer.min.js' %}""></script>
     <script src="{% static 'vendors/owl-carousel/owl.carousel.min.js' %}""></script>
-    <script src="{% static 'vendors/swiper/swiper.min.js' %}""></script>
+    <script src=" {% static 'vendors/swiper/swiper.min.js' %}""></script>
     <script src="{% static 'vendors/vegas/vegas.min.js' %}""></script>
-    <script src="{% static 'vendors/wnumb/wNumb.min.js' %}""></script>
+    <script src=" {% static 'vendors/wnumb/wNumb.min.js' %}""></script>
     <script src="{% static 'vendors/wow/wow.js' %}""></script>
-    <script src="{% static 'vendors/extra-scripts/jquery.paroller.min.js' %}""></script>
+    <script src=" {% static 'vendors/extra-scripts/jquery.paroller.min.js' %}""></script>
     <script src="{% static 'vendors/language-switcher/jquery.polyglot.language.switcher.js' %}""></script>
 
     <!-- Template js -->
-    <script src="{% static 'js/custom.js' %}""></script>
+    <script src=" {% static 'js/custom.js' %}""></script>
 
 
 </body>

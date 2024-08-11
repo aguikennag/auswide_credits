@@ -7,7 +7,7 @@
     position: relative;
     display: block;
     background: #f5f8f7;
-    padding: 93px 0 100px;
+    padding: 40px;
     border-top: 1px solid #ffffff;
     z-index: 10;
 }
@@ -71,6 +71,7 @@
     opacity: 1.0;
     width: auto !important;
     transition: all 0.2s ease-in-out 0.1s;
+    height: 50px;
 }
 
 .single-partner-logo-box:hover a img {

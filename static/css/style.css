@@ -1441,8 +1441,9 @@ animation: spinner 1s infinite linear;
   left: 0;
   bottom: 0;
   right: 0;
-  background: #000000;
-  opacity: 0.60;
+  background: #2c0f39;
+  color: white;
+  opacity: 0.80;
 }
 
 .service-style1-title {
@@ -1760,7 +1761,7 @@ animation: spinner 1s infinite linear;
 }
 
 .single-service-box-style1 p {
-  color: #b8b4b1;
+  color: #ffffff;
   margin: 0 0 18px;
 }
 
@@ -3047,6 +3048,7 @@ animation: spinner 1s infinite linear;
 .faq-style1-title .sec-title {
   padding-bottom: 0;
 }
+
 
 
 .faq-search-box {
@@ -5908,7 +5910,7 @@ animation: spinner 1s infinite linear;
 .awards-achivements-area {
   position: relative;
   display: block;
-  background-color: #f5f8f7;
+  background-color: #512068;
   padding: 100px 0 70px;
   z-index: 10;
 }
@@ -6261,7 +6263,7 @@ animation: spinner 1s infinite linear;
 }
 
 .banking-tab-text-box__inner .text p {
-  color: #bcbcbc;
+  color: white;
 }
 
 .banking-tab-text-box__inner ul {
@@ -6273,7 +6275,7 @@ animation: spinner 1s infinite linear;
   position: relative;
   display: block;
   padding-left: 35px;
-  color: #bcbcbc;
+  color: #fffff1;
   line-height: 30px;
 }
 
