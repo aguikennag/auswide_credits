@@ -35,12 +35,12 @@
                                 </p>
                             </div>
                             <div class="btns-box">
-                                <a class="btn-one" href="about.html">
+                                <a class="btn-one" href="{% url 'about' %}">
                                     <span class="txt">
                                         Read More
                                     </span>
                                 </a>
-                                <a class="btn-one style2" href="about.html">
+                                <a class="btn-one style2" href="{% url 'about' %}">
                                     <span class="txt">
                                         Check Eligibility
                                     </span>
@@ -75,7 +75,7 @@
                     <div class="main-slider-content">
                         <div class="main-slider-content__inner">
                             <div class="big-title">
-                                <h2>Prestige bank<br> makes access to<br> savings fast & <br> simple.</h2>
+                                <h2>{{site_name}}<br> makes access to<br> savings fast & <br> simple.</h2>
                             </div>
                             <div class="text">
                                 <p>
@@ -83,12 +83,12 @@
                                 </p>
                             </div>
                             <div class="btns-box">
-                                <a class="btn-one" href="about.html">
+                                <a class="btn-one" href="{% url 'about' %}">
                                     <span class="txt">
                                         Read More
                                     </span>
                                 </a>
-                                <a class="btn-one style2" href="about.html">
+                                <a class="btn-one style2" href="{% url 'about' %}">
                                     <span class="txt">
                                         Check Eligibility
                                     </span>
@@ -132,12 +132,12 @@
                                 </p>
                             </div>
                             <div class="btns-box">
-                                <a class="btn-one" href="about.html">
+                                <a class="btn-one" href="{% url 'about' %}">
                                     <span class="txt">
                                         Read More
                                     </span>
                                 </a>
-                                <a class="btn-one style2" href="about.html">
+                                <a class="btn-one style2" href="{% url 'about' %}">
                                     <span class="txt">
                                         Check Eligibility
                                     </span>
@@ -205,9 +205,9 @@
                                         <div class="icon-holder">
                                             <img src="{% static 'images/icon/banking-features-v1-1.png' %}" alt="">
                                         </div>
-                                        <h3><a href="#">Savings &<br> CDs</a></h3>
+                                        <h3><a href="#0">Savings &<br> CDs</a></h3>
                                         <div class="btn-box">
-                                            <a href="#"><span class="icon-right-arrow"></span></a>
+                                            <a href="#0"><span class="icon-right-arrow"></span></a>
                                         </div>
                                     </div>
                                     <!--End Single Features Of Banking-->
@@ -219,9 +219,9 @@
                                         <div class="icon-holder">
                                             <img src="{% static 'images/icon/banking-features-v1-3.png' %}" alt="">
                                         </div>
-                                        <h3><a href="#">Cosumer<br> Loan</a></h3>
+                                        <h3><a href="#0">Cosumer<br> Loan</a></h3>
                                         <div class="btn-box">
-                                            <a href="#"><span class="icon-right-arrow"></span></a>
+                                            <a href="#0"><span class="icon-right-arrow"></span></a>
                                         </div>
                                     </div>
                                     <!--End Single Features Of Banking-->
@@ -234,9 +234,9 @@
                                         <div class="icon-holder">
                                             <img src="{% static 'images/icon/banking-features-v1-5.png' %}" alt="">
                                         </div>
-                                        <h3><a href="#">Credit &<br> Debit Cards</a></h3>
+                                        <h3><a href="#0">Credit &<br> Debit Cards</a></h3>
                                         <div class="btn-box">
-                                            <a href="#"><span class="icon-right-arrow"></span></a>
+                                            <a href="#0"><span class="icon-right-arrow"></span></a>
                                         </div>
                                     </div>
                                     <!--End Single Features Of Banking-->
@@ -270,9 +270,9 @@
                                         <div class="icon-holder">
                                             <img src="{% static 'images/icon/banking-features-v2-3.png' %}" alt="">
                                         </div>
-                                        <h3><a href="#">Business<br> Loan</a></h3>
+                                        <h3><a href="#0">Business<br> Loan</a></h3>
                                         <div class="btn-box">
-                                            <a href="#"><span class="icon-right-arrow"></span></a>
+                                            <a href="#0"><span class="icon-right-arrow"></span></a>
                                         </div>
                                     </div>
                                     <!--End Single Features Of Banking-->
@@ -283,9 +283,9 @@
                                         <div class="icon-holder">
                                             <img src="{% static 'images/icon/banking-features-v2-4.png' %}" alt="">
                                         </div>
-                                        <h3><a href="#">Invest &<br> Insure</a></h3>
+                                        <h3><a href="#0">Invest &<br> Insure</a></h3>
                                         <div class="btn-box">
-                                            <a href="#"><span class="icon-right-arrow"></span></a>
+                                            <a href="#0"><span class="icon-right-arrow"></span></a>
                                         </div>
                                     </div>
                                     <!--End Single Features Of Banking-->
@@ -296,9 +296,9 @@
                                         <div class="icon-holder">
                                             <img src="{% static 'images/icon/banking-features-v2-5.png' %}" alt="">
                                         </div>
-                                        <h3><a href="#">Cash<br> Management</a></h3>
+                                        <h3><a href="#0">Cash<br> Management</a></h3>
                                         <div class="btn-box">
-                                            <a href="#"><span class="icon-right-arrow"></span></a>
+                                            <a href="#0"><span class="icon-right-arrow"></span></a>
                                         </div>
                                     </div>
                                     <!--End Single Features Of Banking-->
@@ -333,7 +333,7 @@
                         </div>
                     </div>
                     <div class="get-assistant-box">
-                        <a href="#"><span class="icon-chatting"></span></a>
+                        <a href="#0"><span class="icon-chatting"></span></a>
                     </div>
                 </div>
             </div>
@@ -384,13 +384,13 @@
                                             <div class="icon">
                                                 <span class="icon-safebox"></span>
                                             </div>
-                                            <h3><a href="#">Savings & CDs</a></h3>
+                                            <h3><a href="#0">Savings & CDs</a></h3>
                                             <div class="border-box"></div>
                                             <p>Take trivial example which of us ever all
                                                 undertakes laborious.</p>
                                             <h6><span>*</span> Interest rate up to 5% p.a</h6>
                                             <div class="btn-box">
-                                                <a href="#"><span class="icon-right-arrow"></span></a>
+                                                <a href="#0"><span class="icon-right-arrow"></span></a>
                                             </div>
                                         </div>
                                     </div>
@@ -401,13 +401,13 @@
                                             <div class="icon">
                                                 <span class="icon-online"></span>
                                             </div>
-                                            <h3><a href="#">Online & Mobile</a></h3>
+                                            <h3><a href="#0">Online & Mobile</a></h3>
                                             <div class="border-box"></div>
                                             <p>Equal blame belongs to those who fail their duty through
                                                 weakness.</p>
                                             <h6><span>*</span> Terms & Conditions</h6>
                                             <div class="btn-box">
-                                                <a href="#"><span class="icon-right-arrow"></span></a>
+                                                <a href="#0"><span class="icon-right-arrow"></span></a>
                                             </div>
                                         </div>
                                     </div>
@@ -418,13 +418,13 @@
                                             <div class="icon">
                                                 <span class="icon-loan"></span>
                                             </div>
-                                            <h3><a href="#">Consumer Loans</a></h3>
+                                            <h3><a href="#0">Consumer Loans</a></h3>
                                             <div class="border-box"></div>
                                             <p>Duty or the obligations of business will frequently occur
                                                 repudiated.</p>
                                             <h6><span>*</span> Check today’s Interest Rates</h6>
                                             <div class="btn-box">
-                                                <a href="#"><span class="icon-right-arrow"></span></a>
+                                                <a href="#0"><span class="icon-right-arrow"></span></a>
                                             </div>
                                         </div>
                                     </div>
@@ -443,13 +443,13 @@
                                             <div class="icon">
                                                 <span class="icon-safebox"></span>
                                             </div>
-                                            <h3><a href="#">Savings & CDs</a></h3>
+                                            <h3><a href="#0">Savings & CDs</a></h3>
                                             <div class="border-box"></div>
                                             <p>Take trivial example which of us ever all
                                                 undertakes laborious.</p>
                                             <h6><span>*</span> Interest rate up to 5% p.a</h6>
                                             <div class="btn-box">
-                                                <a href="#"><span class="icon-right-arrow"></span></a>
+                                                <a href="#0"><span class="icon-right-arrow"></span></a>
                                             </div>
                                         </div>
                                     </div>
@@ -460,13 +460,13 @@
                                             <div class="icon">
                                                 <span class="icon-online"></span>
                                             </div>
-                                            <h3><a href="#">Online & Mobile</a></h3>
+                                            <h3><a href="#0">Online & Mobile</a></h3>
                                             <div class="border-box"></div>
                                             <p>Equal blame belongs to those who fail their duty through
                                                 weakness.</p>
                                             <h6><span>*</span> Terms & Conditions</h6>
                                             <div class="btn-box">
-                                                <a href="#"><span class="icon-right-arrow"></span></a>
+                                                <a href="#0"><span class="icon-right-arrow"></span></a>
                                             </div>
                                         </div>
                                     </div>
@@ -477,13 +477,13 @@
                                             <div class="icon">
                                                 <span class="icon-loan"></span>
                                             </div>
-                                            <h3><a href="#">Consumer Loans</a></h3>
+                                            <h3><a href="#0">Consumer Loans</a></h3>
                                             <div class="border-box"></div>
                                             <p>Duty or the obligations of business will frequently occur
                                                 repudiated.</p>
                                             <h6><span>*</span> Check today’s Interest Rates</h6>
                                             <div class="btn-box">
-                                                <a href="#"><span class="icon-right-arrow"></span></a>
+                                                <a href="#0"><span class="icon-right-arrow"></span></a>
                                             </div>
                                         </div>
                                     </div>
@@ -502,7 +502,7 @@
         <div class="row">
             <div class="col-xl-12">
                 <div class="service-style1__btns-box text-center">
-                    <a class="btn-one" href="#">
+                    <a class="btn-one" href="#0">
                         <span class="txt">View All Services</span>
                     </a>
                 </div>
@@ -632,7 +632,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="btns-box">
-                                                    <a class="btn-one" href="#">
+                                                    <a class="btn-one" href="#0">
                                                         <span class="txt">Apply Online</span>
                                                     </a>
                                                 </div>
@@ -645,7 +645,7 @@
                                                                 <span class="icon-right-arrow"></span>
                                                             </div>
                                                             <div class="text">
-                                                                <a href="#">Interest Amount</a>
+                                                                <a href="#0">Interest Amount</a>
                                                                 <p>$720,260</p>
                                                             </div>
                                                         </div>
@@ -656,7 +656,7 @@
                                                                 <span class="icon-right-arrow"></span>
                                                             </div>
                                                             <div class="text">
-                                                                <a href="#">Total Amount Payble</a>
+                                                                <a href="#0">Total Amount Payble</a>
                                                                 <p>$720,260</p>
                                                             </div>
                                                         </div>
@@ -742,7 +742,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="btns-box">
-                                                    <a class="btn-one" href="#">
+                                                    <a class="btn-one" href="#0">
                                                         <span class="txt">Apply Online</span>
                                                     </a>
                                                 </div>
@@ -755,7 +755,7 @@
                                                                 <span class="icon-right-arrow"></span>
                                                             </div>
                                                             <div class="text">
-                                                                <a href="#">Interest Amount</a>
+                                                                <a href="#0">Interest Amount</a>
                                                                 <p>$720,260</p>
                                                             </div>
                                                         </div>
@@ -766,7 +766,7 @@
                                                                 <span class="icon-right-arrow"></span>
                                                             </div>
                                                             <div class="text">
-                                                                <a href="#">Total Amount Payble</a>
+                                                                <a href="#0">Total Amount Payble</a>
                                                                 <p>$720,260</p>
                                                             </div>
                                                         </div>
@@ -852,7 +852,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="btns-box">
-                                                    <a class="btn-one" href="#">
+                                                    <a class="btn-one" href="#0">
                                                         <span class="txt">Apply Online</span>
                                                     </a>
                                                 </div>
@@ -865,7 +865,7 @@
                                                                 <span class="icon-right-arrow"></span>
                                                             </div>
                                                             <div class="text">
-                                                                <a href="#">Interest Amount</a>
+                                                                <a href="#0">Interest Amount</a>
                                                                 <p>$720,260</p>
                                                             </div>
                                                         </div>
@@ -876,7 +876,7 @@
                                                                 <span class="icon-right-arrow"></span>
                                                             </div>
                                                             <div class="text">
-                                                                <a href="#">Total Amount Payble</a>
+                                                                <a href="#0">Total Amount Payble</a>
                                                                 <p>$720,260</p>
                                                             </div>
                                                         </div>
@@ -947,9 +947,9 @@
                                 <div class="inner-title">
                                     <div class="arrow-top"></div>
                                     <div class="arrow-bottom"></div>
-                                    <h3><a href="#">Trade FX</a></h3>
+                                    <h3><a href="#0">Trade FX</a></h3>
                                     <div class="right-arrow-btn">
-                                        <a href="#"><span class="icon-right-arrow"></span></a>
+                                        <a href="#0"><span class="icon-right-arrow"></span></a>
                                     </div>
                                 </div>
                             </div>
@@ -968,9 +968,9 @@
                                 <div class="inner-title">
                                     <div class="arrow-top"></div>
                                     <div class="arrow-bottom"></div>
-                                    <h3><a href="#">Savings a/c</a></h3>
+                                    <h3><a href="#0">Savings a/c</a></h3>
                                     <div class="right-arrow-btn">
-                                        <a href="#"><span class="icon-right-arrow"></span></a>
+                                        <a href="#0"><span class="icon-right-arrow"></span></a>
                                     </div>
                                 </div>
                             </div>
@@ -989,9 +989,9 @@
                                 <div class="inner-title">
                                     <div class="arrow-top"></div>
                                     <div class="arrow-bottom"></div>
-                                    <h3><a href="#">Mutual Funds</a></h3>
+                                    <h3><a href="#0">Mutual Funds</a></h3>
                                     <div class="right-arrow-btn">
-                                        <a href="#"><span class="icon-right-arrow"></span></a>
+                                        <a href="#0"><span class="icon-right-arrow"></span></a>
                                     </div>
                                 </div>
                             </div>
@@ -1010,9 +1010,9 @@
                                 <div class="inner-title">
                                     <div class="arrow-top"></div>
                                     <div class="arrow-bottom"></div>
-                                    <h3><a href="#">Pension Scheme</a></h3>
+                                    <h3><a href="#0">Pension Scheme</a></h3>
                                     <div class="right-arrow-btn">
-                                        <a href="#"><span class="icon-right-arrow"></span></a>
+                                        <a href="#0"><span class="icon-right-arrow"></span></a>
                                     </div>
                                 </div>
                             </div>
@@ -1033,9 +1033,9 @@
                                 <div class="inner-title">
                                     <div class="arrow-top"></div>
                                     <div class="arrow-bottom"></div>
-                                    <h3><a href="#">Commercial Capital</a></h3>
+                                    <h3><a href="#0">Commercial Capital</a></h3>
                                     <div class="right-arrow-btn">
-                                        <a href="#"><span class="icon-right-arrow"></span></a>
+                                        <a href="#0"><span class="icon-right-arrow"></span></a>
                                     </div>
                                 </div>
                             </div>
@@ -1095,30 +1095,30 @@
 
                     <!--Start Single Partner Logo Box-->
                     <div class="single-partner-logo-box">
-                        <a href="#"><img src="{% static 'img/partner/bca-logo.png' %}"></a>
+                        <a href="#0"><img src="{% static 'img/partner/bca-logo.png' %}"></a>
                     </div>
                     <!--End Single Partner Logo Box-->
                     <!--Start Single Partner Logo Box-->
                     <div class="single-partner-logo-box">
-                        <a href="#"><img src="{% static 'img/partner/forbes-logo.png' %}"></a>
+                        <a href="#0"><img src="{% static 'img/partner/forbes-logo.png' %}"></a>
                     </div>
                     <!--End Single Partner Logo Box-->
                     <!--Start Single Partner Logo Box-->
                     <div class="single-partner-logo-box">
-                        <a href="#"><img src="{% static 'img/partner/paypal-logo.png' %}"></a>
+                        <a href="#0"><img src="{% static 'img/partner/paypal-logo.png' %}"></a>
                     </div>
                     <!--End Single Partner Logo Box-->
                     <!--Start Single Partner Logo Box-->
                     <div class="single-partner-logo-box">
-                        <a href="#"><img src="{% static 'img/partner/visa-logo.png' %}"></a>
+                        <a href="#0"><img src="{% static 'img/partner/visa-logo.png' %}"></a>
                     </div>
                     <!--End Single Partner Logo Box-->
                     <!--Start Single Partner Logo Box-->
                     <div class="single-partner-logo-box">
-                        <a href="#"><img src="{% static 'img/partner/master-card-logo.png' %}"></a>
+                        <a href="#0"><img src="{% static 'img/partner/master-card-logo.png' %}"></a>
                     </div>
                     <div class="single-partner-logo-box">
-                        <a href="#"><img src="{% static 'img/partner/verve-logo.png' %}"></a>
+                        <a href="#0"><img src="{% static 'img/partner/verve-logo.png' %}"></a>
                     </div>
                
                     <!--End Single Partner Logo Box-->
@@ -1158,17 +1158,15 @@
                                         </div>
                                         <div class="banking-tab-text-box__inner">
                                             <div class="text">
-                                                <p>The claims off duty or the obligations business it will
-                                                    frequently
-                                                    pleasures repudiated to distinguish nothing.</p>
+                                                <p>At {{site_name}}, we empower your dreams with tailored financial solutions, expert support, and secure digital banking for success.</p>
                                             </div>
                                             <ul>
-                                                <li>Explorer of the master-builder</li>
-                                                <li>On the other hand</li>
-                                                <li>Perfectly simple & easy</li>
-                                                <li>Explorer of the master-builder</li>
-                                                <li>On the other hand</li>
-                                                <li>Perfectly simple & easy</li>
+                                                <li>Personalized Financial Planning</li>
+                                                <li>Secure Digital Banking</li>
+                                                <li>Investment Opportunities</li>
+                                                <li>Dedicated Customer Support </li>
+                                                <li>Flexible Loan Solutions </li>
+                                                <li>Commitment to Innovation </li>
                                             </ul>
                                         </div>
                                     </div>
@@ -1353,14 +1351,11 @@
                             <h2>Best Locker<br> Facility For Your<br> Valuables</h2>
                         </div>
                         <div class="text-box">
-                            <p>Perfectly simple and easy to distinguish. In a free
-                                hour when our power off choices is untrammelled
-                                best pleasure is to be welcomed every pleasures
-                                to be welcomed every avoided.</p>
+                            <p>Protect your most valuable possessions with {{site_name}}'s top-tier locker facility. Enjoy unmatched security, privacy, and peace of mind knowing your valuables are safe with us.</p>
                         </div>
                         <div class="btns-box">
-                            <a class="btn-one" href="#">
-                                <span class="txt">Online Booking</span>
+                            <a class="btn-one" href="{% url 'register' %}" >
+                                <span class="txt">Register</span>
                             </a>
                         </div>
                         <div class="faq-question-btn">
@@ -1368,7 +1363,7 @@
                                 <span class="icon-faq"></span>
                             </div>
                             <p>Have queries? Click below link</p>
-                            <a href="#"><span class="icon-right-arrow"></span>faq’s</a>
+                            <a href="{% url 'faq' %}"><span class="icon-right-arrow"></span>faq’s</a>
                         </div>
                     </div>
                 </div>
@@ -1471,12 +1466,11 @@
                         <div class="sec-title">
                             <h2>{{site_name}}<br> Super Savings<br> a/c in 5 Mins</h2>
                             <div class="sub-title">
-                                <p>Blinded by desire that they cannot foresee
-                                    pain & trouble that are bound.</p>
+                                <p>Open your {{site_name}} Super Savings account in just 5 minutes and start enjoying great savings benefits instantly.</p>
                             </div>
                         </div>
                         <div class="btns-box">
-                            <a class="btn-one" href="#">
+                            <a class="btn-one" href="{% url 'register' %}">
                                 <span class="txt">Open an Account</span>
                             </a>
                         </div>
@@ -1497,8 +1491,7 @@
                                     <div class="counting">01</div>
                                     <div class="text-box">
                                         <h3>Submit Documents</h3>
-                                        <p>Perfectly simple & easy to distinguish
-                                            of choice is prevents.</p>
+                                        <p>Easily submit your documents online for quick and secure KYC verification.</p>
                                     </div>
                                 </div>
                             </li>
@@ -1508,8 +1501,7 @@
                                     <div class="counting">02</div>
                                     <div class="text-box">
                                         <h3>KYC Verification</h3>
-                                        <p>Claims off duty or the obligations it will
-                                            pleasures be repudiated.</p>
+                                        <p>Complete your KYC verification effortlessly to ensure secure and compliant financial transactions.</p>
                                     </div>
                                 </div>
                             </li>
@@ -1519,8 +1511,7 @@
                                     <div class="counting lnone">03</div>
                                     <div class="text-box">
                                         <h3>Open an a/c & Deposit</h3>
-                                        <p>Demoralized by charms pleasure of the
-                                            they cannot and trouble.</p>
+                                        <p>Open an account and deposit funds easily to start managing your finances today.</p>
                                     </div>
                                 </div>
                             </li>
@@ -1549,24 +1540,24 @@
                     <!--Start Single Offer Box-->
                     <div class="single-offer-box">
                         <div class="top">
-                            <div class="offer-logo">
+                            <div class="offer-logo" hidden >
                                 <img src="{% static 'images/resources/offer-logo-1.png' %}" alt="">
                             </div>
                             <div class="date-box">
-                                <p>Till: 25th Jun’22</p>
+                             
                             </div>
                         </div>
                         <div class="category">
-                            <h4>Medical</h4>
+                            <h4>Grocery</h4>
                             <div class="border-box"></div>
                         </div>
-                        <h3>Get 10% Cashback on Xfinity Restuarant.</h3>
+                        <h3>Get 15% Cashback on FreshMart Superstore purchases. Shop and save today!</h3>
                         <div class="bottom">
                             <div class="btn-box">
-                                <a href="#"><span class="icon-right-arrow"></span>Know More</a>
+                                <a href="{% url 'register' %}"><span class="icon-right-arrow"></span>Know More</a>
                             </div>
                             <div class="share-btn">
-                                <a href="#"><span class="icon-share"></span>Share</a>
+                                <a href="{% url 'register' %}"><span class="icon-share"></span>Share</a>
                             </div>
                         </div>
                     </div>
@@ -1574,24 +1565,24 @@
                     <!--Start Single Offer Box-->
                     <div class="single-offer-box">
                         <div class="top">
-                            <div class="offer-logo">
+                            <div class="offer-logo" hidden >
                                 <img src="{% static 'images/resources/offer-logo-2.png' %}" alt="">
                             </div>
                             <div class="date-box">
-                                <p>Till: 10th Jul’22</p>
+                            
                             </div>
                         </div>
                         <div class="category">
-                            <h4>Entertainment</h4>
+                            <h4>Electronics</h4>
                             <div class="border-box"></div>
                         </div>
-                        <h3>Get 10% Cashback on Xfinity Restuarant.</h3>
+                        <h3>Enjoy 20% Cashback on TechZone purchases. Upgrade your gadgets now!</h3>
                         <div class="bottom">
                             <div class="btn-box">
-                                <a href="#"><span class="icon-right-arrow"></span>Know More</a>
+                                <a href="{% url 'register' %}"><span class="icon-right-arrow"></span>Know More</a>
                             </div>
                             <div class="share-btn">
-                                <a href="#"><span class="icon-share"></span>Share</a>
+                                <a href="{% url 'register' %}"><span class="icon-share"></span>Share</a>
                             </div>
                         </div>
                     </div>
@@ -1600,7 +1591,7 @@
 
                 <div class="col-xl-4">
                     <div class="subscribe-box-style1">
-                        <div class="icon">
+                        <div class="icon" >
                             <img src="{% static 'images/icon/subscribe-1.png' %}" alt="">
                         </div>
                         <div class="inner-title">
@@ -1625,24 +1616,24 @@
                     <!--Start Single Offer Box-->
                     <div class="single-offer-box">
                         <div class="top">
-                            <div class="offer-logo">
+                            <div class="offer-logo" hidden >
                                 <img src="{% static 'images/resources/offer-logo-3.png' %}" alt="">
                             </div>
                             <div class="date-box">
-                                <p>Till: 28th Jun’22</p>
+                              
                             </div>
                         </div>
                         <div class="category">
-                            <h4>Dining</h4>
+                            <h4>Travel</h4>
                             <div class="border-box"></div>
                         </div>
-                        <h3>Get 10% Cashback on Xfinity Restuarant.</h3>
+                        <h3>Receive 12% Cashback on SkyJet Airlines bookings. Travel more, spend less!</h3>
                         <div class="bottom">
                             <div class="btn-box">
-                                <a href="#"><span class="icon-right-arrow"></span>Know More</a>
+                                <a href="{% url 'register' %}"><span class="icon-right-arrow"></span>Know More</a>
                             </div>
                             <div class="share-btn">
-                                <a href="#"><span class="icon-share"></span>Share</a>
+                                <a href="{% url 'register' %}"><span class="icon-share"></span>Share</a>
                             </div>
                         </div>
                     </div>
@@ -1650,24 +1641,24 @@
                     <!--Start Single Offer Box-->
                     <div class="single-offer-box">
                         <div class="top">
-                            <div class="offer-logo">
+                            <div class="offer-logo" hidden >
                                 <img src="{% static 'images/resources/offer-logo-1.png' %}" alt="">
                             </div>
                             <div class="date-box">
-                                <p>Till: 10th Jul’22</p>
+                              
                             </div>
                         </div>
                         <div class="category">
-                            <h4>Medical</h4>
+                            <h4>Fashion</h4>
                             <div class="border-box"></div>
                         </div>
-                        <h3>Get 10% Cashback on Xfinity Restuarant.</h3>
+                        <h3>Save 25% Cashback on TrendyWear clothing. Elevate your style for less!</h3>
                         <div class="bottom">
                             <div class="btn-box">
-                                <a href="#"><span class="icon-right-arrow"></span>Know More</a>
+                                <a href="{% url 'register' %}"><span class="icon-right-arrow"></span>Know More</a>
                             </div>
                             <div class="share-btn">
-                                <a href="#"><span class="icon-share"></span>Share</a>
+                                <a href="{% url 'register' %}"><span class="icon-share"></span>Share</a>
                             </div>
                         </div>
                     </div>
@@ -1675,10 +1666,10 @@
                 </div>
             </div>
 
-            <div class="row">
+            <div class="row" hidden >
                 <div class="col-xl-12">
                     <div class="view-all-offer-btn">
-                        <a href="#"><span class="icon-right-arrow"></span>View All Offers</a>
+                        <a href="#0"><span class="icon-right-arrow"></span>View All Offers</a>
                     </div>
                 </div>
             </div>
@@ -1689,7 +1680,7 @@
     <!--End Offers Area-->
 
     <!--Start Blog Style1 Area-->
-    <section class="blog-style1-area">
+    <section class="blog-style1-area" hidden >
         <div class="container">
             <div class="sec-title">
                 <h2>Latest From News Room</h2>
@@ -1733,7 +1724,7 @@
                                 <div class="inner">
                                     <img src="{% static 'img/sme.jpg' %}" alt="">
                                     <div class="overlay-icon">
-                                        <a href="blog-single.html">
+                                        <a href="">
                                             <span class="icon-right-arrow"></span>
                                         </a>
                                     </div>
@@ -1750,19 +1741,19 @@
                             </div>
                             <div class="text-holder">
                                 <h3 class="blog-title">
-                                    <a href="blog-single.html">
+                                    <a href="">
                                         Including Animation In Your Design Technologies System
                                     </a>
                                 </h3>
                                 <div class="bottom">
                                     <div class="meta-box">
                                         <ul class="meta-info">
-                                            <li><span class="icon-clock"></span> <a href="#">6 Mins Read</a></li>
-                                            <li><span class="icon-comment"></span> <a href="#">10 Cmnts</a></li>
+                                            <li><span class="icon-clock"></span> <a href="#0">6 Mins Read</a></li>
+                                            <li><span class="icon-comment"></span> <a href="#0">10 Cmnts</a></li>
                                         </ul>
                                     </div>
                                     <div class="share-btn">
-                                        <a href="#"><span class="icon-share"></span></a>
+                                        <a href="#0"><span class="icon-share"></span></a>
                                     </div>
                                 </div>
                             </div>
@@ -1774,7 +1765,7 @@
                                 <div class="inner">
                                     <img style="height: 230px;" src="{% static 'img/service-4.jpg' %}" alt="">
                                     <div class="overlay-icon">
-                                        <a href="blog-single.html">
+                                        <a href="">
                                             <span class="icon-right-arrow"></span>
                                         </a>
                                     </div>
@@ -1791,19 +1782,19 @@
                             </div>
                             <div class="text-holder">
                                 <h3 class="blog-title">
-                                    <a href="blog-single.html">
+                                    <a href="">
                                         Board Approves Capital Raise of Rs. 2000 Crores
                                     </a>
                                 </h3>
                                 <div class="bottom">
                                     <div class="meta-box">
                                         <ul class="meta-info">
-                                            <li><span class="icon-clock"></span> <a href="#">4 Mins Read</a></li>
-                                            <li><span class="icon-comment"></span> <a href="#">10 Cmnts</a></li>
+                                            <li><span class="icon-clock"></span> <a href="#0">4 Mins Read</a></li>
+                                            <li><span class="icon-comment"></span> <a href="#0">10 Cmnts</a></li>
                                         </ul>
                                     </div>
                                     <div class="share-btn">
-                                        <a href="#"><span class="icon-share"></span></a>
+                                        <a href="#0"><span class="icon-share"></span></a>
                                     </div>
                                 </div>
                             </div>
@@ -1815,7 +1806,7 @@
                                 <div class="inner">
                                     <img style="height: 230px;" src="{% static 'img/treasury.webp' %}" alt="">
                                     <div class="overlay-icon">
-                                        <a href="blog-single.html">
+                                        <a href="">
                                             <span class="icon-right-arrow"></span>
                                         </a>
                                     </div>
@@ -1832,19 +1823,19 @@
                             </div>
                             <div class="text-holder">
                                 <h3 class="blog-title">
-                                    <a href="blog-single.html">
+                                    <a href="">
                                         The National Avg Interest Rate for Savings Accounts
                                     </a>
                                 </h3>
                                 <div class="bottom">
                                     <div class="meta-box">
                                         <ul class="meta-info">
-                                            <li><span class="icon-clock"></span> <a href="#">3 Mins Read</a></li>
-                                            <li><span class="icon-comment"></span> <a href="#">10 Cmnts</a></li>
+                                            <li><span class="icon-clock"></span> <a href="#0">3 Mins Read</a></li>
+                                            <li><span class="icon-comment"></span> <a href="#0">10 Cmnts</a></li>
                                         </ul>
                                     </div>
                                     <div class="share-btn">
-                                        <a href="#"><span class="icon-share"></span></a>
+                                        <a href="#0"><span class="icon-share"></span></a>
                                     </div>
                                 </div>
                             </div>
@@ -1874,18 +1865,18 @@
                         <div class="single-awards-achivements-box">
                             <div class="top">
                                 <div class="icon">
-                                    <img src="{% static 'images/icon/award-1.png' %}" alt="">
+                                    <img src="{% static 'img/award/1.jpeg' %}"  style="height: 50px;width: auto;" alt="">
                                 </div>
                                 <div class="inner-title">
-                                    <h3>Bank of the Year<br> Europe</h3>
+                                    <h3>Expert's Choice Award<br>First Home Buyer Loan</h3>
                                 </div>
                             </div>
                             <ul>
                                 <li>
-                                    <span>Year</span><b>:</b> 2020-2021
+                                    <span>Year</span><b>:</b> 2023
                                 </li>
                                 <li>
-                                    <span>Award by</span><b>:</b> Los Vegas Business Time
+                                    <span>Award by</span><b>:</b> Mozo
                                 </li>
                             </ul>
                         </div>
@@ -1894,18 +1885,18 @@
                         <div class="single-awards-achivements-box">
                             <div class="top">
                                 <div class="icon">
-                                    <img src="{% static 'images/icon/award-1.png' %}" alt="">
+                                    <img src="{% static 'img/award/3.jpeg' %}"  style="height: 50px;width: auto;" alt="">
                                 </div>
                                 <div class="inner-title">
-                                    <h3>Best Commercial<br> Bank Award</h3>
+                                    <h3>Expert's Choice Award<br>Investor fixed home loan </h3>
                                 </div>
                             </div>
                             <ul>
                                 <li>
-                                    <span>Year</span><b>:</b> 2017-2018
+                                    <span>Year</span><b>:</b> 2022
                                 </li>
                                 <li>
-                                    <span>Award by</span><b>:</b> Los Vegas Business Time
+                                    <span>Award by</span><b>:</b> Mozo
                                 </li>
                             </ul>
                         </div>
@@ -1934,18 +1925,18 @@
                         <div class="single-awards-achivements-box">
                             <div class="top">
                                 <div class="icon">
-                                    <img src="{% static 'images/icon/award-1.png' %}" alt="">
+                                    <img src="{% static 'img/award/4.png' %}"  style="height: 50px;width: auto;" alt="">
                                 </div>
                                 <div class="inner-title">
-                                    <h3>Best Private Bank<br> Award</h3>
+                                    <h3>Expert's Choice Award<br>Low cost home loan </h3>
                                 </div>
                             </div>
                             <ul>
                                 <li>
-                                    <span>Year</span><b>:</b> 2018-2019
+                                    <span>Year</span><b>:</b> 2021
                                 </li>
                                 <li>
-                                    <span>Award by</span><b>:</b> Los Vegas Business Time
+                                    <span>Award by</span><b>:</b> Mozo
                                 </li>
                             </ul>
                         </div>
@@ -1954,18 +1945,18 @@
                         <div class="single-awards-achivements-box">
                             <div class="top">
                                 <div class="icon">
-                                    <img src="{% static 'images/icon/award-1.png' %}" alt="">
+                                    <img src="{% static 'img/award/1.jpeg' %}"  style="height: 50px;width: auto;" alt="">
                                 </div>
                                 <div class="inner-title">
-                                    <h3>Banker’s Bank of the<br> Year Awards</h3>
+                                    <h3>Expert Choice<br> Packaged Home Loan</h3>
                                 </div>
                             </div>
                             <ul>
                                 <li>
-                                    <span>Year</span><b>:</b> 2014-2015
+                                    <span>Year</span><b>:</b> 2020
                                 </li>
                                 <li>
-                                    <span>Award by</span><b>:</b> Los Vegas Business Time
+                                    <span>Award by</span><b>:</b> Mozo
                                 </li>
                             </ul>
                         </div>
@@ -2024,51 +2015,46 @@
                             <li class="accordion block active-block">
                                 <div class="acc-btn active">
                                     <div class="icon-outer"><i class="icon-right-arrow"></i></div>
-                                    <h3>What is the minimum balance?</h3>
+                                    <h3>How do I open an account</h3>
                                 </div>
                                 <div class="acc-content current">
-                                    <p>Rationally encounter consequences that are extremely painful again
-                                        there anyone who loves or pursues desire.</p>
+                                    <p>You can open an account online by filling out our simple application form and submitting required documents.</p>
                                 </div>
                             </li>
                             <li class="accordion block">
                                 <div class="acc-btn">
                                     <div class="icon-outer"><i class="icon-right-arrow"></i></div>
-                                    <h3>What is the rate of interest?</h3>
+                                    <h3>What documents are needed for KYC?</h3>
                                 </div>
                                 <div class="acc-content">
-                                    <p>Rationally encounter consequences that are extremely painful again
-                                        there anyone who loves or pursues desire.</p>
+                                    <p>For KYC, you need a valid ID, address proof, and a recent passport-sized photo.</p>
                                 </div>
                             </li>
                             <li class="accordion block">
                                 <div class="acc-btn">
                                     <div class="icon-outer"><i class="icon-right-arrow"></i></div>
-                                    <h3>When will I receive my account statement?</h3>
+                                    <h3>How do I check my account balance?</h3>
                                 </div>
                                 <div class="acc-content">
-                                    <p>Rationally encounter consequences that are extremely painful again
-                                        there anyone who loves or pursues desire.</p>
+                                    <p>Check your account balance via our mobile app, online banking portal, or by visiting a branch.</p>
                                 </div>
                             </li>
                             <li class="accordion block">
                                 <div class="acc-btn">
                                     <div class="icon-outer"><i class="icon-right-arrow"></i></div>
-                                    <h3>Can I use any branch across India?</h3>
+                                    <h3>What are the benefits of a savings account?</h3>
                                 </div>
                                 <div class="acc-content">
-                                    <p>Rationally encounter consequences that are extremely painful again
-                                        there anyone who loves or pursues desire.</p>
+                                    <p>A savings account offers interest on your deposits, easy access to funds, and secure money management.</p>
                                 </div>
                             </li>
                             <li class="accordion block">
                                 <div class="acc-btn">
                                     <div class="icon-outer"><i class="icon-right-arrow"></i></div>
-                                    <h3>How safe/secure is our net banking a/c?</h3>
+                                    <h3>How do I reset my online banking password?</h3>
                                 </div>
                                 <div class="acc-content">
-                                    <p>Rationally encounter consequences that are extremely painful again
-                                        there anyone who loves or pursues desire.</p>
+                                    <p>Reset your online banking password by selecting "Forgot Password" on the login page and following the prompts.</p>
                                 </div>
                             </li>
 
@@ -2081,9 +2067,9 @@
             <div class="row">
                 <div class="col-xl-12">
                     <div class="faq-style1-bottom-box text-center">
-                        <p>Didn’t get, Click below button to more anwers or <a href="#">contact us.</a></p>
+                        <p>Didn’t get, Click below button to more anwers or <a href="{% url 'contact' %}">contact us.</a></p>
                         <div class="btns-box">
-                            <a class="btn-one" href="#">
+                            <a class="btn-one" href="{% url 'contact' %}">
                                 <span class="txt">Grab Your Deals</span>
                             </a>
                         </div>
@@ -2143,8 +2129,8 @@
                                     <img src="{% static 'assets/images/testimonial/testimonial-v1-1.jpg' %}" alt="">
                                 </div>
                                 <div class="title-box">
-                                    <h3>Nathan Felix</h3>
-                                    <span>California</span>
+                                    <h3>Emily Davis</h3>
+                                    <span> Victoria</span>
                                 </div>
                             </div>
                             <div class="inner">
@@ -2152,6 +2138,68 @@
                                     <p>Experience with {{site_name}} has been very accommodating for
                                         they have online banking. When I need to transfer funds and pay
                                         bills it can be done at my convenience.</p>
+                                </div>
+                                <div class="review-box">
+                                    <ul>
+                                        <li><i class="fa fa-star"></i></li>
+                                        <li><i class="fa fa-star"></i></li>
+                                        <li><i class="fa fa-star"></i></li>
+                                        <li><i class="fa fa-star"></i></li>
+                                        <li><i class="fa fa-star"></i></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <!--End Single Testimonials style1-->
+
+                          <!--Start Single Testimonials style1-->
+                          <div class="single-testimonials-style1">
+                            <div class="quote-box">
+                                <span class="icon-quote"></span>
+                            </div>
+                            <div class="customer-info">
+                                <div class="img-box">
+                                    <img src="{% static 'assets/images/testimonial/testimonial-v1-1.jpg' %}" alt="">
+                                </div>
+                                <div class="title-box">
+                                    <h3>Chloe Martin</h3>
+                                    <span> Queensland</span>
+                                </div>
+                            </div>
+                            <div class="inner">
+                                <div class="text-box">
+                                    <p>The customer support team was so helpful with my KYC process. Fast, efficient, and always ready to assist with any queries.</p>
+                                </div>
+                                <div class="review-box">
+                                    <ul>
+                                        <li><i class="fa fa-star"></i></li>
+                                        <li><i class="fa fa-star"></i></li>
+                                        <li><i class="fa fa-star"></i></li>
+                                        <li><i class="fa fa-star"></i></li>
+                                        <li><i class="fa fa-star"></i></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <!--End Single Testimonials style1-->
+
+                          <!--Start Single Testimonials style1-->
+                          <div class="single-testimonials-style1">
+                            <div class="quote-box">
+                                <span class="icon-quote"></span>
+                            </div>
+                            <div class="customer-info">
+                                <div class="img-box">
+                                    <img src="{% static 'assets/images/testimonial/testimonial-v1-1.jpg' %}" alt="">
+                                </div>
+                                <div class="title-box">
+                                    <h3>Noah White</h3>
+                                    <span>Western Australia</span>
+                                </div>
+                            </div>
+                            <div class="inner">
+                                <div class="text-box">
+                                    <p>Great experience with their savings account. The interest rates are competitive, and I appreciate the transparency in all dealings.</p>
                                 </div>
                                 <div class="review-box">
                                     <ul>
@@ -2176,14 +2224,13 @@
                                     <img src="{% static 'assets/images/testimonial/testimonial-v1-2.jpg' %}" alt="">
                                 </div>
                                 <div class="title-box">
-                                    <h3>Nora Penelope</h3>
-                                    <span>Newyork</span>
+                                    <h3>Liam Johnson</h3>
+                                    <span>New South Wales</span>
                                 </div>
                             </div>
                             <div class="inner">
                                 <div class="text-box">
-                                    <p>My experience with transitioning has been great. Everyone at thebank has been
-                                        extremely accommodating. They make me feel that my business matters.</p>
+                                    <p>Absolutely thrilled with the quick account setup process! The customer service is top-notch, and I feel my finances are in safe hands.</p>
                                 </div>
                                 <div class="review-box">
                                     <ul>

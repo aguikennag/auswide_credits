@@ -9,5 +9,5 @@ urlpatterns = [
     path('contact-us/',Contact.as_view(),name='contact') ,
     path('careers/',About.as_view(),name='careers')  ,
     path('modern-banking/',ModernBanking.as_view(),name='modern-banking') ,
-    
+    path('faq/',ModernBanking.as_view(),name='faq') ,
 ]

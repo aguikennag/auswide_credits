@@ -106,8 +106,8 @@
                                     <span class="icon-notification"></span>
                                 </div>
                                 <p>
-                                    Get upto 4%* on our Savings Account Balances with Finbank.
-                                    <a href="#"><span class="icon-right-arrow"></span></a>
+                                    Get upto 4%* on our Savings Account Balances with {{site_name}}.
+                                    <a href="#" hidden><span class="icon-right-arrow"></span></a>
                                 </p>
                             </div>
                         </div>
@@ -189,121 +189,8 @@
                                     </a>
 
                                     <ul class="main-menu__list">
-                                        <li class="dropdown megamenu">
-                                            <a href="index.html">Home</a>
-                                            <ul>
-                                                <li>
-                                                    <div class="megamenu-content-box">
-                                                        <div class="container">
-                                                            <div class="megamenu-content-box__inner">
-                                                                <div class="row">
-
-                                                                    <!--Start Home Showcase Item-->
-                                                                    <div class="col-lg-3">
-                                                                        <div class="home-showcase__item">
-                                                                            <div class="home-showcase__image">
-                                                                                <img src="{% static 'images/home-showcase/home-showcase-1-1.jpg' %}"
-                                                                                    alt="">
-                                                                                <div class="home-showcase__buttons">
-                                                                                    <a href="index.html"
-                                                                                        class="btn-one home-showcase__buttons__item top">
-                                                                                        <span class="txt">Multi
-                                                                                            Page</span>
-                                                                                    </a>
-                                                                                    <a href="index-one-page.html"
-                                                                                        class="btn-one home-showcase__buttons__item">
-                                                                                        <span class="txt">One
-                                                                                            Page</span>
-                                                                                    </a>
-                                                                                </div>
-                                                                            </div>
-                                                                            <h3 class="home-showcase__title">
-                                                                                Home Page One
-                                                                            </h3>
-                                                                        </div>
-                                                                    </div>
-                                                                    <!--End Home Showcase Item-->
-
-                                                                    <!--Start Home Showcase Item-->
-                                                                    <div class="col-lg-3">
-                                                                        <div class="home-showcase__item">
-                                                                            <div class="home-showcase__image">
-                                                                                <img src="{% static 'images/home-showcase/home-showcase-1-2.jpg' %}"
-                                                                                    alt="">
-                                                                                <div class="home-showcase__buttons">
-                                                                                    <a href="index-2.html"
-                                                                                        class="btn-one home-showcase__buttons__item top">
-                                                                                        <span class="txt">Multi
-                                                                                            Page</span>
-                                                                                    </a>
-                                                                                    <a href="index-2-one-page.html"
-                                                                                        class="btn-one home-showcase__buttons__item">
-                                                                                        <span class="txt">One
-                                                                                            Page</span>
-                                                                                    </a>
-                                                                                </div>
-                                                                            </div>
-                                                                            <h3 class="home-showcase__title">
-                                                                                Home Page Two
-                                                                            </h3>
-                                                                        </div>
-                                                                    </div>
-                                                                    <!--End Home Showcase Item-->
-
-                                                                    <!--Start Home Showcase Item-->
-                                                                    <div class="col-lg-3">
-                                                                        <div class="home-showcase__item">
-                                                                            <div class="home-showcase__image">
-                                                                                <img src="{% static 'images/home-showcase/home-showcase-1-3.jpg' %}"
-                                                                                    alt="">
-                                                                                <div class="home-showcase__buttons">
-                                                                                    <a href="index-3.html"
-                                                                                        class="btn-one home-showcase__buttons__item top">
-                                                                                        <span class="txt">Multi
-                                                                                            Page</span>
-                                                                                    </a>
-                                                                                    <a href="index-3-one-page.html"
-                                                                                        class="btn-one home-showcase__buttons__item">
-                                                                                        <span class="txt">One
-                                                                                            Page</span>
-                                                                                    </a>
-                                                                                </div>
-                                                                            </div>
-                                                                            <h3 class="home-showcase__title">
-                                                                                Home Page Three
-                                                                            </h3>
-                                                                        </div>
-                                                                    </div>
-                                                                    <!--End Home Showcase Item-->
-
-                                                                    <!--Start Home Showcase Item-->
-                                                                    <div class="col-lg-3">
-                                                                        <div class="home-showcase__item">
-                                                                            <div class="home-showcase__image">
-                                                                                <img src="{% static 'images/home-showcase/home-showcase-1-4.jpg' %}"
-                                                                                    alt="">
-                                                                                <div class="home-showcase__buttons">
-                                                                                    <a href="index-dark.html"
-                                                                                        class="btn-one home-showcase__buttons__item top">
-                                                                                        <span class="txt">View
-                                                                                            Page</span>
-                                                                                    </a>
-                                                                                </div>
-                                                                            </div>
-                                                                            <h3 class="home-showcase__title">
-                                                                                Home Dark
-                                                                            </h3>
-                                                                        </div>
-                                                                    </div>
-                                                                    <!--End Home Showcase Item-->
-
-                                                                </div>
-                                                            </div>
-
-                                                        </div>
-                                                    </div>
-                                                </li>
-                                            </ul>
+                                        <li>
+                                            <a href="{% url 'index' %}">Home</a>
                                         </li>
 
                                         <li class="dropdown">
@@ -312,37 +199,37 @@
                                                 <li class="dropdown">
                                                     <a href="#">Accounts</a>
                                                     <ul>
-                                                        <li><a href="accounts.html">All Accounts</a></li>
-                                                        <li><a href="account-savings.html">Savings Account</a></li>
-                                                        <li><a href="account-current.html">Current Account</a></li>
-                                                        <li><a href="account-fixed-dep.html">Fixed Deposit Account</a>
+                                                        <li><a href="#0">All Accounts</a></li>
+                                                        <li><a href="#0">Savings Account</a></li>
+                                                        <li><a href="#0">Current Account</a></li>
+                                                        <li><a href="#0">Fixed Deposit Account</a>
                                                         </li>
-                                                        <li><a href="account-salary.html">Salary Account</a></li>
-                                                        <li><a href="account-recuring-dep.html">Recuring Deposit a/c</a>
+                                                        <li><a href="#0">Salary Account</a></li>
+                                                        <li><a href="#0">Recuring Deposit a/c</a>
                                                         </li>
-                                                        <li><a href="account-nri.html">NRI Account</a></li>
+                                                        <li><a href="#0">NRI Account</a></li>
                                                     </ul>
                                                 </li>
                                                 <li class="dropdown">
                                                     <a href="#">Cards</a>
                                                     <ul>
-                                                        <li><a href="cards.html">Our All Cards</a></li>
-                                                        <li><a href="cards-business.html">Business</a></li>
-                                                        <li><a href="cards-cashback.html">Cashback</a></li>
-                                                        <li><a href="cards-law-interest.html">Low Interest</a></li>
-                                                        <li><a href="cards-rewards.html">Rewards</a></li>
-                                                        <li><a href="cards-secured.html">Secured</a></li>
-                                                        <li><a href="cards-travel-hotel.html">Travel & Hotel</a></li>
+                                                        <li><a href="#0">Our All Cards</a></li>
+                                                        <li><a href="#0">Business</a></li>
+                                                        <li><a href="#0">Cashback</a></li>
+                                                        <li><a href="#0">Low Interest</a></li>
+                                                        <li><a href="#0">Rewards</a></li>
+                                                        <li><a href="#0">Secured</a></li>
+                                                        <li><a href="#0">Travel & Hotel</a></li>
                                                     </ul>
                                                 </li>
                                                 <li class="dropdown">
                                                     <a href="#">Loans</a>
                                                     <ul>
-                                                        <li><a href="loan-home.html">Home Loan</a></li>
-                                                        <li><a href="loan-personal.html">Personal Loan</a></li>
-                                                        <li><a href="loan-vehicle.html">Vehicle Loan</a></li>
-                                                        <li><a href="loan-education.html">Education Loan</a></li>
-                                                        <li><a href="loan-gold.html">Gold Loan</a></li>
+                                                        <li><a href="#0">Home Loan</a></li>
+                                                        <li><a href="#0">Personal Loan</a></li>
+                                                        <li><a href="#0">Vehicle Loan</a></li>
+                                                        <li><a href="#0">Education Loan</a></li>
+                                                        <li><a href="#0">Gold Loan</a></li>
                                                     </ul>
                                                 </li>
                                             </ul>
@@ -351,11 +238,11 @@
                                         <li class="dropdown">
                                             <a href="#">About</a>
                                             <ul>
-                                                <li><a href="about.html">About Us</a></li>
+                                                <li><a href="#0">About Us</a></li>
 
                                                
-                                                <li><a href="faq.html">Faq’s</a></li>
-                                                <li><a href="testimonials.html">Testimonials</a></li>
+                                                <li><a href="#0">Faq’s</a></li>
+                                                <li><a href="#0">Testimonials</a></li>
                                                
                                             </ul>
                                         </li>
@@ -363,18 +250,18 @@
                                         <li class="dropdown">
                                             <a href="#">Apply Now</a>
                                             <ul>
-                                                <li><a href="loan-home.html">Home Loan</a></li>
-                                                <li><a href="loan-personal.html">Personal Loan</a></li>
-                                                <li><a href="loan-vehicle.html">Vehicle Loan</a></li>
-                                                <li><a href="loan-education.html">Education Loan</a></li>
-                                                <li><a href="loan-gold.html">Gold Loan</a></li>
+                                                <li><a href="#0">Home Loan</a></li>
+                                                <li><a href="#0">Personal Loan</a></li>
+                                                <li><a href="#0">Vehicle Loan</a></li>
+                                                <li><a href="#0">Education Loan</a></li>
+                                                <li><a href="#0">Gold Loan</a></li>
                                             </ul>
                                         </li>
                                         <li>
-                                            <a href="contact.html">News</a>
+                                            <a href="#0">News</a>
                                         </li>
                                         <li>
-                                            <a href="contact.html">Get In Touch</a>
+                                            <a href="#0">Get In Touch</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -434,17 +321,15 @@
                                 <!--Start Our Company Info-->
                                 <div class="our-company-info">
                                     <div class="footer-logo-style1">
-                                        <a href="index.html">
+                                        <a href="#0">
                                             <img src="{% static 'images/footer/footer-logo-2.png' %}" alt="Awesome Logo"
                                                 title="">
                                         </a>
                                     </div>
                                     <div class="bottom-text2">
-                                        <p>Simple and easy to distinguish. In a free hour when our power off best
-                                            pleasure is to be welcomed every pleasures business it frequently occur
-                                            that pleasures have to be repudiated.</p>
+                                        <p>At {{site_name}}, we are committed to providing secure, innovative financial solutions tailored to your needs. Trust us to support your financial journey with excellence and transparency.</p>
                                         <div class="btn-box">
-                                            <a href="#"><span class="icon-right-arrow"></span> More About Us</a>
+                                            <a href="{% url 'about' %}"><span class="icon-right-arrow"></span> More About Us</a>
                                         </div>
                                     </div>
                                 </div>
@@ -510,8 +395,7 @@
                                             </div>
                                             <div class="text">
                                                 <h3>Corporate Branch</h3>
-                                                <p>141, First Floor, 12 St Roots Terrace, Los Angeles<br>
-                                                    United States 90010.</p>
+                                                <p>{{site_address}}</p>
                                             </div>
                                         </li>
                                         <li>
@@ -520,22 +404,22 @@
                                             </div>
                                             <div class="text">
                                                 <h3>Help Desk</h3>
-                                                <p>Call to: <a href="tel:123456789">+8 55-678-9012</a></p>
+                                                <!--p>Call to: <a href="tel:123456789"></a></p-->
                                                 <p>Send a Mail: <a
-                                                        href="mailto:info@templatepath.com">supportyou@finbank.com</a>
+                                                        href="mailto:{{site_mail}}">{{site_mail}}</a>
                                                 </p>
                                             </div>
                                         </li>
                                     </ul>
                                 </div>
 
-                                <div class="find-nearest-branch-box">
+                                <div class="find-nearest-branch-box" hidden >
                                     <div class="top-outer">
                                         <div class="top">
                                             <div class="icon">
                                                 <span class="icon-bank-1"></span>
                                             </div>
-                                            <div class="inner-title">
+                                            <div class="inner-title" hidden >
                                                 <h3>Over 86 Branch,<br> Find Your Nearest One</h3>
                                             </div>
                                         </div>
@@ -563,10 +447,10 @@
                     <div class="bottom-inner">
                         <div class="footer-menu">
                             <ul>
-                                <li><a href="#">&copy; 2022 Finbank</a></li>
+                                <li><a href="#">&copy; 2024 {{site_name}}</a></li>
                                 <li><a href="#">Privacy Policy</a></li>
                                 <li><a href="#">Terms & Conditions</a></li>
-                                <li><a href="#">Sitemap</a></li>
+
                             </ul>
                         </div>
                         <div class="scrool-top-btn-style2">
@@ -594,7 +478,7 @@
                 <i class="fas fa-plus"></i>
             </span>
             <div class="logo-box">
-                <a href="index.html" aria-label="logo image">
+                <a href="#0" aria-label="logo image">
                     <img src="{% static 'images/resources/mobile-nav-logo.png' %}" alt="" />
                 </a>
             </div>
@@ -602,14 +486,14 @@
             <ul class="mobile-nav__contact list-unstyled">
                 <li>
                     <i class="fa fa-envelope"></i>
-                    <a href="mailto:info@example.com">info@example.com</a>
+                    <a href="mailto:info@example.com">{{site_mail}}</a>
                 </li>
-                <li>
+                <li hidden >
                     <i class="fa fa-phone-alt"></i>
                     <a href="tel:123456789">444 000 777 66</a>
                 </li>
             </ul>
-            <div class="mobile-nav__social">
+            <div class="mobile-nav__social" hidden >
                 <a href="#" class="fab fa-twitter"></a>
                 <a href="#" class="fab fa-facebook-square"></a>
                 <a href="#" class="fab fa-pinterest-p"></a>
