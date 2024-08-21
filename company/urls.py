@@ -15,7 +15,7 @@ urlpatterns = [
     #SERVICES 
     path('services/accounts/',services.Accounts.as_view(),name='services-accounts') ,
     path('services/cards/',services.Cards.as_view(),name='services-cards') ,
-    path('services/loans/',services.Loans.as_view(),name='services-loan') ,
+    path('services/loans/',services.Loans.as_view(),name='services-loans') ,
 
 
 ]
