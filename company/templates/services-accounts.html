@@ -2,75 +2,331 @@
 {% load static %}
 
 
+
 {% block content %}
-    <!-- Page Header Start -->
-    <div class="container-fluid page-header mb-5 wow fadeIn" data-wow-delay="0.1s">
-        <div class="container">
-            <h1 class="display-3 mb-4 animated slideInDown">Contact</h1>
-            <nav aria-label="breadcrumb animated slideInDown">
-                <ol class="breadcrumb mb-0">
-                    <li class="breadcrumb-item"><a href="{% url 'index' %}">Home</a></li>
-      
-                    <li class="breadcrumb-item active" aria-current="page">Contact Us</li>
-                </ol>
-            </nav>
+
+<!--Start Accounts Style1 Area-->
+<section class="account-style1-area">
+    <div class="container">
+        <div class="sec-title text-center">
+            <h2>Let’s Think of saving Money</h2>
+            <div class="sub-title">
+                <p>Convenient banking options for you.</p>
+            </div>
         </div>
-    </div>
-    <!-- Page Header End -->
-
-
-    <!-- Contact Start -->
-    <div class="container-xxl py-5">
-        <div class="container">
-            <div class="row g-5">
-                <div class="col-lg-6 wow fadeIn" data-wow-delay="0.1s">
-                    <p class="d-inline-block border rounded text-primary fw-semi-bold py-1 px-3">Contact</p>
-                    <h1 class="display-5 mb-4">If You Have Any Query, Please Contact Us</h1>
-                    <p class="mb-4">
-                        To get in touch with us, simply fill out the contact form below and one of our team members will get back to you as soon as possible. Alternatively, you can send us an email at {{site_mail}}. We're available round the clock to assist you.</p>
-                    <form>
-                        <div class="row g-3">
-                            <div class="col-md-6">
-                                <div class="form-floating">
-                                    <input type="text" class="form-control" id="name" placeholder="Your Name">
-                                    <label for="name">Your Name</label>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-floating">
-                                    <input type="email" class="form-control" id="email" placeholder="Your Email">
-                                    <label for="email">Your Email</label>
-                                </div>
-                            </div>
-                            <div class="col-12">
-                                <div class="form-floating">
-                                    <input type="text" class="form-control" id="subject" placeholder="Subject">
-                                    <label for="subject">Subject</label>
-                                </div>
-                            </div>
-                            <div class="col-12">
-                                <div class="form-floating">
-                                    <textarea class="form-control" placeholder="Leave a message here" id="message" style="height: 100px"></textarea>
-                                    <label for="message">Message</label>
-                                </div>
-                            </div>
-                            <div class="col-12">
-                                <button class="btn btn-primary py-3 px-5" type="submit">Send Message</button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-                <div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s" style="min-height: 450px;">
-                    <div class="position-relative rounded overflow-hidden h-100">
-                        <iframe class="position-relative w-100 h-100"
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3001156.4288297426!2d-78.01371936852176!3d42.72876761954724!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4ccc4bf0f123a5a9%3A0xddcfc6c1de189567!2sNew%20York%2C%20USA!5e0!3m2!1sen!2sbd!4v1603794290143!5m2!1sen!2sbd"
-                        frameborder="0" style="min-height: 450px; border:0;" allowfullscreen="" aria-hidden="false"
-                        tabindex="0"></iframe>
+        <div class="row">
+            <!--Start Single Account Box Style1-->
+            <div class="col-xl-4 col-lg-4">
+                <div class="single-account-box-style1">
+                    <div class="img-holder">
+                        <img src="{% static 'img/saving.jpg' %}" alt="">
+                    </div>
+                    <div class="text-holder">
+                        <h3><a href="#">Savings Account</a></h3>
+                        <p>Open account now and earn upto 8%</p>
                     </div>
                 </div>
             </div>
+            <!--End Single Account Box Style1-->
+            <!--Start Single Account Box Style1-->
+            <div class="col-xl-4 col-lg-4">
+                <div class="single-account-box-style1">
+                    <div class="img-holder">
+                        <img src="{% static 'img/credit-card.jpg' %}" alt="">
+                    </div>
+                    <div class="text-holder">
+                        <h3><a href="#">Current Account</a></h3>
+                        <p>Open account now and earn upto 5%</p>
+                    </div>
+                </div>
+            </div>
+            <!--End Single Account Box Style1-->
+            <!--Start Single Account Box Style1-->
+            <div class="col-xl-4 col-lg-4">
+                <div class="single-account-box-style1">
+                    <div class="img-holder">
+                        <img src="{% static 'img/sme.jpg' %}" alt="">
+                    </div>
+                    <div class="text-holder">
+                        <h3><a href="#">Fixed Deposit Account</a></h3>
+                        <p>Open account now and earn upto 10%</p>
+                    </div>
+                </div>
+            </div>
+            <!--End Single Account Box Style1-->
+        </div>
+
+
+
+    </div>
+</section>
+<!--End Accounts Style1 Area-->
+
+
+<!--Start Banking Tab Area-->
+<section class="banking-tab-area">
+    <div class="auto-container">
+        <div class="banking-tab">
+
+            <!--Start Tabs Content Box-->
+            <div class="tabs-content-box">
+
+                <!--Tab-->
+                <div class="tab-content-box-item tab-content-box-item-active" id="trading">
+                    <div class="banking-tab-content-item">
+                        <div class="row">
+                            <div class="col-xl-6">
+                                <div class="banking-tab-img-box">
+                                    <div class="banking-tab-img-box__bg"
+                                        style="background-image: url('{% static 'img/corporate.jpg' %}');">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-6">
+                                <div class="banking-tab-text-box">
+                                    <div class="inner-title">
+                                        <h3>Trading & Demat a/c</h3>
+                                        <h2>Step to Make<br> Your Dreams Possible</h2>
+                                    </div>
+                                    <div class="banking-tab-text-box__inner">
+                                        <div class="text">
+                                            <p>At {{site_name}}, we empower your dreams with tailored financial
+                                                solutions, expert support, and secure digital banking for success.</p>
+                                        </div>
+                                        <ul>
+                                            <li>Personalized Financial Planning</li>
+                                            <li>Secure Digital Banking</li>
+                                            <li>Investment Opportunities</li>
+                                            <li>Dedicated Customer Support </li>
+                                            <li>Flexible Loan Solutions </li>
+                                            <li>Commitment to Innovation </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!--Tab-->
+                <div class="tab-content-box-item" id="tax">
+                    <div class="banking-tab-content-item">
+                        <div class="row">
+                            <div class="col-xl-6">
+                                <div class="banking-tab-img-box">
+                                    <div class="banking-tab-img-box__bg"
+                                        style="background-image: url('{% static 'img/cyber_secured.jpeg' %}');">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-6">
+                                <div class="banking-tab-text-box">
+                                    <div class="inner-title">
+                                        <h3>Tax Savings a/c</h3>
+                                        <h2>Step to Make<br> Your Dreams Possible</h2>
+                                    </div>
+                                    <div class="banking-tab-text-box__inner">
+                                        <div class="text">
+                                            <p>The claims off duty or the obligations business it will
+                                                frequently
+                                                pleasures repudiated to distinguish nothing.</p>
+                                        </div>
+                                        <ul>
+                                            <li>Explorer of the master-builder</li>
+                                            <li>On the other hand</li>
+                                            <li>Perfectly simple & easy</li>
+                                            <li>Explorer of the master-builder</li>
+                                            <li>On the other hand</li>
+                                            <li>Perfectly simple & easy</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!--Tab-->
+                <div class="tab-content-box-item" id="gold">
+                    <div class="banking-tab-content-item">
+                        <div class="row">
+                            <div class="col-xl-6">
+                                <div class="banking-tab-img-box">
+                                    <div class="banking-tab-img-box__bg"
+                                        style="background-image: url(assets/images/resources/banking-tab-3.jpg);">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-6">
+                                <div class="banking-tab-text-box">
+                                    <div class="inner-title">
+                                        <h3>Gold Savings a/c</h3>
+                                        <h2>Step to Make<br> Your Dreams Possible</h2>
+                                    </div>
+                                    <div class="banking-tab-text-box__inner">
+                                        <div class="text">
+                                            <p>The claims off duty or the obligations business it will
+                                                frequently
+                                                pleasures repudiated to distinguish nothing.</p>
+                                        </div>
+                                        <ul>
+                                            <li>Explorer of the master-builder</li>
+                                            <li>On the other hand</li>
+                                            <li>Perfectly simple & easy</li>
+                                            <li>Explorer of the master-builder</li>
+                                            <li>On the other hand</li>
+                                            <li>Perfectly simple & easy</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <!--End Tabs Content Box-->
+
+            <!--Start Banking Tab Button-->
+            <div class="banking-tab__button">
+                <ul class="tabs-button-box clearfix">
+
+                    <li data-tab="#trading" class="tab-btn-item active-btn-item">
+                        <div class="inner">
+                            <div class="icon">
+                                <span class="icon-trading"></span>
+                            </div>
+                            <div class="title">
+                                <h4>{{site_name}}</h4>
+                                <h3>Trading & Demat a/c</h3>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li data-tab="#tax" class="tab-btn-item">
+                        <div class="inner">
+                            <div class="icon">
+                                <span class="icon-fee"></span>
+                            </div>
+                            <div class="title">
+                                <h4>{{site_name}}</h4>
+                                <h3>Tax Savings a/c</h3>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li data-tab="#gold" class="tab-btn-item">
+                        <div class="inner">
+                            <div class="icon">
+                                <span class="icon-gold-ingots"></span>
+                            </div>
+                            <div class="title">
+                                <h4>{{site_name}}</h4>
+                                <h3>Gold Savings a/c</h3>
+                            </div>
+                        </div>
+                    </li>
+
+                </ul>
+            </div>
+            <!--End Banking Tab Button-->
+
         </div>
     </div>
-    <!-- Contact End -->
+</section>
+<!--End Banking Tab Area-->
+
+
+<!--Start Account Steps Style2 Area-->
+<section class="account-steps-style2-area">
+    <div class="container">
+        <div class="sec-title text-center">
+            <h2>Create An Account in Easy Steps</h2>
+            <div class="sub-title">
+                <p>We show our value by serving faithfully.</p>
+            </div>
+        </div>
+        <div class="row">
+
+            <!--Start Single Account Box style2-->
+            <div class="col-xl-3 col-lg-6 col-md-6">
+                <div class="single-account-steps-box-style2">
+                    <div class="inner">
+                        <div class="step-box">
+                            <h4>Step 01</h4>
+                        </div>
+                        <div class="icon-holder">
+                            <span class="icon-consultation"></span>
+                        </div>
+                        <h3><a href="#">Consult With Our <br> Experts</a></h3>
+                        <div class="text">
+                            <p>Consult with our experts for personalized financial guidance tailored to your unique needs and goals.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--End Single Account Box style2-->
+
+            <!--Start Single Account Box style2-->
+            <div class="col-xl-3 col-lg-6 col-md-6">
+                <div class="single-account-steps-box-style2 bg2">
+                    <div class="inner">
+                        <div class="step-box">
+                            <h4>Step 02</h4>
+                        </div>
+                        <div class="icon-holder">
+                            <span class="icon-file"></span>
+                        </div>
+                        <h3><a href="#">Submit Required <br> Documents</a></h3>
+                        <div class="text">
+                            <p>Submit the necessary documents quickly and securely to verify your identity and complete your account setup.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--End Single Account Box style2-->
+
+            <!--Start Single Account Box style2-->
+            <div class="col-xl-3 col-lg-6 col-md-6">
+                <div class="single-account-steps-box-style2 bg3">
+                    <div class="inner">
+                        <div class="step-box">
+                            <h4>Step 03</h4>
+                        </div>
+                        <div class="icon-holder">
+                            <span class="icon-file-1"></span>
+                        </div>
+                        <h3><a href="#">KYC <br> Verification</a></h3>
+                        <div class="text">
+                            <p>Complete the KYC verification process to ensure your account’s security and compliance with banking regulations.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--End Single Account Box style2-->
+
+            <!--Start Single Account Box style2-->
+            <div class="col-xl-3 col-lg-6 col-md-6">
+                <div class="single-account-steps-box-style2 bg4">
+                    <div class="inner">
+                        <div class="step-box">
+                            <h4>Step 04</h4>
+                        </div>
+                        <div class="icon-holder">
+                            <span class="icon-investment"></span>
+                        </div>
+                        <h3><a href="#">Start Savings for <br> Your Future</a></h3>
+                        <div class="text">
+                            <p>Begin saving for your future today with our secure and flexible savings account options tailored to you.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--End Single Account Box style2-->
+
+        </div>
+    </div>
+</section>
+<!--End Account Steps Style2 Area-->
 
 {% endblock %}

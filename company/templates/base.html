@@ -221,7 +221,7 @@
                                                     </ul>
                                                 </li>
                                                 <li class="dropdown">
-                                                    <a href="#">Loans</a>
+                                                    <a href="{% url 'services-loans' %}">Loans</a>
                                                     <ul hidden >
                                                         <li><a href="#0">Home Loan</a></li>
                                                         <li><a href="#0">Personal Loan</a></li>
@@ -248,11 +248,11 @@
                                         <li class="dropdown">
                                             <a href="#">Apply Now</a>
                                             <ul>
-                                                <li><a href="#0">Home Loan</a></li>
-                                                <li><a href="#0">Personal Loan</a></li>
+                                                <li><a href="{% url 'services-loan' %}">Home Loan</a></li>
+                                                <!--li><a href="#0">Personal Loan</a></li>
                                                 <li><a href="#0">Vehicle Loan</a></li>
                                                 <li><a href="#0">Education Loan</a></li>
-                                                <li><a href="#0">Gold Loan</a></li>
+                                                <li><a href="#0">Gold Loan</a></li-->
                                             </ul>
                                         </li>
                                        
@@ -318,7 +318,7 @@
                                 <div class="our-company-info">
                                     <div class="footer-logo-style1">
                                         <a href="#0">
-                                            <img src="{% static 'images/footer/footer-logo-2.png' %}" alt="Awesome Logo"
+                                            <img src="{% static 'img/logo-white.png' %}" alt="Awesome Logo"
                                                 title="">
                                         </a>
                                     </div>

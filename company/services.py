@@ -20,7 +20,7 @@ class Loans(TemplateView) :
     template_name = 'services-loans.html'
 
     def get_context_data(self,*args,**kwargs) : 
-        context = super(Accounts,self).get_context_data(*args,**kwargs) 
+        context = super(Loans,self).get_context_data(*args,**kwargs) 
         return context
 
 
@@ -29,5 +29,5 @@ class Cards(TemplateView) :
     template_name = 'services-cards.html'
 
     def get_context_data(self,*args,**kwargs) : 
-        context = super(Accounts,self).get_context_data(*args,**kwargs) 
+        context = super(Cards,self).get_context_data(*args,**kwargs) 
         return context        

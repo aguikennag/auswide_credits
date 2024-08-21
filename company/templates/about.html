@@ -12,7 +12,7 @@
             <div class="col-xl-6">
                 <div class="intro-style1-video-gallery">
                     <div class="intro-style1-video-gallery-bg"
-                        style="background-image: url(images/resources/intro-style1-video-gallery.jpg);">
+                        style="background-image: url('{% static 'img/about3.jpg' %}');">
                     </div>
                     
                 </div>
@@ -152,7 +152,7 @@
                         <li>
                             <div class="single-statements-box">
                                 <div class="img-box">
-                                    <img src="{% static 'images/resources/statements-1.jpg' %}" alt="">
+                                    <img src="{% static 'img/loan-1.jpg' %}" alt="">
                                     <div class="static-content">
                                         <h2>Mission</h2>
                                     </div>
@@ -163,7 +163,7 @@
                         <li>
                             <div class="single-statements-box">
                                 <div class="img-box">
-                                    <img src="{% static 'images/resources/statements-2.jpg' %}" alt="">
+                                    <img  style="height:200px" src="{% static 'img/banking.jpg' %}" alt="">
                                     <div class="static-content">
                                         <h2>Vision</h2>
                                     </div>
@@ -172,7 +172,7 @@
                             </div>
                             <div class="single-statements-box">
                                 <div class="img-box">
-                                    <img src="{% static 'images/resources/statements-3.jpg' %}" alt="">
+                                    <img  style="height:200px" src="{% static 'img/loan.jpg' %}" alt="">
                                     <div class="static-content">
                                         <h2>Core Value</h2>
                                     </div>
@@ -211,7 +211,7 @@
 
 <!--Start Facts Area-->
 <section class="facts-area">
-    <div class="facts-area-bg" style="background-image: url(images/backgrounds/facts-area-bg.jpg);">
+    <div class="facts-area-bg" style="background-image: url('{% static 'img/about3.jpg' %}');">
     </div>
     <div class="container">
         <div class="sec-title text-center">
@@ -292,48 +292,8 @@
 </section>
 <!--End Facts Area-->
 
-
-<!--Start Statistics Area-->
-<section class="statistics-area">
-    <div class="container">
-        <div class="row">
-
-            <div class="col-xl-6">
-                <div class="statistics-content-box">
-                    <div class="sec-title">
-                        <h2>Better Value<br> Banking Experience</h2>
-                    </div>
-                    <div class="text">
-                        <p>Business it will frequently occur that pleasures have to be repudiated
-                            and annoyances accepted. The wise man therefore always holds these
-                            matters to this principle of selection.</p>
-                    </div>
-                    <div class="download-box">
-                        <div class="icon">
-                            <span class="icon-pdf"></span>
-                        </div>
-                        <div class="title">
-                            <h5><a href="#0">Download</a></h5>
-                            <h3>Report for the Year 2021</h3>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-xl-6">
-                <div class="statistics-chart">
-                    <img src="{% static 'images/resources/statistics-chart.png' %}" alt="">
-                </div>
-            </div>
-
-        </div>
-    </div>
-</section>
-<!--End Statistics Area-->
-
-
-  <!--Start Awards Achivements Area-->
-  <section class="awards-achivements-area">
+ <!--Start Awards Achivements Area-->
+ <section class="awards-achivements-area">
     <div class="container">
         <div class="sec-title text-center">
             <h2 style="color: #ffffff;">Awards & Major Achivements</h2>
@@ -451,4 +411,46 @@
     </div>
 </section>
 <!--End Awards Achivements Area-->
+
+
+<!--Start Statistics Area-->
+<section class="statistics-area">
+    <div class="container">
+        <div class="row">
+
+            <div class="col-xl-6">
+                <div class="statistics-content-box">
+                    <div class="sec-title">
+                        <h2>Better Value<br> Banking Experience</h2>
+                    </div>
+                    <div class="text">
+                        <p>Business it will frequently occur that pleasures have to be repudiated
+                            and annoyances accepted. The wise man therefore always holds these
+                            matters to this principle of selection.</p>
+                    </div>
+                    <div class="download-box">
+                        <div class="icon">
+                            <span class="icon-pdf"></span>
+                        </div>
+                        <div class="title">
+                            <h5><a href="#0">Download</a></h5>
+                            <h3>Report for the Year 2021</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xl-6">
+                <div class="statistics-chart">
+                    <img src="{% static 'images/resources/statistics-chart.png' %}" alt="">
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+<!--End Statistics Area-->
+
+
+ 
 {% endblock %}
