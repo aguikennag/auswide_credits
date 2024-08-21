@@ -7,33 +7,59 @@
 {% block content %}
 
 
-<!-- Contact Start -->
-<div class="container-xxl py-5 mt-5">
-    <div class="container mt-5">
-        <div class="row g-5 mt-5">
-            <div class="col-lg-6 wow fadeIn" data-wow-delay="0.1s">
+        <!--Start Apply Form Area-->
+        <section class="apply-form-area">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-12">
+                        <div class="apply-form-box clearfix">
+                            <div class="apply-form-box-bg"
+                                style="background-image: url('{% static 'img/carousel-6.png' %}');"></div>
+                            <div class="apply-form-box__content">
+                                <div class="sec-title">
+                                    <h2>Login To<br> Access Your Account</h2>
+                                    <div class="sub-title">
+                                        <p>Enter your personal account information</p>
+                                    </div>
+                                </div>
 
-                <h1 class="display-5 mb-4">Login To Access Your Account</h1>
-                <p class="mb-4">Don't have an account Yet ? <a href="{% url 'register' %}">Register</a></p>
+                                <form id="apply-form" name="apply_form" class="default-form2" action="{% url 'login' %}"
+                                    method="post">
 
-            </div>
-            <div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s" style="min-height: 450px;">
-                <div class="position-relative rounded overflow-hidden h-100">
-                    <form action="{% url 'login' %}" method="POST">
-                        {% csrf_token %}
+                                    <div class="row">
+                                        {% csrf_token %}
+                                        {{form|crispy}}
+                                       
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-xl-12">
+                                            <div class="button-box">
+                                                <button class="btn-one" type="submit" style="width: 100%;">
+                                                    <span class="txt">
+                                                        Login
+                                                    </span>
+                                                </button>
+                                            </div>
+                                        </div>
+                                        <div class="mt-2">
+                                            <center>
+                                                Don’t have an account ? <a href="{% url 'register' %}" style="font-size: 20px;font-weight: 700;">&nbsp; Register</a>
+                                            </center>
+                                           
+                                        </div>
+                                       
+                                    </div>
 
-                        <div class="row g-3">
-                            {{form|crispy}}
 
-                            <div class="col-12" style="text-align: end;">
-                                <button class="btn btn-primary py-3 px-5" type="submit">Login</button>
+                                </form>
+
                             </div>
                         </div>
-                    </form>
+                    </div>
                 </div>
             </div>
-        </div>
-    </div>
-    <!-- Contact End -->
+        </section>
+        <!--End Apply Form Area-->
+
 
     {% endblock %}

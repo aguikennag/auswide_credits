@@ -19,11 +19,27 @@ class Index(TemplateView) :
         
 
 class About(TemplateView) :
-    template_name = 'home.html'
+    template_name = 'about.html'
 
     def get_context_data(self,*args,**kwargs) : 
         context = super(About,self).get_context_data(*args,**kwargs) 
        
+        return context
+
+
+
+class FAQ(TemplateView) :
+    template_name = 'faq.html'
+
+    def get_context_data(self,*args,**kwargs) : 
+        context = super(FAQ,self).get_context_data(*args,**kwargs) 
+        return context
+
+class Careers(TemplateView) :
+    template_name = 'careers.html'
+
+    def get_context_data(self,*args,**kwargs) : 
+        context = super(Careers,self).get_context_data(*args,**kwargs) 
         return context
 
 

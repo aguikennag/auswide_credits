@@ -117,11 +117,9 @@
                         <div class="main-header-style2__top-right">
                             <div class="header-menu-style1">
                                 <ul>
-                                    <li><a href="#">Careers</a></li>
-                                    <li><a href="#">Faq’s</a></li>
-                                    <li><a href="#">Offers</a></li>
-
-                                </ul>
+                                    <li><a href="{% url 'career' %}">Careers</a></li>
+                                    <li><a href="{% url 'faq' %}">Faq’s</a></li>
+                                 </ul>
                             </div>
                             <div class="box-search-style1">
                                 <a href="#" class="search-toggler">
@@ -197,8 +195,8 @@
                                             <a href="#">Services</a>
                                             <ul>
                                                 <li class="dropdown">
-                                                    <a href="#">Accounts</a>
-                                                    <ul>
+                                                    <a href="{% url 'services-accounts' %}">Accounts</a>
+                                                    <ul hidden>
                                                         <li><a href="#0">All Accounts</a></li>
                                                         <li><a href="#0">Savings Account</a></li>
                                                         <li><a href="#0">Current Account</a></li>
@@ -211,8 +209,8 @@
                                                     </ul>
                                                 </li>
                                                 <li class="dropdown">
-                                                    <a href="#">Cards</a>
-                                                    <ul>
+                                                    <a href="{% url 'services-cards' %}">Cards</a>
+                                                    <ul hidden>
                                                         <li><a href="#0">Our All Cards</a></li>
                                                         <li><a href="#0">Business</a></li>
                                                         <li><a href="#0">Cashback</a></li>
@@ -224,7 +222,7 @@
                                                 </li>
                                                 <li class="dropdown">
                                                     <a href="#">Loans</a>
-                                                    <ul>
+                                                    <ul hidden >
                                                         <li><a href="#0">Home Loan</a></li>
                                                         <li><a href="#0">Personal Loan</a></li>
                                                         <li><a href="#0">Vehicle Loan</a></li>
@@ -236,13 +234,13 @@
                                         </li>
 
                                         <li class="dropdown">
-                                            <a href="#">About</a>
+                                            <a href="{% url 'about' %}">About</a>
                                             <ul>
-                                                <li><a href="#0">About Us</a></li>
+                                                <li><a href="{% url 'about' %}">About Us</a></li>
 
                                                
-                                                <li><a href="#0">Faq’s</a></li>
-                                                <li><a href="#0">Testimonials</a></li>
+                                                <li><a href="{% url 'faq' %}">Faq’s</a></li>
+                                               
                                                
                                             </ul>
                                         </li>
@@ -257,11 +255,9 @@
                                                 <li><a href="#0">Gold Loan</a></li>
                                             </ul>
                                         </li>
+                                       
                                         <li>
-                                            <a href="#0">News</a>
-                                        </li>
-                                        <li>
-                                            <a href="#0">Get In Touch</a>
+                                            <a href="{% url 'contact' %}">Get In Touch</a>
                                         </li>
                                     </ul>
                                 </div>

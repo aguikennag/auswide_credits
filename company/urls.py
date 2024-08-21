@@ -1,13 +1,21 @@
 from django.urls import path,include
-from .pages import Index,About,ModernBanking,Contact
+from . import pages,services
 
 
 
 urlpatterns = [
-    path('',Index.as_view(),name = 'index'),
-    path('about-us/',About.as_view(),name='about') ,
-    path('contact-us/',Contact.as_view(),name='contact') ,
-    path('careers/',About.as_view(),name='careers')  ,
-    path('modern-banking/',ModernBanking.as_view(),name='modern-banking') ,
-    path('faq/',ModernBanking.as_view(),name='faq') ,
+
+    path('',pages.Index.as_view(),name = 'index'),
+    path('about-us/',pages.About.as_view(),name='about') ,
+    path('contact-us/',pages.Contact.as_view(),name='contact') ,
+    path('faq/',pages.FAQ.as_view(),name='faq') ,
+    path('careers/',pages.Careers.as_view(),name='career') ,
+
+
+    #SERVICES 
+    path('services/accounts/',services.Accounts.as_view(),name='services-accounts') ,
+    path('services/cards/',services.Cards.as_view(),name='services-cards') ,
+    path('services/loans/',services.Loans.as_view(),name='services-loans') ,
+
+
 ]
